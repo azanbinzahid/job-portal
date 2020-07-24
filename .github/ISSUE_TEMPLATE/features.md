@@ -1,7 +1,7 @@
 ---
 name: Features
 about: Track Progress in GitHub Projects
-title: "[FEATURES]"
+title: "[FEATURE]"
 labels: ''
 assignees: azanbinzahid
 
@@ -10,3 +10,4 @@ assignees: azanbinzahid
 ## Time Required: 
 ## Libraries/Framework: 
 ## Research Required:
+## Frontend/Backend:
