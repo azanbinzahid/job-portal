@@ -2,6 +2,8 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {signUserUp} from 'redux/actions'
 import { Redirect } from 'react-router-dom';
+import { Form, Button, Jumbotron, Container } from 'react-bootstrap';
+
 
 
 class Signup extends React.Component {
@@ -31,31 +33,36 @@ class Signup extends React.Component {
 
 
         return(
-            <div className="form">
-                <h1>SignUp Form</h1>
-                <form onSubmit={this.onSubmit}>
-                    <input 
+            <Container>
+            <Jumbotron>
+            <h1>Signup Form</h1>
+            <Form onSubmit={this.onSubmit}>
+                <Form.Group controlId="formBasicEmail">
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control 
                         type="text" 
                         name="username" 
                         placeholder="Username" 
                         value={this.state.username}
                         onChange={this.handleOnChange}
                     />
-                    <br/>
-                    <input
+                </Form.Group>
+                <Form.Group controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control 
                         type="password"
                         name="password"
                         placeholder="Password"
                         value={this.state.password}
                         onChange={this.handleOnChange}
                     />
-                    <br/>
-                    <input
-                        type="submit"
-                        value="Login"
-                    />
-                </form>
-            </div>
+                </Form.Group>
+                <Button variant="primary" type="submit">
+                    SignUp
+                </Button>
+            </Form>
+            </Jumbotron>
+            </Container>
         )
     }
 }
