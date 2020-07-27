@@ -1,9 +1,61 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import {fetchUser} from 'redux/actions'
 
-export default function Login() {
-    return (
-        <div>
-            <h2> Login Page </h2>
-        </div>
-    )
+class Login extends React.Component {
+    state = {
+        username: "",
+        password: ""
+    }
+
+    handleOnChange = (e) => {
+        e.persist();
+        this.setState(() => ({
+            [e.target.name]: e.target.value 
+        }))
+    };
+
+
+    onSubmit = (e) => {
+        e.preventDefault()
+        this.props.fetchUser(this.state)
+    }
+
+    render(){
+        return(
+            <div className="form">
+                <h1>Login Form</h1>
+                <form onSubmit={this.onSubmit}>
+                    <input 
+                        type="text" 
+                        name="username" 
+                        placeholder="Username" 
+                        value={this.state.username}
+                        onChange={this.handleOnChange}
+                    />
+                    <br/>
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        value={this.state.password}
+                        onChange={this.handleOnChange}
+                    />
+                    <br/>
+                    <input
+                        type="submit"
+                        value="Login"
+                    />
+                </form>
+            </div>
+        )
+    }
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchUser: (userInfo) => dispatch(fetchUser(userInfo))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Login);
