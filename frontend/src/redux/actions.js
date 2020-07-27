@@ -33,6 +33,7 @@ export const signUserUp = (userCreds) => dispatch => {
         },
     })
     .then(res => {
+        console.log(res)
         let data = res.data
         let user= {
           "username": data.username

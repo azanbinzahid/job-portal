@@ -11,6 +11,7 @@ const userReducer = (state = defaultState, action) => {
                 user: {...action.payload}
             }
         case "LOG_OUT":
+            console.log("logout")
             localStorage.clear()
             return {
                 loggedIn: false,
