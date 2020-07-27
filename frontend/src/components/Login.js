@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {fetchUser} from 'redux/actions'
+import { Redirect } from 'react-router-dom';
 
 class Login extends React.Component {
     state = {
@@ -21,7 +22,16 @@ class Login extends React.Component {
         this.props.fetchUser(this.state)
     }
 
+
     render(){
+
+        
+        if (this.props.userReducer.loggedIn) {
+            return <Redirect to="/"/>
+        }
+
+
+
         return(
             <div className="form">
                 <h1>Login Form</h1>
@@ -52,10 +62,14 @@ class Login extends React.Component {
     }
 }
 
+const mapStateToProps = state => ({
+    userReducer: state.userReducer
+  });
+
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchUser: (userInfo) => dispatch(fetchUser(userInfo))
     }
 }
 
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

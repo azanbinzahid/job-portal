@@ -1,6 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {signUserUp} from 'redux/actions'
+import { Redirect } from 'react-router-dom';
+
 
 class Signup extends React.Component {
     state = {
@@ -21,6 +23,13 @@ class Signup extends React.Component {
     }
 
     render(){
+
+
+        if (this.props.userReducer.loggedIn) {
+            return <Redirect to="/"/>
+        }
+
+
         return(
             <div className="form">
                 <h1>SignUp Form</h1>
@@ -51,10 +60,16 @@ class Signup extends React.Component {
     }
 }
 
+
+const mapStateToProps = state => ({
+    userReducer: state.userReducer
+  });
+
+
 const mapDispatchToProps = (dispatch) => {
     return {
         signUserUp: (userInfo) => dispatch(signUserUp(userInfo))
     }
 }
 
-export default connect(null, mapDispatchToProps)(Signup);
+export default connect(mapStateToProps, mapDispatchToProps)(Signup);
