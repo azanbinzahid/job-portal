@@ -1,10 +1,10 @@
-from rest_framework import permissions, status
+from rest_framework import permissions, status, generics
 from django.contrib.auth.models import User
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializers import UserSerializer, UserSerializerWithToken
-
+from .serializers import UserSerializer, UserSerializerWithToken, JobSerializer
+from .models import Job
 
 @api_view(['GET'])
 def current_user(request):
@@ -30,3 +30,15 @@ class UserList(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class JobViewSet(generics.ListCreateAPIView):
+    queryset = Job.objects.all()
+    permission_classes = [
+        permissions.AllowAny
+        # permissions.IsAuthenticated
+    ]
+    serializer_class = JobSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
