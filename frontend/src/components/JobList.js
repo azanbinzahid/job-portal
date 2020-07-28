@@ -3,7 +3,7 @@ import {connect, useSelector} from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import {fetchJobs} from 'redux/actions'
 import JobItem from 'components/JobItem'
-import { Container } from 'react-bootstrap';
+import { Container, Jumbotron } from 'react-bootstrap';
 
 
 const JobList = (props) => {
@@ -16,13 +16,15 @@ const JobList = (props) => {
     }, [props])
 
     if (!userReducer.loggedIn) {
-        return <Redirect to="/"/>
+        return <Redirect to="/login"/>
     }
 
 
     return (
         <Container>
-        <h1> Job Listing Page </h1>
+        <Jumbotron align="center">
+                <h1> Job Listing Page </h1>
+        </Jumbotron>
         {jobReducer.jobs.map(job => (
             <JobItem key={job.id} job={job}/>
         ))}

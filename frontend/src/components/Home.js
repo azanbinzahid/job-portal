@@ -1,9 +1,14 @@
 import React from 'react'
+import { Container, Jumbotron } from 'react-bootstrap'
 
 export default function Home() {
     return (
         <div>
-            <h2> Home </h2>
+            <Container>
+                <Jumbotron align="center">
+                    <h1> Home Page </h1>
+                </Jumbotron>
+            </Container>
         </div>
     )
 }

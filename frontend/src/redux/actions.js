@@ -86,3 +86,18 @@ export const fetchJobs = () => dispatch => {
             console.log(error)
         })
 }
+
+export const fetchJob = (jobId) => dispatch => {
+    axios(`${process.env.REACT_APP_BASE_URL}/jobs/${jobId}/`)
+    .then(res => {
+        let job = res.data
+        console.log(res)
+        dispatch({
+            type: "FETCH_JOB", 
+            payload: job
+        })
+    })
+    .catch((error)=>{
+        console.log(error)
+    })
+}
