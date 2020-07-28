@@ -26,7 +26,7 @@ export const fetchUser = (userCreds) => dispatch => {
 }
 
 export const signUserUp = (userCreds) => dispatch => {
-    axios.post(`${process.env.REACT_APP_BASE_URL}/jobs/users/`,userCreds, {
+    axios.post(`${process.env.REACT_APP_BASE_URL}/users/`,userCreds, {
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json"
@@ -47,7 +47,7 @@ export const signUserUp = (userCreds) => dispatch => {
 }
 
 export const autoLogin = () => dispatch => {
-    axios(`${process.env.REACT_APP_BASE_URL}/jobs/current_user/`, {
+    axios(`${process.env.REACT_APP_BASE_URL}/users/current_user/`, {
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json",
