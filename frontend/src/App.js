@@ -1,9 +1,12 @@
 import React from 'react';
-import './App.css';
+import 'App.css';
+import Router from 'components/Router';
 
 function App() {
   return (
-    <h1> Hello, World! </h1>
+    <>
+    <Router/>
+    </>
   );
 }
 
