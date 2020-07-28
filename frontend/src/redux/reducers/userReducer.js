@@ -1,6 +1,8 @@
 const defaultState = {
     loggedIn: false,
-    user: {}
+    user: {
+        username: ""
+    }
 }
 
 const userReducer = (state = defaultState, action) => {
@@ -15,7 +17,9 @@ const userReducer = (state = defaultState, action) => {
             localStorage.clear()
             return {
                 loggedIn: false,
-                user: {}
+                user: {
+                    username : ""
+                }
             }
         default: return state
     }
