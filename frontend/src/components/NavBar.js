@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {connect, useSelector} from 'react-redux'
 import {Navbar, Nav} from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap';
 import styled from 'styled-components'
 import {logUserOut} from 'redux/actions'
+import { autoLogin } from '../redux/actions';
 
 
 
@@ -31,6 +32,10 @@ const NavItem = (toPath, menuName) => {
 const NavBar = (props) => {
 
     const userReducer = useSelector(state => state.userReducer)
+    
+    useEffect(() => {
+        props.autoLogin()
+    }, [props])
 
     return (
         <Navbar bg="light" expand="lg">
@@ -61,7 +66,8 @@ const NavBar = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        logUserOut: () => dispatch(logUserOut())
+        logUserOut: () => dispatch(logUserOut()),
+        autoLogin: () => dispatch(autoLogin())
     }
   }
   

@@ -45,3 +45,24 @@ export const signUserUp = (userCreds) => dispatch => {
         console.error(error)
     })
 }
+
+export const autoLogin = () => dispatch => {
+    axios(`${process.env.REACT_APP_BASE_URL}/jobs/current_user/`, {
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "Authorization": `JWT ${localStorage.getItem("token")}`
+        }
+    })
+    .then(res => {
+        console.log("auto",res)
+        let data = res.data
+        let user= {
+          "username": data.username
+        }
+        dispatch(setUser(user))
+    })
+    .catch((error)=>{
+        console.log(error)
+    })
+}
