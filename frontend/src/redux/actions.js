@@ -59,7 +59,7 @@ export const autoLogin = () => dispatch => {
         .then(res => {
             let data = res.data
             let user= {
-            "username": data.username
+                "username": data.username
             }
             dispatch({
                 type: "SET_USER", 
@@ -67,8 +67,19 @@ export const autoLogin = () => dispatch => {
             })
         })
         .catch((error)=>{
+            dispatch(
+                {
+                    type: "AUTO_LOGIN"
+                }
+            )
             console.log(error)
         })
+    } else {
+        dispatch(
+            {
+                type: "AUTO_LOGIN"
+            }
+        )
     }
 }
 
@@ -91,7 +102,6 @@ export const fetchJob = (jobId) => dispatch => {
     axios(`${process.env.REACT_APP_BASE_URL}/jobs/${jobId}/`)
     .then(res => {
         let job = res.data
-        console.log(res)
         dispatch({
             type: "FETCH_JOB", 
             payload: job

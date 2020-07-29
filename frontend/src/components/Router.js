@@ -1,15 +1,24 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import {connect} from 'react-redux'
+
 import Home from 'components/Home'
 import Login from 'components/Login'
 import Signup from 'components/Signup'
 import NavBar from 'components/NavBar'
 import JobList from 'components/JobList'
 import SingleJob from 'components/SingleJob'
+import ProtectedRoute from 'components/ProtectedRoute'
+import {autoLogin} from 'redux/actions'
 
 
-const Router = () => {
 
+const Router = (props) => {
+
+    useEffect(() => {
+        props.autoLogin()
+    }, [props])
+    
     return (
         <BrowserRouter>
             <NavBar/>
@@ -17,12 +26,18 @@ const Router = () => {
                 <Route exact path='/' component={Home} />
                 <Route path="/login" component={Login} />
                 <Route path="/signup" component={Signup} />
-                <Route path="/jobs/:jobId" component={SingleJob} />
-                <Route path="/jobs" component={JobList} />
+                <ProtectedRoute path="/jobs/:jobId" component={SingleJob} />
+                <ProtectedRoute path="/jobs" component={JobList} />
             </Switch>
         </BrowserRouter>
     )
 }
 
 
-export default Router;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        autoLogin: () => dispatch(autoLogin()),
+    }
+  }
+  
+export default connect(null, mapDispatchToProps)(Router);

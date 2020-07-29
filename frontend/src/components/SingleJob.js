@@ -1,6 +1,5 @@
 import React, {useLayoutEffect} from 'react'
 import {connect, useSelector} from 'react-redux'
-import { Redirect } from 'react-router-dom';
 import { Container, Jumbotron, Button } from 'react-bootstrap';
 import {fetchJob} from 'redux/actions'
 
@@ -11,15 +10,10 @@ const JobList = (props) => {
     const { params: { jobId } } = props.match;
 
     const jobReducer = useSelector(state => state.jobReducer)
-    const userReducer = useSelector(state => state.userReducer)
     
     useLayoutEffect(() => {
         props.fetchJob(jobId)
     }, [props, jobId])
-
-    if (!userReducer.loggedIn) {
-        return <Redirect to="/login"/>
-    }
 
     const job = jobReducer.job
 
@@ -44,7 +38,6 @@ const JobList = (props) => {
         </Container>        
     )
 }
-
 
 
 const mapDispatchToProps = (dispatch) => {
