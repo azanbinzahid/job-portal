@@ -1,5 +1,5 @@
 import React from 'react'
-import {  Jumbotron, Button } from 'react-bootstrap';
+import {  Jumbotron, Button, Card, ListGroup } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
 
@@ -7,15 +7,21 @@ const JobItem = ({job}) => {
 
  
     return (
-        <Jumbotron>
-           <h3> Title: {job.title} </h3>            
-           <h3> Company: {job.company} </h3>            
-           <h3> Location: {job.location} </h3>            
-           <h3> Posted On: {job.datestamp} </h3>   
-           <LinkContainer to={`jobs/${job.id}`}>
-               <Button> View Details </Button>
-           </LinkContainer>
-        </Jumbotron>
+        <Card border="primary">
+            <Card.Body>
+            <Card.Title>{job.title}</Card.Title>
+            <Card.Subtitle className="mb-2 text-muted"> {job.company} </Card.Subtitle>
+            <Card.Text>
+                {job.description}
+            </Card.Text>
+            <LinkContainer to={`jobs/${job.id}`}>
+                <Button variant="primary"> View Details </Button>
+            </LinkContainer>
+            </Card.Body>
+            <ListGroup variant="flush">
+                <ListGroup.Item>{job.location}</ListGroup.Item>
+            </ListGroup>
+        </Card>
     )
 }
 

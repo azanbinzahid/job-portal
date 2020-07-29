@@ -1,7 +1,7 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
 import JobItem from 'components/JobItem'
-import { Container, Jumbotron } from 'react-bootstrap';
+import { Container, Jumbotron, CardColumns } from 'react-bootstrap';
 
 
 const JobList = () => {
@@ -13,9 +13,11 @@ const JobList = () => {
         <Jumbotron align="center">
                 <h1> Job Listing Page </h1>
         </Jumbotron>
+        <CardColumns>
         {jobReducer.jobs.map(job => (
             <JobItem key={job.id} job={job}/>
         ))}
+        </CardColumns>
         </Container>        
     )
 }
