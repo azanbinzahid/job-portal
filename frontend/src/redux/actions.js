@@ -1,11 +1,7 @@
 import axios from 'axios'
 
-// Action Creators
 
-const setUser = (payload) => ({ type: "SET_USER", payload})
 export const logUserOut = () => ({type: "LOG_OUT"})
-
-// Methods
 
 export const fetchUser = (userCreds) => dispatch => {
     axios.post(`${process.env.REACT_APP_BASE_URL}/token-auth/`, userCreds,{
@@ -18,7 +14,10 @@ export const fetchUser = (userCreds) => dispatch => {
     .then(res => {
         let data = res.data
         localStorage.setItem("token", data.token)
-        dispatch(setUser(data.user))
+        dispatch({
+            type: "SET_USER", 
+            payload: data.user
+        })
     })
     .catch((error)=>{
         console.error(error)
@@ -33,13 +32,15 @@ export const signUserUp = (userCreds) => dispatch => {
         },
     })
     .then(res => {
-        console.log(res)
         let data = res.data
         let user= {
           "username": data.username
         }
         localStorage.setItem("token", data.token)
-        dispatch(setUser(user))
+        dispatch({ 
+            type: "SET_USER", 
+            payload: user
+        })
     })
     .catch((error)=>{
         console.error(error)
@@ -47,20 +48,54 @@ export const signUserUp = (userCreds) => dispatch => {
 }
 
 export const autoLogin = () => dispatch => {
-    axios(`${process.env.REACT_APP_BASE_URL}/users/current_user/`, {
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json",
-            "Authorization": `JWT ${localStorage.getItem("token")}`
-        }
-    })
+    if (localStorage.getItem("token")) {
+        axios(`${process.env.REACT_APP_BASE_URL}/users/current_user/`, {
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "Authorization": `JWT ${localStorage.getItem("token")}`
+            }
+        })
+        .then(res => {
+            let data = res.data
+            let user= {
+            "username": data.username
+            }
+            dispatch({
+                type: "SET_USER", 
+                payload: user
+            })
+        })
+        .catch((error)=>{
+            console.log(error)
+        })
+    }
+}
+
+
+export const fetchJobs = () => dispatch => {
+        axios(`${process.env.REACT_APP_BASE_URL}/jobs/`)
+        .then(res => {
+            let jobs = res.data
+            dispatch({
+                type: "FETCH_JOBS", 
+                payload: jobs
+            })
+        })
+        .catch((error)=>{
+            console.log(error)
+        })
+}
+
+export const fetchJob = (jobId) => dispatch => {
+    axios(`${process.env.REACT_APP_BASE_URL}/jobs/${jobId}/`)
     .then(res => {
-        console.log("auto",res)
-        let data = res.data
-        let user= {
-          "username": data.username
-        }
-        dispatch(setUser(user))
+        let job = res.data
+        console.log(res)
+        dispatch({
+            type: "FETCH_JOB", 
+            payload: job
+        })
     })
     .catch((error)=>{
         console.log(error)

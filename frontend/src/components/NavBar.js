@@ -3,8 +3,7 @@ import {connect, useSelector} from 'react-redux'
 import {Navbar, Nav} from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap';
 import styled from 'styled-components'
-import {logUserOut} from 'redux/actions'
-import { autoLogin } from '../redux/actions';
+import {logUserOut, autoLogin} from 'redux/actions'
 
 
 
@@ -45,7 +44,7 @@ const NavBar = (props) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
-                {NavItem("/", "Dashboard")}
+                {NavItem("/", "Home")}
                 {
                         !userReducer.loggedIn ? 
                             <>
@@ -53,7 +52,11 @@ const NavBar = (props) => {
                             {NavItem("/signup", "SignUp")}
                             </>
                          : 
+                            <>
+                            {NavItem("/jobs", "Jobs")}
                             <Nav.Link onClick={props.logUserOut}> <Item>Logout</Item> </Nav.Link>
+                            </>
+
                 }
 
             </Nav>
@@ -67,7 +70,7 @@ const NavBar = (props) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         logUserOut: () => dispatch(logUserOut()),
-        autoLogin: () => dispatch(autoLogin())
+        autoLogin: () => dispatch(autoLogin()),
     }
   }
   

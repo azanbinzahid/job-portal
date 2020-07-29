@@ -34,11 +34,12 @@ class Signup extends React.Component {
 
         return(
             <Container>
+            <Jumbotron align="center">
+                <h1> Signup Page </h1>
+            </Jumbotron>
             <Jumbotron>
-            <h1>Signup Form</h1>
             <Form onSubmit={this.onSubmit}>
                 <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Username</Form.Label>
                     <Form.Control 
                         type="text" 
                         name="username" 
@@ -48,7 +49,6 @@ class Signup extends React.Component {
                     />
                 </Form.Group>
                 <Form.Group controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
                     <Form.Control 
                         type="password"
                         name="password"
