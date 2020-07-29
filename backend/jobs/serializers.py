@@ -7,6 +7,7 @@ class JobSerializer(serializers.ModelSerializer):
 
     location = serializers.StringRelatedField(many=True)
     category = serializers.StringRelatedField(many=True)
+    qualification = serializers.StringRelatedField(many=True)
     company = serializers.StringRelatedField()
     class Meta:
         model = Job
