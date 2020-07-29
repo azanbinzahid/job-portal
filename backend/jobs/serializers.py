@@ -4,6 +4,10 @@ from rest_framework_jwt.settings import api_settings
 from .models import Job
 
 class JobSerializer(serializers.ModelSerializer):
+
+    location = serializers.StringRelatedField(many=True)
+    category = serializers.StringRelatedField(many=True)
+    company = serializers.StringRelatedField()
     class Meta:
         model = Job
         fields = ('__all__')
