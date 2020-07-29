@@ -25,6 +25,7 @@ const userReducer = (state = defaultState, action) => {
             }
         case "AUTO_LOGIN":
             return {
+                ...state,
                 loadded: true,
             }
         default: return state

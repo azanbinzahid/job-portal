@@ -9,7 +9,7 @@ import NavBar from 'components/NavBar'
 import JobList from 'components/JobList'
 import SingleJob from 'components/SingleJob'
 import ProtectedRoute from 'components/ProtectedRoute'
-import {autoLogin} from 'redux/actions'
+import {autoLogin, fetchJobs} from 'redux/actions'
 
 
 
@@ -17,6 +17,7 @@ const Router = (props) => {
 
     useEffect(() => {
         props.autoLogin()
+        props.fetchJobs()
     }, [props])
     
     return (
@@ -37,6 +38,8 @@ const Router = (props) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         autoLogin: () => dispatch(autoLogin()),
+        fetchJobs: () => dispatch(fetchJobs()),
+       
     }
   }
   

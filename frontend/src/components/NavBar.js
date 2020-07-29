@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect, useSelector} from 'react-redux'
-import {Navbar, Nav} from 'react-bootstrap'
+import {Navbar, Nav, Badge} from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap';
 import styled from 'styled-components'
 import {logUserOut} from 'redux/actions'
@@ -40,7 +40,7 @@ const NavBar = (props) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
-                {NavItem("/", "Home")}
+                {/* {NavItem("/", "Home")} */}
                 {
                         !userReducer.loggedIn ? 
                             <>
@@ -49,7 +49,8 @@ const NavBar = (props) => {
                             </>
                          : 
                             <>
-                            {NavItem("/jobs", "Jobs")}
+                            {NavItem("/jobs", "Jobs")} 
+                            <p><Badge variant="primary">New</Badge></p>
                             <Nav.Link onClick={props.logUserOut}> <Item>Logout</Item> </Nav.Link>
                             </>
 
