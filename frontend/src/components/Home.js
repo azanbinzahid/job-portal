@@ -1,6 +1,6 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
-import { Container, Jumbotron, Button, Badge, Row, Col } from 'react-bootstrap'
+import { Container, Jumbotron, Button, Badge} from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap';
 import Slider from 'components/Slider'
 

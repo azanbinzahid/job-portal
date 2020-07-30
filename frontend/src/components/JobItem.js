@@ -1,5 +1,5 @@
 import React from 'react'
-import {  Jumbotron, Button, Card, ListGroup } from 'react-bootstrap';
+import {  Button, Card, ListGroup } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
 

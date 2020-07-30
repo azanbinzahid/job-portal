@@ -4,8 +4,7 @@ import {Navbar, Nav, Badge} from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap';
 import styled from 'styled-components'
 import {logUserOut} from 'redux/actions'
-
-
+import AlertBox from 'components/AlertBox'
 
 
 const Item = styled.h4``;
@@ -50,7 +49,8 @@ const NavBar = (props) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
-                {/* {NavItem("/", "Home")} */}
+                <AlertBox/>
+                {NavItem("/", "Home")}
                 {
                         !userReducer.loggedIn ? 
                             <>

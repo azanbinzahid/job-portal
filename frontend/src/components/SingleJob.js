@@ -1,21 +1,22 @@
-import React, {useLayoutEffect, useEffect} from 'react'
+import React, {useEffect} from 'react'
 import {connect, useSelector} from 'react-redux'
-import { Container, Jumbotron, Button, Card, ListGroup, CardColumns, Spinner } from 'react-bootstrap';
 import styled from 'styled-components'
+import { Container, Jumbotron, Button, Card, ListGroup, CardColumns, Spinner } from 'react-bootstrap';
 import {fetchJob} from 'redux/actions'
+
+
 
 const Title = styled.div`
     color: white
 `;
 
-
-
 const JobList = (props) => {
+    const { params: { jobId } } = props.match;
+
     useEffect(() => {
         props.fetchJob(jobId)
-    }, [props])
+    }, [props, jobId])
     
-    const { params: { jobId } } = props.match;
     const jobReducer = useSelector(state => state.jobReducer)
     const job = jobReducer.job
     if(!job.category) {
