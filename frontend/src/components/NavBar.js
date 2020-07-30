@@ -9,9 +9,11 @@ import {logUserOut} from 'redux/actions'
 
 
 const Item = styled.h4``;
-const Title = styled.h2`
+const Title = styled.h3`
+    display: inline;
     font-weight: bold;
-    color: blue;
+    color: #1d83d4;
+    vertical-align: bottom;
 `;
 
 
@@ -35,7 +37,15 @@ const NavBar = (props) => {
     return (
         <Navbar bg="light" expand="lg">
         <LinkContainer to="/">
-        <Navbar.Brand> <Title> Job Portal </Title></Navbar.Brand>
+        <Navbar.Brand>
+            <img
+            alt=""
+            src="https://image.flaticon.com/icons/svg/3232/3232975.svg"
+            width="50"
+            height="50"
+            className="d-inline-block align-top"
+          />{ <Title>  Job Portal</Title> }
+       </Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

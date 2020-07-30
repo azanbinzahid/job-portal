@@ -7,12 +7,12 @@ const jobReducer = (state = defaultState, action) => {
     switch(action.type){
         case "FETCH_JOBS":
             return {
+                ...state,
                 jobs: [...action.payload],
-                job: state.job
             }
         case "FETCH_JOB":
             return {
-                jobs: state.jobs,
+                ...state,
                 job: {...action.payload} 
             }
     
