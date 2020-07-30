@@ -1,7 +1,13 @@
+import uuid from 'uuid'
 import axios from 'axios'
 
 
-export const logUserOut = () => ({type: "LOG_OUT"})
+export const logUserOut = () => dispatch => {
+
+    dispatch ({type: "LOG_OUT"})
+    dispatch (setAlert("Logged out", "warning"))
+}
+
 
 export const fetchUser = (userCreds) => dispatch => {
     axios.post(`${process.env.REACT_APP_BASE_URL}/token-auth/`, userCreds,{
@@ -18,8 +24,11 @@ export const fetchUser = (userCreds) => dispatch => {
             type: "SET_USER", 
             payload: data.user
         })
+        dispatch(setAlert("Login succesful", "success"))
+
     })
     .catch((error)=>{
+        dispatch(setAlert("Error in logging", "danger"))
         console.error(error)
     })
 }
@@ -41,8 +50,12 @@ export const signUserUp = (userCreds) => dispatch => {
             type: "SET_USER", 
             payload: user
         })
+        dispatch(setAlert("Signup succesful", "success"))
+
+        
     })
     .catch((error)=>{
+        dispatch(setAlert("Error in signup", "danger"))
         console.error(error)
     })
 }
@@ -65,6 +78,7 @@ export const autoLogin = () => dispatch => {
                 type: "SET_USER", 
                 payload: user
             })
+
         })
         .catch((error)=>{
             dispatch(
@@ -110,4 +124,16 @@ export const fetchJob = (jobId) => dispatch => {
     .catch((error)=>{
         console.log(error)
     })
+}
+
+export const setAlert = (msg, alertType, timeout = 3000) => dispatch => {
+    const id = uuid.v4();
+    dispatch({
+        type: "SET_ALERT",
+        payload: {msg, alertType, id}
+    })
+
+    setTimeout(()=> dispatch({
+        type: "REMOVE_ALERT", payload: id
+    }), timeout)
 }

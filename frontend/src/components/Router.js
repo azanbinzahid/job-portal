@@ -9,6 +9,7 @@ import NavBar from 'components/NavBar'
 import JobList from 'components/JobList'
 import SingleJob from 'components/SingleJob'
 import ProtectedRoute from 'components/ProtectedRoute'
+import AlertBox from 'components/AlertBox'
 import {autoLogin, fetchJobs} from 'redux/actions'
 
 
@@ -23,6 +24,7 @@ const Router = (props) => {
     return (
         <BrowserRouter>
             <NavBar/>
+            <AlertBox/>
             <Switch>
                 <Route exact path='/' component={Home} />
                 <Route path="/login" component={Login} />
