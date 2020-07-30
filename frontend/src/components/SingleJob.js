@@ -1,6 +1,6 @@
 import React, {useLayoutEffect, useEffect} from 'react'
 import {connect, useSelector} from 'react-redux'
-import { Container, Jumbotron, Button, Card, ListGroup, CardColumns } from 'react-bootstrap';
+import { Container, Jumbotron, Button, Card, ListGroup, CardColumns, Spinner } from 'react-bootstrap';
 import styled from 'styled-components'
 import {fetchJob} from 'redux/actions'
 
@@ -19,7 +19,11 @@ const JobList = (props) => {
     const jobReducer = useSelector(state => state.jobReducer)
     const job = jobReducer.job
     if(!job.category) {
-        return (<h2> loading.. </h2>)
+        return (
+            <Container align="center" className="p-5">
+            <Spinner animation="border" />
+            </Container>
+        )
     }
 
     return (

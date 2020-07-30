@@ -31,6 +31,8 @@ const Router = (props) => {
                 <Route path="/signup" component={Signup} />
                 <ProtectedRoute path="/jobs/:jobId" component={SingleJob} />
                 <ProtectedRoute path="/jobs" component={JobList} />
+                <Route component={Home} />
+
             </Switch>
         </BrowserRouter>
     )
