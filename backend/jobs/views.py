@@ -21,7 +21,10 @@ class JobViewSet(mixins.ListModelMixin,
     
     def perform_update(self, serializer):
         instance = self.get_object()
-        instance.applicants.add(self.request.user)
+        if(self.request.user in instance.applicants.all()):
+            instance.applicants.remove(self.request.user)
+        else:
+            instance.applicants.add(self.request.user)
 
     def get_permissions(self):
         try:
