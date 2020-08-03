@@ -34,7 +34,7 @@ const ProtectedRoute = (props) => {
   
     ) : (
         <>
-        {props.setAlert("Please login first", "danger")}
+        {/* {props.setAlert("Please login first", "danger")} */}
         <Redirect to={{ 
             pathname: '/login',
         }} />

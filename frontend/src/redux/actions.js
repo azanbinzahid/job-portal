@@ -127,7 +127,6 @@ export const fetchJob = (jobId) => dispatch => {
 }
 
 export const applyJob = (jobId, msg, type) => dispatch => {
-    console.log(type)
     axios.patch(`${process.env.REACT_APP_BASE_URL}/jobs/${jobId}/`,{}, {
         headers: {
             "Content-Type": "application/json",
@@ -137,7 +136,6 @@ export const applyJob = (jobId, msg, type) => dispatch => {
         },
     })
     .then(res => {
-        console.log(res)
         dispatch(fetchJob(jobId))
         dispatch(setAlert(msg, type))
 

@@ -32,8 +32,8 @@ const JobItem = ({job}) => {
             </LinkContainer>
             </Card.Body>
             <ListGroup variant="flush">
-                {job.location.map( loc =>(
-                    <ListGroup.Item>{loc}</ListGroup.Item>
+                {job.location.map( (loc, index) =>(
+                    <ListGroup.Item key={index}>{loc}</ListGroup.Item>
                     )
                 )}
             </ListGroup>

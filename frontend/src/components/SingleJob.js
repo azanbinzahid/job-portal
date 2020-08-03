@@ -72,8 +72,8 @@ const JobList = (props) => {
                 <Card.Header> <Title>Location(s) </Title></Card.Header>
                 <ListGroup variant="flush">
                     {
-                        job.location.map((ele)=>(
-                        <ListGroup.Item>{ele}</ListGroup.Item>
+                        job.location.map((ele, index)=>(
+                        <ListGroup.Item key = {index}>{ele}</ListGroup.Item>
                         ))
                     }
                 </ListGroup>
@@ -89,8 +89,8 @@ const JobList = (props) => {
                 <Card.Header> <Title>Category(s) </Title></Card.Header>
                 <ListGroup variant="flush">
                     {
-                        job.category.map((ele)=>(
-                        <ListGroup.Item>{ele}</ListGroup.Item>
+                        job.category.map((ele, index)=>(
+                        <ListGroup.Item key = {index}>{ele}</ListGroup.Item>
                         ))
                     }
                 </ListGroup>
@@ -99,8 +99,8 @@ const JobList = (props) => {
                 <Card.Header> <Title>Qualification(s) </Title></Card.Header>
                 <ListGroup variant="flush">
                     {
-                        job.qualification.map((ele)=>(
-                        <ListGroup.Item>{ele}</ListGroup.Item>
+                        job.qualification.map((ele, index)=>(
+                        <ListGroup.Item key = {index}>{ele }</ListGroup.Item>
                         ))
                     }
                 </ListGroup>
