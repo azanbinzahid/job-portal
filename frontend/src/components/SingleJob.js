@@ -1,8 +1,8 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useCallback} from 'react'
 import {connect, useSelector} from 'react-redux'
 import styled from 'styled-components'
 import { Container, Jumbotron, Button, Card, ListGroup, CardColumns, Spinner } from 'react-bootstrap';
-import {fetchJob} from 'redux/actions'
+import {fetchJob,  applyJob} from 'redux/actions'
 
 
 
@@ -19,6 +19,13 @@ const JobList = (props) => {
     
     const jobReducer = useSelector(state => state.jobReducer)
     const job = jobReducer.job
+
+    const handleClick = useCallback(() => {
+        props.applyJob(jobId)
+      }, [props, jobId])
+
+
+
     if(!job.category) {
         return (
             <Container align="center" className="p-5">
@@ -27,11 +34,12 @@ const JobList = (props) => {
         )
     }
 
+
     return (
         <Container>
             <Jumbotron align="center">
                     <h1> Job Details Page </h1>
-                    <Button variant="primary">Apply Now</Button>
+                    <Button onClick={handleClick} variant="primary">Apply Now</Button>
             </Jumbotron>
 
 
@@ -110,6 +118,7 @@ const JobList = (props) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchJob: (jobId) => dispatch(fetchJob(jobId)),
+        applyJob: (jobId) => dispatch(applyJob(jobId)),
     }
   }
   
