@@ -1,6 +1,8 @@
 import React from 'react'
 import { Redirect, Route } from 'react-router-dom'
 import {useSelector} from 'react-redux'
+import { Spinner, Container } from 'react-bootstrap';
+
 
 const ProtectedRoute = (props) => {
     const {
@@ -16,7 +18,11 @@ const ProtectedRoute = (props) => {
     // const isAuthenticated = localStorage.getItem('token'); // other method
 
     if(!userReducer.loadded){
-        return (<h1>State Loading</h1>)
+        return (
+            <Container align="center" className="p-5">
+            <Spinner animation="border"/>
+            </Container>
+        )
     }
 
     return isAuthenticated ? (

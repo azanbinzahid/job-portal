@@ -1,17 +1,18 @@
 import React from 'react'
 import {connect, useSelector} from 'react-redux'
-import {Navbar, Nav} from 'react-bootstrap'
+import {Navbar, Nav, Badge} from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap';
 import styled from 'styled-components'
 import {logUserOut} from 'redux/actions'
-
-
+import AlertBox from 'components/AlertBox'
 
 
 const Item = styled.h4``;
-const Title = styled.h2`
+const Title = styled.h3`
+    display: inline;
     font-weight: bold;
-    color: blue;
+    color: #1d83d4;
+    vertical-align: bottom;
 `;
 
 
@@ -35,11 +36,20 @@ const NavBar = (props) => {
     return (
         <Navbar bg="light" expand="lg">
         <LinkContainer to="/">
-        <Navbar.Brand> <Title> Job Portal </Title></Navbar.Brand>
+        <Navbar.Brand>
+            <img
+            alt=""
+            src="https://image.flaticon.com/icons/svg/3232/3232975.svg"
+            width="50"
+            height="50"
+            className="d-inline-block align-top"
+          />{ <Title>  Job Portal</Title> }
+       </Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
+                <AlertBox/>
                 {NavItem("/", "Home")}
                 {
                         !userReducer.loggedIn ? 
@@ -49,7 +59,8 @@ const NavBar = (props) => {
                             </>
                          : 
                             <>
-                            {NavItem("/jobs", "Jobs")}
+                            {NavItem("/jobs", "Jobs")} 
+                            <p><Badge variant="primary">New</Badge></p>
                             <Nav.Link onClick={props.logUserOut}> <Item>Logout</Item> </Nav.Link>
                             </>
 
