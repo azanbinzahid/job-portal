@@ -1,6 +1,8 @@
 import React from 'react'
+import {connect} from 'react-redux'
 import { Redirect, Route } from 'react-router-dom'
 import {useSelector} from 'react-redux'
+import {setAlert} from 'redux/actions'
 import { Spinner, Container } from 'react-bootstrap';
 
 
@@ -31,11 +33,21 @@ const ProtectedRoute = (props) => {
           )}/>
   
     ) : (
+        <>
+        {props.setAlert("Please login first", "danger")}
         <Redirect to={{ 
             pathname: '/login',
         }} />
+        </>
     );
 
 }
 
-export default ProtectedRoute;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setAlert: (msg, type) => dispatch(setAlert(msg, type)),
+       
+    }
+  }
+  
+export default connect(null, mapDispatchToProps)(ProtectedRoute);

@@ -27,7 +27,7 @@ const Router = (props) => {
                 <Route path="/login" component={Login} />
                 <Route path="/signup" component={Signup} />
                 <ProtectedRoute path="/jobs/:jobId" component={SingleJob} />
-                <ProtectedRoute path="/jobs" component={JobList} />
+                <Route path="/jobs" component={JobList} />
                 <Route component={Home} />
 
             </Switch>

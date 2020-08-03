@@ -18,10 +18,14 @@ const JobList = (props) => {
     }, [props, jobId])
     
     const jobReducer = useSelector(state => state.jobReducer)
+    const userReducer = useSelector(state => state.userReducer)
+    
     const job = jobReducer.job
+    const user = userReducer.user
 
-    const handleClick = useCallback(() => {
-        props.applyJob(jobId)
+
+    const handleClick = useCallback((msg, type) => {
+        props.applyJob(jobId, msg, type)
       }, [props, jobId])
 
 
@@ -39,7 +43,13 @@ const JobList = (props) => {
         <Container>
             <Jumbotron align="center">
                     <h1> Job Details Page </h1>
-                    <Button onClick={handleClick} variant="primary">Apply Now</Button>
+                    {
+                        (!job.applicants.includes(user.username)) ?
+                            <Button onClick={() => handleClick("Applied", "success")} variant="primary">Apply Now</Button>
+                        :
+                            <Button onClick={()=>handleClick("Application Withdrawn", "warning")} variant="secondary">Withdraw Application</Button>
+                            
+                    }
             </Jumbotron>
 
 
@@ -118,7 +128,7 @@ const JobList = (props) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchJob: (jobId) => dispatch(fetchJob(jobId)),
-        applyJob: (jobId) => dispatch(applyJob(jobId)),
+        applyJob: (jobId, msg, type) => dispatch(applyJob(jobId, msg, type)),
     }
   }
   

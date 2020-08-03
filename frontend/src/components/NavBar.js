@@ -51,6 +51,8 @@ const NavBar = (props) => {
             <Nav className="ml-auto">
                 <AlertBox/>
                 {NavItem("/", "Home")}
+                {NavItem("/jobs", "Jobs")} 
+                <p><Badge variant="primary">New</Badge></p>
                 {
                         !userReducer.loggedIn ? 
                             <>
@@ -59,8 +61,6 @@ const NavBar = (props) => {
                             </>
                          : 
                             <>
-                            {NavItem("/jobs", "Jobs")} 
-                            <p><Badge variant="primary">New</Badge></p>
                             <Nav.Link onClick={props.logUserOut}> <Item>Logout</Item> </Nav.Link>
                             </>
 
