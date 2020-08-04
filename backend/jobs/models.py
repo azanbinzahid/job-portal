@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Qualification(models.Model):
@@ -37,3 +38,4 @@ class Job(models.Model):
     location = models.ManyToManyField(Location)
     category = models.ManyToManyField(Category)
     qualification = models.ManyToManyField(Qualification)
+    applicants = models.ManyToManyField(User, blank = True)

@@ -1,8 +1,8 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useCallback} from 'react'
 import {connect, useSelector} from 'react-redux'
 import styled from 'styled-components'
 import { Container, Jumbotron, Button, Card, ListGroup, CardColumns, Spinner } from 'react-bootstrap';
-import {fetchJob} from 'redux/actions'
+import {fetchJob,  applyJob} from 'redux/actions'
 
 
 
@@ -18,7 +18,18 @@ const JobList = (props) => {
     }, [props, jobId])
     
     const jobReducer = useSelector(state => state.jobReducer)
+    const userReducer = useSelector(state => state.userReducer)
+    
     const job = jobReducer.job
+    const user = userReducer.user
+
+
+    const handleClick = useCallback((msg, type) => {
+        props.applyJob(jobId, msg, type)
+      }, [props, jobId])
+
+
+
     if(!job.category) {
         return (
             <Container align="center" className="p-5">
@@ -27,11 +38,18 @@ const JobList = (props) => {
         )
     }
 
+
     return (
         <Container>
             <Jumbotron align="center">
                     <h1> Job Details Page </h1>
-                    <Button variant="primary">Apply Now</Button>
+                    {
+                        (!job.applicants.includes(user.username)) ?
+                            <Button onClick={() => handleClick("Applied", "success")} variant="primary">Apply Now</Button>
+                        :
+                            <Button onClick={()=>handleClick("Application Withdrawn", "warning")} variant="secondary">Withdraw Application</Button>
+                            
+                    }
             </Jumbotron>
 
 
@@ -54,8 +72,8 @@ const JobList = (props) => {
                 <Card.Header> <Title>Location(s) </Title></Card.Header>
                 <ListGroup variant="flush">
                     {
-                        job.location.map((ele)=>(
-                        <ListGroup.Item>{ele}</ListGroup.Item>
+                        job.location.map((ele, index)=>(
+                        <ListGroup.Item key = {index}>{ele}</ListGroup.Item>
                         ))
                     }
                 </ListGroup>
@@ -71,8 +89,8 @@ const JobList = (props) => {
                 <Card.Header> <Title>Category(s) </Title></Card.Header>
                 <ListGroup variant="flush">
                     {
-                        job.category.map((ele)=>(
-                        <ListGroup.Item>{ele}</ListGroup.Item>
+                        job.category.map((ele, index)=>(
+                        <ListGroup.Item key = {index}>{ele}</ListGroup.Item>
                         ))
                     }
                 </ListGroup>
@@ -81,8 +99,8 @@ const JobList = (props) => {
                 <Card.Header> <Title>Qualification(s) </Title></Card.Header>
                 <ListGroup variant="flush">
                     {
-                        job.qualification.map((ele)=>(
-                        <ListGroup.Item>{ele}</ListGroup.Item>
+                        job.qualification.map((ele, index)=>(
+                        <ListGroup.Item key = {index}>{ele }</ListGroup.Item>
                         ))
                     }
                 </ListGroup>
@@ -110,6 +128,7 @@ const JobList = (props) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchJob: (jobId) => dispatch(fetchJob(jobId)),
+        applyJob: (jobId, msg, type) => dispatch(applyJob(jobId, msg, type)),
     }
   }
   

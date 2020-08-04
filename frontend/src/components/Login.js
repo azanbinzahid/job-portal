@@ -28,7 +28,7 @@ class Login extends React.Component {
 
         
         if (this.props.userReducer.loggedIn) {
-            return <Redirect to="/"/>
+            return <Redirect to="/jobs"/>
         }
 
 

@@ -126,6 +126,29 @@ export const fetchJob = (jobId) => dispatch => {
     })
 }
 
+export const applyJob = (jobId, msg, type) => dispatch => {
+    axios.patch(`${process.env.REACT_APP_BASE_URL}/jobs/${jobId}/`,{}, {
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "Authorization": `JWT ${localStorage.getItem("token")}`
+
+        },
+    })
+    .then(res => {
+        dispatch(fetchJob(jobId))
+        dispatch(setAlert(msg, type))
+
+    })
+    .catch((error)=>{
+        console.log(error)
+        dispatch(setAlert("Error Occurred", "danger"))
+
+    })
+}
+
+
+
 export const setAlert = (msg, alertType, timeout = 3000) => dispatch => {
     const id = uuid.v4();
     dispatch({
