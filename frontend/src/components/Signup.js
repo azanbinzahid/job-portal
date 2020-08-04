@@ -1,106 +1,127 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {signUserUp} from 'redux/actions'
 import { Redirect } from 'react-router-dom';
 import { Form, Button, Jumbotron, Container } from 'react-bootstrap';
+import { useFormik } from "formik";
+import * as yup from 'yup'
+import {signUserUp} from 'redux/actions'
 
+const validationSchema = yup.object().shape({   
+    username: yup     
+        .string()     
+        .max(16)     
+        .required(),   
+    email: yup     
+        .string()     
+        .email()     
+        .required(),
+    firstName: yup     
+        .string()     
+        .max(16)     
+        .required(),   
+    lastName: yup     
+        .string()     
+        .max(16)     
+        .required(),   
+    password: yup    
+        .string()    
+        .min(8)    
+        .required(),
+})
 
-
-class Signup extends React.Component {
-    state = {
-        username: "",
-        password: "",
-        email: "",
-        first_name: "",
-        last_name: "",
-    }
-
-    handleOnChange = (e) => {
-        e.persist();
-        this.setState(() => ({
-            [e.target.name]: e.target.value 
-        }))
-    }
-
-    onSubmit = (e) => {
-        e.preventDefault()
-        this.props.signUserUp(this.state)
-    }
-
-    render(){
-
-
-        if (this.props.userReducer.loggedIn) {
-            return <Redirect to="/"/>
+const Signup = (props) => {
+    const { handleSubmit, handleChange, values, errors} = useFormik({
+        initialValues: {
+            username: "",
+            password: "",
+            email: "",
+            firstName: "",
+            lastName: "",
+        },
+        validationSchema,
+        onSubmit(values) {
+            props.signUserUp(values)
         }
+    })
 
 
-        return(
-            <Container>
-            <Jumbotron align="center">
-                <h1> Signup Page </h1>
-            </Jumbotron>
-            <Jumbotron>
-            <Form onSubmit={this.onSubmit}>
-                <Form.Group controlId="formBasicEmail">
-                    <Form.Control 
-                        type="text" 
-                        name="username" 
-                        placeholder="Username" 
-                        value={this.state.username}
-                        onChange={this.handleOnChange}
-                    />
-                </Form.Group>
-                <Form.Group controlId="formBasicPassword">
-                    <Form.Control 
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                        value={this.state.password}
-                        onChange={this.handleOnChange}
-                    />
-                </Form.Group>
-                <Form.Group controlId="formBasicEmail">
-                    <Form.Control 
-                        type="email"
-                        name="email"
-                        placeholder="Email"
-                        value={this.state.email}
-                        onChange={this.handleOnChange}
-                    />
-                </Form.Group>
-                <Form.Group controlId="formBasicFirstName">
-                    <Form.Control 
-                        type="text"
-                        name="first_name"
-                        placeholder="First Name"
-                        value={this.state.first_name}
-                        onChange={this.handleOnChange}
-                    />
-                </Form.Group>
-                <Form.Group controlId="formBasicLastName">
-                    <Form.Control 
-                        type="text"
-                        name="last_name"
-                        placeholder="Last Name"
-                        value={this.state.last_name}
-                        onChange={this.handleOnChange}
-                    />
-                </Form.Group>
-
-                <Button variant="primary" type="submit">
-                    SignUp
-                </Button>
-            </Form>
-            </Jumbotron>
-            </Container>
-        )
+    if (props.isLogged) {
+        return <Redirect to="/"/>
     }
+
+
+    return(
+        <Container>
+        <Jumbotron align="center">
+            <h1> Signup Page </h1>
+        </Jumbotron>
+        <Jumbotron>
+        <Form onSubmit={handleSubmit}>
+            <Form.Group controlId="formBasicEmail">
+                <Form.Control 
+                    type="text" 
+                    name="username" 
+                    placeholder="Username" 
+                    value={values.username}
+                    onChange={handleChange}
+                />
+            </Form.Group>
+            {errors.username}
+            <Form.Group controlId="formBasicPassword">
+                <Form.Control 
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    value={values.password}
+                    onChange={handleChange}
+                    />
+            </Form.Group>
+            {errors.password}
+            <Form.Group controlId="formBasicEmail">
+                <Form.Control 
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    value={values.email}
+                    onChange={handleChange}
+                    />
+            </Form.Group>
+            {errors.email}
+            <Form.Group controlId="formBasicFirstName">
+                <Form.Control 
+                    type="text"
+                    name="firstName"
+                    placeholder="First Name"
+                    value={values.firstName}
+                    onChange={handleChange}
+                />
+            </Form.Group>
+            {errors.firstName}
+
+            <Form.Group controlId="formBasicLastName">
+                <Form.Control 
+                    type="text"
+                    name="lastName"
+                    placeholder="Last Name"
+                    value={values.lastName}
+                    onChange={handleChange}
+                />
+            </Form.Group>
+            {errors.lastName}
+
+
+            <Button variant="primary" type="submit">
+                SignUp
+            </Button>
+        </Form>
+        </Jumbotron>
+        </Container>
+    )
 }
 
 
 const mapStateToProps = state => ({
-    userReducer: state.userReducer
+    isLogged: state.userReducer.loggedIn
   });
 
 

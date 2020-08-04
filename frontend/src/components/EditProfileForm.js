@@ -1,75 +1,85 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {editUser} from 'redux/actions'
 import { Form, Button, Jumbotron, Container } from 'react-bootstrap';
+import { useFormik } from "formik";
+import * as yup from 'yup'
+import {editUser} from 'redux/actions'
 
-class EditProfileForm extends React.Component {
-    state = this.props.userReducer.user
+const validationSchema = yup.object().shape({   
+    email: yup     
+        .string()     
+        .email()     
+        .required(),
+    firstName: yup     
+        .string()     
+        .max(16)     
+        .required(),   
+    lastName: yup     
+        .string()     
+        .max(16)     
+        .required(),   
+})
 
-    handleOnChange = (e) => {
-        e.persist();
-        this.setState(() => ({
-            [e.target.name]: e.target.value 
-        }))
-    };
+const EditProfileForm = (props) => {
+    const { handleSubmit, handleChange, values, errors} = useFormik({
+        initialValues: props.userDeatils,
+        validationSchema,
+        onSubmit(values) {
+            console.log(values)
+            props.editUser(values)
+        }
+    })
 
 
-    onSubmit = (e) => {
-        e.preventDefault()
-        this.props.editUser(this.state)
-    }
-
-
-    render(){
-
-        
-        return(
-            <Container>
-            <Jumbotron>
-            <Form onSubmit={this.onSubmit}>
-                <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control 
-                        type="email"
-                        name="email"
-                        placeholder="Email"
-                        value={this.state.email}
-                        onChange={this.handleOnChange}
+    return(
+        <Container>
+        <Jumbotron>
+        <Form onSubmit={handleSubmit}>
+            <Form.Group controlId="formBasicEmail">
+                <Form.Control 
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    value={values.email}
+                    onChange={handleChange}
                     />
-                </Form.Group>
-                <Form.Group controlId="formBasicFirstName">
-                <Form.Label>First Name</Form.Label>
-                    <Form.Control 
-                        type="text"
-                        name="first_name"
-                        placeholder="First Name"
-                        value={this.state.first_name}
-                        onChange={this.handleOnChange}
-                    />
-                </Form.Group>
-                <Form.Group controlId="formBasicLastName">
-                    <Form.Label>Last Name</Form.Label>
-                    <Form.Control 
-                        type="text"
-                        name="last_name"
-                        placeholder="Last Name"
-                        value={this.state.last_name}
-                        onChange={this.handleOnChange}
-                    />
-                </Form.Group>
+            </Form.Group>
+            {errors.email}
+            <Form.Group controlId="formBasicFirstName">
+                <Form.Control 
+                    type="text"
+                    name="firstName"
+                    placeholder="First Name"
+                    value={values.firstName}
+                    onChange={handleChange}
+                />
+            </Form.Group>
+            {errors.firstName}
 
-                <Button variant="primary" type="submit">
-                    Edit Profile
-                </Button>
-            </Form>
-            </Jumbotron>
-            </Container>
-        )
-    }
+            <Form.Group controlId="formBasicLastName">
+                <Form.Control 
+                    type="text"
+                    name="lastName"
+                    placeholder="Last Name"
+                    value={values.lastName}
+                    onChange={handleChange}
+                />
+            </Form.Group>
+            {errors.lastName}
+
+
+            <Button variant="primary" type="submit">
+                Edit Profile
+            </Button>
+        </Form>
+        </Jumbotron>
+        </Container>
+    )
 }
 
+
 const mapStateToProps = state => ({
-    userReducer: state.userReducer
+    userDeatils: state.userReducer.user
   });
 
 const mapDispatchToProps = (dispatch) => {

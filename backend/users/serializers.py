@@ -7,10 +7,12 @@ from jobs.models import Job
 
 class UserSerializer(serializers.ModelSerializer):
 
-    jobs_applied = JobSerializer(source="user_to_job",many=True, read_only =True)
+    jobsApplied = JobSerializer(source="user_to_job",many=True, read_only =True)
+    firstName = serializers.CharField(source='first_name')
+    lastName = serializers.CharField(source='last_name')
     class Meta:
         model = User
-        fields = ('username','first_name','last_name', 'email', 'jobs_applied',)
+        fields = ('username','firstName','lastName', 'email', 'jobsApplied',)
 
 
 class UserSerializerWithToken(serializers.ModelSerializer):
@@ -34,6 +36,10 @@ class UserSerializerWithToken(serializers.ModelSerializer):
         instance.save()
         return instance
 
+    firstName = serializers.CharField(source='first_name')
+    lastName = serializers.CharField(source='last_name')
+
+
     class Meta:
         model = User
-        fields = ('token', 'username', 'password', 'first_name','last_name', 'email')
+        fields = ('token', 'username', 'password', 'firstName','lastName', 'email')
