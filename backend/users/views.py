@@ -5,14 +5,22 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializers import UserSerializer, UserSerializerWithToken
 
-@api_view(['GET'])
+@api_view(['GET', 'PUT'])
 def current_user(request):
     """
     Determine the current user by their token, and return their data
     """
-    
-    serializer = UserSerializer(request.user)
-    return Response(serializer.data)
+    if request.method == 'GET':
+        serializer = UserSerializer(request.user)
+        return Response(serializer.data)
+
+    elif request.method == 'PUT':
+        user = User.objects.get(username=request.user)
+        serializer = UserSerializer(user, data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class UserList(APIView):

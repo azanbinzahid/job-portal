@@ -1,13 +1,16 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 from rest_framework_jwt.settings import api_settings
+from jobs.serializers import JobSerializer 
+from jobs.models import Job 
 
 
 class UserSerializer(serializers.ModelSerializer):
 
+    jobs_applied = JobSerializer(source="user_to_job",many=True, read_only =True)
     class Meta:
         model = User
-        fields = ('username',)
+        fields = ('username','first_name','last_name', 'email', 'jobs_applied',)
 
 
 class UserSerializerWithToken(serializers.ModelSerializer):
