@@ -22,7 +22,7 @@ const validationSchema = yup.object().shape({
 
 const EditProfileForm = (props) => {
     const { handleSubmit, handleChange, values, errors} = useFormik({
-        initialValues: props.userDeatils,
+        initialValues: props.userDetails,
         validationSchema,
         onSubmit(values) {
             props.editUser(values)
@@ -78,7 +78,7 @@ const EditProfileForm = (props) => {
 
 
 const mapStateToProps = state => ({
-    userDeatils: state.userReducer.user
+    userDetails: state.userReducer.user
   });
 
 const mapDispatchToProps = (dispatch) => {
