@@ -25,7 +25,6 @@ const EditProfileForm = (props) => {
         initialValues: props.userDeatils,
         validationSchema,
         onSubmit(values) {
-            console.log(values)
             props.editUser(values)
         }
     })
