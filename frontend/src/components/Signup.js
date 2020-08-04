@@ -10,6 +10,9 @@ class Signup extends React.Component {
     state = {
         username: "",
         password: "",
+        email: "",
+        first_name: "",
+        last_name: "",
     }
 
     handleOnChange = (e) => {
@@ -57,6 +60,34 @@ class Signup extends React.Component {
                         onChange={this.handleOnChange}
                     />
                 </Form.Group>
+                <Form.Group controlId="formBasicEmail">
+                    <Form.Control 
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        value={this.state.email}
+                        onChange={this.handleOnChange}
+                    />
+                </Form.Group>
+                <Form.Group controlId="formBasicFirstName">
+                    <Form.Control 
+                        type="text"
+                        name="first_name"
+                        placeholder="First Name"
+                        value={this.state.first_name}
+                        onChange={this.handleOnChange}
+                    />
+                </Form.Group>
+                <Form.Group controlId="formBasicLastName">
+                    <Form.Control 
+                        type="text"
+                        name="last_name"
+                        placeholder="Last Name"
+                        value={this.state.last_name}
+                        onChange={this.handleOnChange}
+                    />
+                </Form.Group>
+
                 <Button variant="primary" type="submit">
                     SignUp
                 </Button>
