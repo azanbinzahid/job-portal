@@ -19,9 +19,7 @@ const userReducer = (state = defaultState, action) => {
             return {
                 loadded: true,
                 loggedIn: false,
-                user: {
-                    username : ""
-                }
+                user: defaultState.user,
             }
         case "AUTO_LOGIN":
             return {

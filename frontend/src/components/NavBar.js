@@ -61,6 +61,7 @@ const NavBar = (props) => {
                             </>
                          : 
                             <>
+                            {NavItem("/profile", "Profile")}
                             <Nav.Link onClick={props.logUserOut}> <Item>Logout</Item> </Nav.Link>
                             </>
 

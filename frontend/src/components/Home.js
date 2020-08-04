@@ -15,7 +15,7 @@ export default function Home() {
             <Slider/>
             <Container className="p-5">
                 <Jumbotron>
-                    <h2> Welcome {userReducer.user.username}</h2>
+                    <h2> Welcome {userReducer.user.first_name}</h2>
                     <p>
                     Looking for a job? Apply online for latest jobs in Pakistan. Browse vacancies and apply for the latest jobs near you.
                     </p>
