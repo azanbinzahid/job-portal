@@ -1,20 +1,17 @@
 import React from 'react'
-import {useSelector} from 'react-redux'
+import {connect} from 'react-redux'
 import JobItem from 'components/JobItem'
 import { Container, Jumbotron, CardColumns } from 'react-bootstrap';
 
 
-const JobList = () => {
-
-    const jobReducer = useSelector(state => state.jobReducer)
-    
+const JobList = (props) => {
     return (
         <Container>
         <Jumbotron align="center">
                 <h1> Job Listing Page </h1>
         </Jumbotron>
         <CardColumns>
-        {jobReducer.jobs.map(job => (
+        {props.jobs.map(job => (
             <JobItem key={job.id} job={job}/>
         ))}
         </CardColumns>
@@ -23,5 +20,8 @@ const JobList = () => {
 }
 
 
+const mapStateToProps = state => ({
+    jobs: state.jobReducer.jobs
+  });
 
-export default JobList;
+export default connect(mapStateToProps)(JobList);

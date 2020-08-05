@@ -1,5 +1,5 @@
 import React, {useEffect, useCallback} from 'react'
-import {connect, useSelector} from 'react-redux'
+import {connect} from 'react-redux'
 import styled from 'styled-components'
 import { Container, Jumbotron, Button, Card, ListGroup, CardColumns, Spinner } from 'react-bootstrap';
 import {fetchJob,  applyJob} from 'redux/actions'
@@ -17,12 +17,8 @@ const JobList = (props) => {
         props.fetchJob(jobId)
     }, [props, jobId])
     
-    const jobReducer = useSelector(state => state.jobReducer)
-    const userReducer = useSelector(state => state.userReducer)
     
-    const job = jobReducer.job
-    const user = userReducer.user
-
+    const job = props.job
 
     const handleClick = useCallback((msg, type) => {
         props.applyJob(jobId, msg, type)
@@ -44,7 +40,7 @@ const JobList = (props) => {
             <Jumbotron align="center">
                     <h1> Job Details Page </h1>
                     {
-                        (!job.applicants.includes(user.username)) ?
+                        (!job.applicants.includes(props.username)) ?
                             <Button onClick={() => handleClick("Applied", "success")} variant="primary">Apply Now</Button>
                         :
                             <Button onClick={()=>handleClick("Application Withdrawn", "warning")} variant="secondary">Withdraw Application</Button>
@@ -125,6 +121,12 @@ const JobList = (props) => {
 }
 
 
+const mapStateToProps = state => ({
+    job: state.jobReducer.job,
+    username: state.userReducer.user.username
+
+})
+
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchJob: (jobId) => dispatch(fetchJob(jobId)),
@@ -132,4 +134,4 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
   
-export default connect(null, mapDispatchToProps)(JobList);
+export default connect(mapStateToProps, mapDispatchToProps)(JobList);

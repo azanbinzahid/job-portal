@@ -1,8 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import { Redirect, Route } from 'react-router-dom'
-import {useSelector} from 'react-redux'
-import {setAlert} from 'redux/actions'
 import { Spinner, Container } from 'react-bootstrap';
 
 
@@ -12,14 +10,8 @@ const ProtectedRoute = (props) => {
         ...rest
       } = props;
 
-    //method 1
-    const userReducer = useSelector(state => state.userReducer)
-    const isAuthenticated = userReducer.loggedIn;
 
-    //method 2
-    // const isAuthenticated = localStorage.getItem('token'); // other method
-
-    if(!userReducer.loadded){
+    if(!props.loadded){
         return (
             <Container align="center" className="p-5">
             <Spinner animation="border"/>
@@ -27,14 +19,13 @@ const ProtectedRoute = (props) => {
         )
     }
 
-    return isAuthenticated ? (
+    return props.isLogged ? (
         <Route {...rest} render={(props) => (
             <Component {...props} />
           )}/>
   
     ) : (
         <>
-        {/* {props.setAlert("Please login first", "danger")} */}
         <Redirect to={{ 
             pathname: '/login',
         }} />
@@ -43,11 +34,10 @@ const ProtectedRoute = (props) => {
 
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        setAlert: (msg, type) => dispatch(setAlert(msg, type)),
-       
-    }
-  }
+const mapStateToProps = state => ({
+    isLogged: state.userReducer.loggedIn,
+    loadded: state.userReducer.loadded,
+});
+
   
-export default connect(null, mapDispatchToProps)(ProtectedRoute);
+export default connect(mapStateToProps)(ProtectedRoute);

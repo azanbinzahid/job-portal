@@ -1,5 +1,5 @@
 import React from 'react'
-import {connect, useSelector} from 'react-redux'
+import {connect} from 'react-redux'
 import {Navbar, Nav, Badge} from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap';
 import styled from 'styled-components'
@@ -31,7 +31,6 @@ const NavItem = (toPath, menuName) => {
 
 const NavBar = (props) => {
 
-    const userReducer = useSelector(state => state.userReducer)
     
     return (
         <Navbar bg="light" expand="lg">
@@ -54,7 +53,7 @@ const NavBar = (props) => {
                 {NavItem("/jobs", "Jobs")} 
                 <p><Badge variant="primary">New</Badge></p>
                 {
-                        !userReducer.loggedIn ? 
+                        !props.isLogged ? 
                             <>
                             {NavItem("/login", "Login")}
                             {NavItem("/signup", "SignUp")}
@@ -64,7 +63,6 @@ const NavBar = (props) => {
                             {NavItem("/profile", "Profile")}
                             <Nav.Link onClick={props.logUserOut}> <Item>Logout</Item> </Nav.Link>
                             </>
-
                 }
 
             </Nav>
@@ -74,6 +72,9 @@ const NavBar = (props) => {
 }
 
 
+const mapStateToProps = state => ({
+    isLogged: state.userReducer.loggedIn
+    });
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -81,4 +82,4 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
   
-export default connect(null, mapDispatchToProps)(NavBar);
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
