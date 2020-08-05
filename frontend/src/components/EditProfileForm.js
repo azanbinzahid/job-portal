@@ -18,7 +18,8 @@ const validationSchema = Yup.object().shape({
         .string()     
         .max(16)     
         .required(), 
-        
+    
+    // validation errors, need to fix 
     profile: Yup.object().shape({  
         bio: Yup     
             .string()     
@@ -32,7 +33,7 @@ const validationSchema = Yup.object().shape({
             .string()     
             .max(50)     
             .required(),   
-        date: Yup     
+        birthDate: Yup     
             .date()     
             .required()   
     })
@@ -127,9 +128,6 @@ const EditProfileForm = (props) => {
                 />
             </Form.Group>
             {errors.date}
-
-
-
 
             <Button variant="primary" type="submit">
                 Update Profile
