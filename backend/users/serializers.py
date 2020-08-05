@@ -24,10 +24,11 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ('username','firstName','lastName', 'email', 'jobsApplied', 'profile')
 
     def update(self, instance, validated_data):
+        super()
         profile_data = validated_data.pop('profile')
         profile = instance.profile
-        instance.first_name = validated_data.get('firstName', instance.first_name)
-        instance.last_name = validated_data.get('lastName', instance.last_name)
+        instance.first_name = validated_data.get('first_name', instance.first_name)
+        instance.last_name = validated_data.get('last_name', instance.last_name)
         instance.email = validated_data.get('email', instance.email)
         instance.save()
 
