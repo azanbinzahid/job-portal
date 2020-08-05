@@ -8,6 +8,7 @@ import Signup from 'components/Signup'
 import NavBar from 'components/NavBar'
 import JobList from 'components/JobList'
 import SingleJob from 'components/SingleJob'
+import Profile from 'components/Profile'
 import ProtectedRoute from 'components/ProtectedRoute'
 
 
@@ -27,6 +28,7 @@ const Router = (props) => {
                 <Route path="/login" component={Login} />
                 <Route path="/signup" component={Signup} />
                 <ProtectedRoute path="/jobs/:jobId" component={SingleJob} />
+                <ProtectedRoute path="/profile" component={Profile} />
                 <Route path="/jobs" component={JobList} />
                 <Route component={Home} />
 

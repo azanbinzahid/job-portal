@@ -1,16 +1,11 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import { Redirect } from 'react-router-dom';
 import { Form, Button, Jumbotron, Container } from 'react-bootstrap';
 import { useFormik } from "formik";
 import * as yup from 'yup'
-import {signUserUp} from 'redux/actions'
+import {editUser} from 'redux/actions'
 
 const validationSchema = yup.object().shape({   
-    username: yup     
-        .string()     
-        .max(16)     
-        .required(),   
     email: yup     
         .string()     
         .email()     
@@ -23,60 +18,22 @@ const validationSchema = yup.object().shape({
         .string()     
         .max(16)     
         .required(),   
-    password: yup    
-        .string()    
-        .min(8)    
-        .required(),
 })
 
-const Signup = (props) => {
+const EditProfileForm = (props) => {
     const { handleSubmit, handleChange, values, errors} = useFormik({
-        initialValues: {
-            username: "",
-            password: "",
-            email: "",
-            firstName: "",
-            lastName: "",
-        },
+        initialValues: props.userDetails,
         validationSchema,
         onSubmit(values) {
-            props.signUserUp(values)
+            props.editUser(values)
         }
     })
 
 
-    if (props.isLogged) {
-        return <Redirect to="/"/>
-    }
-
-
     return(
         <Container>
-        <Jumbotron align="center">
-            <h1> Signup Page </h1>
-        </Jumbotron>
         <Jumbotron>
         <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="formBasicEmail">
-                <Form.Control 
-                    type="text" 
-                    name="username" 
-                    placeholder="Username" 
-                    value={values.username}
-                    onChange={handleChange}
-                />
-            </Form.Group>
-            {errors.username}
-            <Form.Group controlId="formBasicPassword">
-                <Form.Control 
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    value={values.password}
-                    onChange={handleChange}
-                    />
-            </Form.Group>
-            {errors.password}
             <Form.Group controlId="formBasicEmail">
                 <Form.Control 
                     type="email"
@@ -111,7 +68,7 @@ const Signup = (props) => {
 
 
             <Button variant="primary" type="submit">
-                SignUp
+                Edit Profile
             </Button>
         </Form>
         </Jumbotron>
@@ -121,14 +78,13 @@ const Signup = (props) => {
 
 
 const mapStateToProps = state => ({
-    isLogged: state.userReducer.loggedIn
+    userDetails: state.userReducer.user
   });
-
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        signUserUp: (userInfo) => dispatch(signUserUp(userInfo))
+        editUser: (userInfo) => dispatch(editUser(userInfo))
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Signup);
+export default connect(mapStateToProps, mapDispatchToProps)(EditProfileForm);

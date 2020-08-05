@@ -38,4 +38,4 @@ class Job(models.Model):
     location = models.ManyToManyField(Location)
     category = models.ManyToManyField(Category)
     qualification = models.ManyToManyField(Qualification)
-    applicants = models.ManyToManyField(User, blank = True)
+    applicants = models.ManyToManyField(User, blank = True, related_name="user_to_job")

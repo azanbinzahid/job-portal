@@ -33,6 +33,25 @@ export const fetchUser = (userCreds) => dispatch => {
     })
 }
 
+export const editUser = (userCreds) => dispatch => {
+    axios.put(`${process.env.REACT_APP_BASE_URL}/users/current_user/`, userCreds,{
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "Authorization": `JWT ${localStorage.getItem("token")}`         
+        },
+    })
+    .then(res => {
+        dispatch(autoLogin())
+        dispatch(setAlert("User Profile Updated", "success"))
+
+    })
+    .catch((error)=>{
+        dispatch(setAlert("Error in Update", "danger"))
+        console.error(error)
+    })
+}
+
 export const signUserUp = (userCreds) => dispatch => {
     axios.post(`${process.env.REACT_APP_BASE_URL}/users/`,userCreds, {
         headers: {
@@ -42,14 +61,8 @@ export const signUserUp = (userCreds) => dispatch => {
     })
     .then(res => {
         let data = res.data
-        let user= {
-          "username": data.username
-        }
         localStorage.setItem("token", data.token)
-        dispatch({ 
-            type: "SET_USER", 
-            payload: user
-        })
+        dispatch(autoLogin())
         dispatch(setAlert("Signup succesful", "success"))
 
         
@@ -71,12 +84,9 @@ export const autoLogin = () => dispatch => {
         })
         .then(res => {
             let data = res.data
-            let user= {
-                "username": data.username
-            }
             dispatch({
                 type: "SET_USER", 
-                payload: user
+                payload: data
             })
 
         })
@@ -137,6 +147,7 @@ export const applyJob = (jobId, msg, type) => dispatch => {
     })
     .then(res => {
         dispatch(fetchJob(jobId))
+        dispatch(autoLogin())
         dispatch(setAlert(msg, type))
 
     })
