@@ -1,27 +1,30 @@
 import React from 'react'
-import {useSelector} from 'react-redux';
+import {connect} from 'react-redux';
 import { Alert } from 'react-bootstrap';
 
 
-const AlertBox = () => {
+const AlertBox = (props) => {
 
-    const alertReducer = useSelector(state => state.alertReducer)
-    const alerts = alertReducer.alerts
    
-    if(alerts !==null && alerts.length>0){
-        let alertsList;
-        alertsList = alerts.map((alert)=>{
-            return(
-                <Alert key={alert.id} variant={alert.alertType}>
-                    {alert.msg}
-                </Alert>
-            )
-        });
-
-        return alertsList;
+    if(props.alerts !==null && props.alerts.length>0){
+        return(
+            <>
+            {
+                props.alerts.map(alert=>(
+                        <Alert key={alert.id} variant={alert.alertType}>
+                            {alert.msg}
+                        </Alert>
+                    ))
+            }
+            </>
+        )
     } else {
         return null
     }
 }
 
-export default AlertBox;
+const mapStateToProps = state => ({
+    alerts: state.alertReducer.alerts
+  });
+
+export default connect(mapStateToProps)(AlertBox);
