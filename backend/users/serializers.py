@@ -11,7 +11,7 @@ class ProfileSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Profile
-        fields = ("location", "bio", "birthDate", "education")
+        fields = ("location", "bio", "birthDate", "education", "experiance")
 
 class UserSerializer(serializers.ModelSerializer):
 
@@ -24,21 +24,14 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ('username','firstName','lastName', 'email', 'jobsApplied', 'profile')
 
     def update(self, instance, validated_data):
-        super()
-        profile_data = validated_data.pop('profile')
-        profile = instance.profile
-        instance.first_name = validated_data.get('first_name', instance.first_name)
-        instance.last_name = validated_data.get('last_name', instance.last_name)
-        instance.email = validated_data.get('email', instance.email)
-        instance.save()
-
-        profile.location = profile_data.get('location', profile.location)
-        profile.bio = profile_data.get('bio', profile.bio)
-        profile.education = profile_data.get('education', profile.education)
-        profile.birth_date = profile_data.get('birthDate', profile.birth_date)
-        profile.save()
-        return instance
-
+        nested_serializer = self.fields['profile']
+        nested_instance = instance.profile
+        # note the data is `pop`ed
+        nested_data = validated_data.pop('profile')
+        nested_serializer.update(nested_instance, nested_data)
+        # this will not throw an exception,
+        # as `profile` is not part of `validated_data`
+        return super(UserSerializer, self).update(instance, validated_data)
 
 class UserSerializerWithToken(serializers.ModelSerializer):
 

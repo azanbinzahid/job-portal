@@ -31,8 +31,13 @@ const validationSchema = Yup.object().shape({
             .required(),   
         education: Yup     
             .string()     
-            .max(50)     
+            .max(300)     
             .required(),   
+        experiance: Yup     
+            .string()     
+            .max(300)     
+            .required(),   
+
         birthDate: Yup     
             .date()     
             .required()   
@@ -54,6 +59,7 @@ const EditProfileForm = (props) => {
         <Jumbotron>
         <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
                 <Form.Control 
                     type="email"
                     name="email"
@@ -64,6 +70,7 @@ const EditProfileForm = (props) => {
             </Form.Group>
             {errors.email}
             <Form.Group controlId="formBasicFirstName">
+            <Form.Label>First Name</Form.Label>
                 <Form.Control 
                     type="text"
                     name="firstName"
@@ -75,6 +82,7 @@ const EditProfileForm = (props) => {
             {errors.firstName}
 
             <Form.Group controlId="formBasicLastName">
+            <Form.Label>Last Name</Form.Label>
                 <Form.Control 
                     type="text"
                     name="lastName"
@@ -86,8 +94,10 @@ const EditProfileForm = (props) => {
             {errors.lastName}
 
             <Form.Group controlId="formBasicBio">
+            <Form.Label>Bio</Form.Label>
                 <Form.Control 
-                    type="text"
+                    as="textarea"
+                    rows="3"
                     name="profile.bio"
                     placeholder="Bio"
                     value={values.profile.bio}
@@ -97,6 +107,7 @@ const EditProfileForm = (props) => {
             {errors.bio}
 
             <Form.Group controlId="formBasicLocation">
+            <Form.Label>Current Location</Form.Label>
                 <Form.Control 
                     type="text"
                     name="profile.location"
@@ -108,17 +119,36 @@ const EditProfileForm = (props) => {
             {errors.location}
 
             <Form.Group controlId="formBasicEducation">
+
+            <Form.Label>Education</Form.Label>
                 <Form.Control 
-                    type="text"
+                    as="textarea"
+                    rows="3"
                     name="profile.education"
-                    placeholder="Latest Education"
+                    placeholder="Education"
                     value={values.profile.education}
                     onChange={handleChange}
                 />
             </Form.Group>
             {errors.education}
 
+            <Form.Group controlId="formBasicEducation">
+            <Form.Label>Experiance</Form.Label>
+                <Form.Control 
+                    as="textarea"
+                    rows="3"
+                    name="profile.experiance"
+                    placeholder="Experiance"
+                    value={values.profile.experiance}
+                    onChange={handleChange}
+                />
+            </Form.Group>
+            {errors.experiance}
+
+
             <Form.Group controlId="formBasicDate">
+            <Form.Label>Birthdate</Form.Label>
+
                 <Form.Control 
                     type="date"
                     name="profile.date"
