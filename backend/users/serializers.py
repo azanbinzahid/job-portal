@@ -6,12 +6,19 @@ from jobs.models import Job
 from .models import Profile
 
 
+
+class ProfilePictureSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Profile
+        fields = ("image",)
+
 class ProfileSerializer(serializers.ModelSerializer):
     birthDate = serializers.DateField(source='birth_date')
 
     class Meta:
         model = Profile
-        fields = ("location", "bio", "birthDate", "education", "experiance")
+        fields = ("location", "bio", "birthDate", "education", "experiance", "image","id")
+        read_only_fields = ("image",)
 
 class UserSerializer(serializers.ModelSerializer):
 

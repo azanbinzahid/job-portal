@@ -12,6 +12,7 @@ class Profile(models.Model):
     education = models.TextField(max_length=500, blank=True)
     experiance = models.TextField(max_length=500, blank=True)
     birth_date = models.DateField(null=True, blank=True)
+    image = models.ImageField(upload_to='user_images', blank=True)
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):

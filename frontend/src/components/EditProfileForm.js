@@ -159,6 +159,7 @@ const EditProfileForm = (props) => {
             </Form.Group>
             {errors.date}
 
+
             <Button variant="primary" type="submit">
                 Update Profile
             </Button>
