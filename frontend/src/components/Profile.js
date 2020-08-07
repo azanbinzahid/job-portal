@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Container, Row, Col,  Jumbotron, ListGroup, ListGroupItem } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap';
 import EditProfileForm from 'components/EditProfileForm'
+import ProfilePicture from 'components/ProfilePicture'
 
 
 
@@ -20,6 +21,7 @@ const Profile = (props) => {
                     <EditProfileForm/>
                 </Col>
                 <Col>
+                    <ProfilePicture/>
                     <h1> Jobs Applied </h1>
                     <ListGroup>
                     {   
@@ -40,6 +42,7 @@ const Profile = (props) => {
 const mapStateToProps = state => ({
     firstName: state.userReducer.user.firstName,
     lastName: state.userReducer.user.lastName,
+    profileImage: state.userReducer.user.profile.image,
     jobsApplied: state.userReducer.user.jobsApplied,
   });
 

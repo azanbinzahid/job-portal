@@ -52,6 +52,31 @@ export const editUser = (userCreds) => dispatch => {
     })
 }
 
+export const uploadImage = (userCreds) => dispatch => {
+    let formData = new FormData()
+    formData.append("image", userCreds.image)
+    axios.put(`${process.env.REACT_APP_BASE_URL}/users/upload_picture/`, formData,{
+        headers: {
+            "Content-Type": "multipart/form-data",
+            "Accept": "application/json",
+            "Authorization": `JWT ${localStorage.getItem("token")}`         
+        },
+    })
+    .then(res => {
+        dispatch(autoLogin())
+        dispatch(setAlert("Profile Picture Updated", "success"))
+
+    })
+    .catch((error)=>{
+        dispatch(setAlert("Error in Profile Picture Update", "danger"))
+        console.error(error)
+    })
+}
+
+
+
+
+
 export const signUserUp = (userCreds) => dispatch => {
     axios.post(`${process.env.REACT_APP_BASE_URL}/users/`,userCreds, {
         headers: {

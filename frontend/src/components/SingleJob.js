@@ -12,13 +12,13 @@ const Title = styled.div`
 
 const JobList = (props) => {
     const { params: { jobId } } = props.match;
+    const { fetchJob, job } = props
 
     useEffect(() => {
-        props.fetchJob(jobId)
-    }, [props, jobId])
+        fetchJob(jobId)
+    }, [fetchJob, jobId])
     
     
-    const job = props.job
 
     const handleClick = useCallback((msg, type) => {
         props.applyJob(jobId, msg, type)
