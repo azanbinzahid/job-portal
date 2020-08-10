@@ -10,7 +10,14 @@ const defaultState: UserState = {
         lastName: "",
         email: "",
         jobsApplied: [],
-        profile: null,
+        profile: {
+            location: "",
+            bio: "",
+            education: "",
+            experiance: "",
+            birthDate: new Date(),
+            image: "",
+        }
     
     }
 }

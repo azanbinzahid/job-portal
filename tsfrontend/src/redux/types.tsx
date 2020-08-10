@@ -1,7 +1,7 @@
 export interface Alert {
     msg: string,
     alertType: string,
-    id: number
+    id: string
 }
 export interface Profile {
     location: string,
@@ -23,6 +23,8 @@ export interface Job {
     salary: number,
     experiance: number,
     datestamp: Date,
+    description: string,
+    salaray: number
 
 }
 
@@ -33,7 +35,7 @@ export interface User {
     lastName: string,
     email: string,
     jobsApplied: Job[],
-    profile: Profile | null
+    profile: Profile
 }
 
 export interface UserState {
@@ -43,7 +45,7 @@ export interface UserState {
 }
 
 export interface JobState {
-    job: Job | null,
+    job: Job,
     jobs: Job[]
 }
 
