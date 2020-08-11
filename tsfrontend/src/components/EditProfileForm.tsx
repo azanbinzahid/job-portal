@@ -4,6 +4,8 @@ import { Form, Button, Jumbotron, Container } from 'react-bootstrap';
 import { useFormik } from "formik";
 import * as Yup from 'yup'
 import {editUser} from 'redux/actions'
+import { RootState } from 'redux/reducers';
+import { User } from 'redux/types';
 
 const validationSchema = Yup.object().shape({   
     email: Yup     
@@ -44,7 +46,13 @@ const validationSchema = Yup.object().shape({
     })
 })
 
-const EditProfileForm = (props) => {
+
+
+type Props = {
+    userDetails: User
+    editUser: (values: User) => void
+}
+const EditProfileForm = (props: Props) => {
     const { handleSubmit, handleChange, values, errors} = useFormik({
         initialValues: props.userDetails,
         validationSchema,
@@ -57,7 +65,7 @@ const EditProfileForm = (props) => {
     return(
         <Container>
         <Jumbotron>
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={(e: React.FormEvent<HTMLFormElement>)=>handleSubmit(e)}>
             <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
                 <Form.Control 
@@ -95,7 +103,7 @@ const EditProfileForm = (props) => {
 
             <Form.Group controlId="formBasicBio">
             <Form.Label>Bio</Form.Label>
-                <Form.Control 
+                <Form.Control <React.ElementType>
                     as="textarea"
                     rows="3"
                     name="profile.bio"
@@ -104,7 +112,7 @@ const EditProfileForm = (props) => {
                     onChange={handleChange}
                 />
             </Form.Group>
-            {errors.bio}
+            {/* {errors.bio} */}
 
             <Form.Group controlId="formBasicLocation">
             <Form.Label>Current Location</Form.Label>
@@ -116,12 +124,12 @@ const EditProfileForm = (props) => {
                     onChange={handleChange}
                 />
             </Form.Group>
-            {errors.location}
+            {/* {errors.location} */}
 
             <Form.Group controlId="formBasicEducation">
 
             <Form.Label>Education</Form.Label>
-                <Form.Control 
+                <Form.Control <React.ElementType>
                     as="textarea"
                     rows="3"
                     name="profile.education"
@@ -130,11 +138,11 @@ const EditProfileForm = (props) => {
                     onChange={handleChange}
                 />
             </Form.Group>
-            {errors.education}
+            {/* {errors.education} */}
 
             <Form.Group controlId="formBasicEducation">
             <Form.Label>Experiance</Form.Label>
-                <Form.Control 
+                <Form.Control <React.ElementType>
                     as="textarea"
                     rows="3"
                     name="profile.experiance"
@@ -143,7 +151,7 @@ const EditProfileForm = (props) => {
                     onChange={handleChange}
                 />
             </Form.Group>
-            {errors.experiance}
+            {/* {errors.experiance} */}
 
 
             <Form.Group controlId="formBasicDate">
@@ -153,11 +161,11 @@ const EditProfileForm = (props) => {
                     type="date"
                     name="profile.date"
                     placeholder="Birth Day"
-                    value={values.profile.birthDate}
+                    value={new Date(values.profile.birthDate).toLocaleDateString()}
                     onChange={handleChange}
                 />
             </Form.Group>
-            {errors.date}
+            {/* {errors.date} */}
 
 
             <Button variant="primary" type="submit">
@@ -170,7 +178,7 @@ const EditProfileForm = (props) => {
 }
 
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state: RootState) => ({
     userDetails: state.userReducer.user
   });
 
@@ -178,4 +186,4 @@ const mapDispatchToProps =  {
     editUser
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditProfileForm);
+export default connect(mapStateToProps, mapDispatchToProps)(EditProfileForm as any);

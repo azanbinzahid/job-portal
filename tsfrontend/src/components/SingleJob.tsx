@@ -3,6 +3,8 @@ import {connect} from 'react-redux'
 import styled from 'styled-components'
 import { Container, Jumbotron, Button, Card, ListGroup, CardColumns, Spinner } from 'react-bootstrap';
 import {fetchJob,  applyJob} from 'redux/actions'
+import { RootState } from 'redux/reducers';
+import { Job } from 'redux/types';
 
 
 
@@ -10,7 +12,19 @@ const Title = styled.div`
     color: white
 `;
 
-const JobList = (props) => {
+type Props = {
+    job: Job
+    username: string
+    applyJob: (jobId: string, msg: string, type: string)=> void
+    fetchJob: (jobId: string)=> void
+    match: {
+        params: {
+            jobId: string
+        }
+    }
+
+}
+const JobList = (props: Props) => {
     const { params: { jobId } } = props.match;
     const { fetchJob, job } = props
 
@@ -30,7 +44,7 @@ const JobList = (props) => {
 
     if(job == null) {
         return (
-            <Container align="center" className="p-5">
+            <Container <React.ElementType> align="center" className="p-5">
             <Spinner animation="border" />
             </Container>
         )
@@ -39,7 +53,7 @@ const JobList = (props) => {
 
     return (
         <Container>
-            <Jumbotron align="center">
+            <Jumbotron <React.ElementType> align="center">
                     <h1> Job Details Page </h1>
                     {
                         (!job.applicants.includes(props.username)) ?
@@ -123,7 +137,7 @@ const JobList = (props) => {
 }
 
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state: RootState) => ({
     job: state.jobReducer.job,
     username: state.userReducer.user.username
 
@@ -133,4 +147,4 @@ const mapDispatchToProps = {
     fetchJob, applyJob
   }
   
-export default connect(mapStateToProps, mapDispatchToProps)(JobList);
+export default connect(mapStateToProps, mapDispatchToProps)(JobList as any);

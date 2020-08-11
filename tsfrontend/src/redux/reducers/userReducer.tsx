@@ -15,7 +15,7 @@ const defaultState: UserState = {
             bio: "",
             education: "",
             experiance: "",
-            birthDate: new Date(),
+            birthDate: new Date(0),
             image: "",
         }
     

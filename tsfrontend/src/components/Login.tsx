@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import {connect} from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { Form, Button, Jumbotron, Container } from 'react-bootstrap';
 import { useFormik } from "formik";
 import * as yup from 'yup'
 import {fetchUser} from 'redux/actions'
+import { RootState } from 'redux/reducers';
 
 const validationSchema = yup.object().shape({   
     username: yup     
@@ -16,7 +17,16 @@ const validationSchema = yup.object().shape({
         .required(),
 })
 
-const Login = (props) => {
+interface User {
+    username: string,
+    password: string,
+}
+interface Props {
+    isLogged: boolean
+    fetchUser: (values: User) => void
+}
+
+const Login: FunctionComponent<Props> = (props) => {
     const { handleSubmit, handleChange, values, errors} = useFormik({
         initialValues: {
             username: "",
@@ -26,6 +36,7 @@ const Login = (props) => {
         onSubmit(values) {
             props.fetchUser(values)
         }
+        
     })
 
 
@@ -36,11 +47,11 @@ const Login = (props) => {
 
     return(
         <Container>
-        <Jumbotron align="center">
+        <Jumbotron <React.ElementType> align="center">
             <h1> Login Page </h1>
         </Jumbotron>
         <Jumbotron>
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={(e: React.FormEvent<HTMLFormElement>)=>handleSubmit(e)}>
             <Form.Group controlId="formBasicEmail">
                 <Form.Control 
                     type="text" 
@@ -71,14 +82,12 @@ const Login = (props) => {
 }
 
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state: RootState) => ({
     isLogged: state.userReducer.loggedIn
   });
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        fetchUser: (userInfo) => dispatch(fetchUser(userInfo))
-    }
+const mapDispatchToProps = {
+    fetchUser
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login as any);

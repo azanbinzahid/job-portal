@@ -5,6 +5,7 @@ import { Form, Button, Jumbotron, Container } from 'react-bootstrap';
 import { useFormik } from "formik";
 import * as yup from 'yup'
 import {signUserUp} from 'redux/actions'
+import { RootState } from 'redux/reducers';
 
 const validationSchema = yup.object().shape({   
     username: yup     
@@ -29,7 +30,20 @@ const validationSchema = yup.object().shape({
         .required(),
 })
 
-const Signup = (props) => {
+
+interface User {
+    username: string,
+    password: string,
+    firstName: string,
+    lastName: string,
+    email: string
+}
+interface Props {
+    isLogged: boolean
+    signUserUp: (values: User) => void
+}
+
+const Signup = (props: Props) => {
     const { handleSubmit, handleChange, values, errors} = useFormik({
         initialValues: {
             username: "",
@@ -52,11 +66,11 @@ const Signup = (props) => {
 
     return(
         <Container>
-        <Jumbotron align="center">
+        <Jumbotron <React.ElementType> align="center">
             <h1> Signup Page </h1>
         </Jumbotron>
         <Jumbotron>
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={(e: React.FormEvent<HTMLFormElement>)=>handleSubmit(e)}>
             <Form.Group controlId="formBasicEmail">
                 <Form.Control 
                     type="text" 
@@ -120,15 +134,13 @@ const Signup = (props) => {
 }
 
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state: RootState) => ({
     isLogged: state.userReducer.loggedIn
   });
 
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        signUserUp: (userInfo) => dispatch(signUserUp(userInfo))
-    }
+const mapDispatchToProps = {
+    signUserUp
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Signup);
+export default connect(mapStateToProps, mapDispatchToProps)(Signup as any);
