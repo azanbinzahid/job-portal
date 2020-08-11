@@ -26,7 +26,6 @@ export const fetchUser = (userCreds: User) => (dispatch: any) => {
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json",
-            
         },
     })
     .then((res: AxiosResponse) => {
@@ -45,7 +44,7 @@ export const fetchUser = (userCreds: User) => (dispatch: any) => {
     })
 }
 
-export const editUser = (userCreds: User) => (dispatch: any) => {
+export const editUser = (userCreds: User) => (dispatch: (arg0: any)=>void) => {
     axios.put(`${process.env.REACT_APP_BASE_URL}/users/current_user/`, userCreds,{
         headers: {
             "Content-Type": "application/json",
@@ -91,7 +90,7 @@ export const uploadImage = (userCreds: {
 
 
 
-export const signUserUp = (userCreds: User) => (dispatch: any) => {
+export const signUserUp = (userCreds: User) => (dispatch: (arg0: any)=>void) => {
     axios.post(`${process.env.REACT_APP_BASE_URL}/users/`,userCreds, {
         headers: {
             "Content-Type": "application/json",
@@ -103,8 +102,6 @@ export const signUserUp = (userCreds: User) => (dispatch: any) => {
         localStorage.setItem("token", data.token)
         dispatch(autoLogin())
         dispatch(setAlert("Signup succesful", "success"))
-
-        
     })
     .catch((error: AxiosError)=>{
         dispatch(setAlert("Error in signup", "danger"))
