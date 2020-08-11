@@ -3,10 +3,16 @@ import {connect} from 'react-redux'
 import { Image, Form, Button, Container } from 'react-bootstrap'
 import { useFormik } from "formik";
 import {uploadImage} from 'redux/actions'
+import { RootState } from 'redux/reducers';
 
 
-
-const ProfilePicture = (props) => {
+type Props = {
+    profileImage: string
+    uploadImage: (values: {
+        image: string,
+    })=>void
+}
+const ProfilePicture = (props: Props) => {
     const { handleSubmit, setFieldValue} = useFormik({
         initialValues: {image: ""},
         onSubmit(values) {
@@ -16,17 +22,17 @@ const ProfilePicture = (props) => {
 
 
     return(
-        <Container align="center" className="pb-5">
+        <Container <React.ElementType> align="center" className="pb-5">
         <Image 
             src={process.env.REACT_APP_BASE_URL+props.profileImage} 
             fluid
         />
 
-        <Form inline onSubmit={handleSubmit}>
+        <Form inline onSubmit={(e: React.FormEvent<HTMLFormElement>)=>handleSubmit(e)}>
             <Form.Group controlId="formBasicDate">
-                <Form.File 
+                <Form.File <React.ElementType>
                     name="image"
-                    onChange={(event) => {
+                    onChange={(event: any) => {
                         setFieldValue("image", event.currentTarget.files[0]);
                       }}
                 />
@@ -40,7 +46,7 @@ const ProfilePicture = (props) => {
     )
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state: RootState) => ({
     profileImage: state.userReducer.user.profile.image,
   });
 
