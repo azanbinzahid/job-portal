@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 // import {autoLogin, fetchJobs} from '../redux/actions';
 import Home from './Home';
-// import Login from './Login';
+import Login from './Login';
 // import Signup from './Signup';
 // import NavBar from './NavBar';
 // import JobList from './JobList';
@@ -46,8 +46,9 @@ const Router = () => {
       <Drawer.Navigator
         drawerContent={(props) => <CustomDrawerContent {...props} />}>
         <Drawer.Screen name="Home" component={Home} />
-        {/* <Drawer.Screen name="/login" component={Login} />
-        <Drawer.Screen name="/signup" component={Signup} />
+        <Drawer.Screen name="/login" component={Login} />
+
+        {/* <Drawer.Screen name="/signup" component={Signup} />
         <Drawer.Screen name="/jobs/:jobId" component={SingleJob} />
         <Drawer.Screen name="/profile" component={Profile} />
         <Drawer.Screen name="/jobs" component={JobList} /> */}
