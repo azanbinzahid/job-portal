@@ -6,6 +6,11 @@ const Home = (props) => {
   return (
     <>
       <View>
+        <Button
+          title="Toggle drawer"
+          onPress={() => props.navigation.toggleDrawer()}
+        />
+
         <View>
           <Text> Welcome {props.firstName}</Text>
           <Text>
