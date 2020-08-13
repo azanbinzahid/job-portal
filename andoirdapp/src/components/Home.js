@@ -5,8 +5,8 @@ import {View, Text, Button} from 'react-native';
 const Home = (props) => {
   return (
     <>
-      <View style={{flex: 1}}>
-        <View style={{flex: 1}}>
+      <View>
+        <View>
           <Text> Welcome {props.firstName}</Text>
           <Text>
             Looking for a job? Apply online for latest jobs in Pakistan. Browse

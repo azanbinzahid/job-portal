@@ -9,11 +9,11 @@
 import React from 'react';
 import {Provider} from 'react-redux';
 import store from './store';
-import Home from './components/Home';
+import Router from './components/Router';
 
 const App = () => (
   <Provider store={store}>
-    <Home />
+    <Router />
   </Provider>
 );
 
