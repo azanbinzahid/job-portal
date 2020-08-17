@@ -1,15 +1,15 @@
 import axios from 'axios';
-import {AsyncStorage} from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 
-var REACT_APP_BASE_URL = 'http://192.168.1.9:8000';
+var REACT_APP_BASE_URL = 'http://10.0.2.2:8000';
 
 export const logUserOut = () => (dispatch) => {
+  console.log('Logout call');
   dispatch({type: 'LOG_OUT'});
   dispatch(setAlert('Logged out', 'warning'));
 };
 
 export const fetchUser = (userCreds) => (dispatch) => {
-  console.log('Action', userCreds);
   axios
     .post(`${REACT_APP_BASE_URL}/token-auth/`, userCreds, {
       headers: {

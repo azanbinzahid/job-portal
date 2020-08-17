@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {useFormik} from 'formik';
 import * as yup from 'yup';
-import {fetchUser} from '../redux/actions';
+import {fetchUser, logUserOut} from '../redux/actions';
 import {View, TextInput, Button, Text} from 'react-native';
 
 const validationSchema = yup.object().shape({
@@ -18,13 +18,22 @@ const Login = (props) => {
     },
     // validationSchema,
     onSubmit(values) {
-      console.log(values);
       props.fetchUser(values);
     },
   });
 
-  // if (props.isLogged) {
-  // }
+  if (props.isLogged) {
+    return (
+      <View>
+        <Text>You are Logged In</Text>
+        <Button
+          title="Go to Home"
+          onPress={() => props.navigation.navigate('Home')}
+        />
+        <Button title="Log Out" onPress={() => props.logUserOut()} />
+      </View>
+    );
+  }
 
   return (
     <View>
@@ -57,6 +66,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchUser: (userInfo) => dispatch(fetchUser(userInfo)),
+    logUserOut: () => dispatch(logUserOut()),
   };
 };
 
