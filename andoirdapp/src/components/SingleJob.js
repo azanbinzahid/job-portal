@@ -4,7 +4,11 @@ import {View, Text, Button} from 'react-native';
 import {fetchJob, applyJob} from '../redux/actions';
 
 const SingleJob = (props) => {
-  const jobId = props.route.params.jobId;
+  var jobId = 1;
+  if (props.route.params) {
+    jobId = props.route.params.jobId;
+  }
+
   const {fetchJob, job} = props;
 
   useEffect(() => {

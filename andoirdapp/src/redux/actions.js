@@ -179,8 +179,7 @@ export const applyJob = (jobId, msg, type) => async (dispatch) => {
 };
 
 export const setAlert = (msg, alertType, timeout = 3000) => (dispatch) => {
-  var uuid = require('react-native-uuid');
-  const id = uuid.v4();
+  const id = Math.random();
   dispatch({
     type: 'SET_ALERT',
     payload: {msg, alertType, id},

@@ -15,7 +15,7 @@ const JobItem = (props) => {
       <Text>{truncate(job.description)}</Text>
       <Button
         title=" View Details"
-        onPress={() => props.navigation.navigate('SingleJob', {jobId: job.id})}
+        onPress={() => props.navigation.navigate('Job', {jobId: job.id})}
       />
       {job.location.map((loc, index) => (
         <Text key={index}>{loc}</Text>

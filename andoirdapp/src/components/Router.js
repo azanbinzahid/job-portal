@@ -1,37 +1,15 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+import {NavigationContainer} from '@react-navigation/native';
 import {autoLogin, fetchJobs, logUserOut} from '../redux/actions';
 import Home from './Home';
 import Login from './Login';
 import Signup from './Signup';
 import JobList from './JobList';
 import SingleJob from './SingleJob';
-// import Profile from './Profile';
-import {
-  createDrawerNavigator,
-  DrawerContentScrollView,
-  DrawerItemList,
-  DrawerItem,
-} from '@react-navigation/drawer';
-import {NavigationContainer} from '@react-navigation/native';
 
 const Drawer = createDrawerNavigator();
-
-function CustomDrawerContent(drawerProps, logOut) {
-  return (
-    <DrawerContentScrollView {...drawerProps}>
-      <DrawerItemList {...drawerProps} />
-      <DrawerItem
-        label="Close drawer"
-        onPress={() => drawerProps.navigation.closeDrawer()}
-      />
-      <DrawerItem
-        label="Toggle drawer"
-        onPress={() => drawerProps.navigation.toggleDrawer()}
-      />
-    </DrawerContentScrollView>
-  );
-}
 
 const Router = (props) => {
   useEffect(() => {
@@ -40,22 +18,22 @@ const Router = (props) => {
   }, [props]);
 
   return (
-    <>
-      <NavigationContainer>
-        <Drawer.Navigator
-          drawerContent={(drawerProps) => (
-            <CustomDrawerContent {...drawerProps} />
-          )}>
+    <NavigationContainer>
+      {props.isLogged ? (
+        <Drawer.Navigator>
           <Drawer.Screen name="Home" component={Home} />
-          <Drawer.Screen name="/login" component={Login} />
-
-          <Drawer.Screen name="/signup" component={Signup} />
-          <Drawer.Screen name="SingleJob" component={SingleJob} />
-          <Drawer.Screen name="/jobs" component={JobList} />
-          {/* <Drawer.Screen name="/profile" component={Profile} /> */}
+          <Drawer.Screen name="Jobs" component={JobList} />
+          <Drawer.Screen name="Logout" component={Login} />
+          <Drawer.Screen name="Job" component={SingleJob} />
         </Drawer.Navigator>
-      </NavigationContainer>
-    </>
+      ) : (
+        <Drawer.Navigator>
+          <Drawer.Screen name="Home" component={Home} />
+          <Drawer.Screen name="Login" component={Login} />
+          <Drawer.Screen name="SignUp" component={Signup} />
+        </Drawer.Navigator>
+      )}
+    </NavigationContainer>
   );
 };
 
@@ -66,5 +44,8 @@ const mapDispatchToProps = (dispatch) => {
     logUserOut: () => dispatch(logUserOut()),
   };
 };
+const mapStateToProps = (state) => ({
+  isLogged: state.userReducer.loggedIn,
+});
 
-export default connect(null, mapDispatchToProps)(Router);
+export default connect(mapStateToProps, mapDispatchToProps)(Router);

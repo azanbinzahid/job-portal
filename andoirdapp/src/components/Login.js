@@ -25,11 +25,6 @@ const Login = (props) => {
   if (props.isLogged) {
     return (
       <View>
-        <Text>You are Logged In</Text>
-        <Button
-          title="Go to Home"
-          onPress={() => props.navigation.navigate('Home')}
-        />
         <Button title="Log Out" onPress={() => props.logUserOut()} />
       </View>
     );
