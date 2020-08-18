@@ -11,7 +11,7 @@ const JobList = (props) => {
       </View>
       <View>
         {props.jobs.map((job) => (
-          <JobItem key={job.id} job={job} />
+          <JobItem key={job.id} job={job} navigation={props.navigation} />
         ))}
       </View>
     </View>
