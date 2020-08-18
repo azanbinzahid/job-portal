@@ -4,7 +4,6 @@ import {autoLogin, fetchJobs, logUserOut} from '../redux/actions';
 import Home from './Home';
 import Login from './Login';
 import Signup from './Signup';
-// import NavBar from './NavBar';
 import JobList from './JobList';
 import SingleJob from './SingleJob';
 // import Profile from './Profile';
@@ -19,7 +18,6 @@ import {NavigationContainer} from '@react-navigation/native';
 const Drawer = createDrawerNavigator();
 
 function CustomDrawerContent(drawerProps, logOut) {
-  console.log(logOut);
   return (
     <DrawerContentScrollView {...drawerProps}>
       <DrawerItemList {...drawerProps} />
@@ -37,28 +35,27 @@ function CustomDrawerContent(drawerProps, logOut) {
 
 const Router = (props) => {
   useEffect(() => {
-    // props.autoLogin();
+    props.autoLogin();
     props.fetchJobs();
   }, [props]);
 
   return (
-    // <NavBar />
-    <NavigationContainer>
-      <Drawer.Navigator
-        drawerContent={(drawerProps) => (
-          <CustomDrawerContent {...drawerProps} />
-        )}>
-        <Drawer.Screen name="Home" component={Home} />
-        <Drawer.Screen name="/login" component={Login} />
+    <>
+      <NavigationContainer>
+        <Drawer.Navigator
+          drawerContent={(drawerProps) => (
+            <CustomDrawerContent {...drawerProps} />
+          )}>
+          <Drawer.Screen name="Home" component={Home} />
+          <Drawer.Screen name="/login" component={Login} />
 
-        <Drawer.Screen name="/signup" component={Signup} />
-        <Drawer.Screen name="SingleJob" component={SingleJob} />
-        <Drawer.Screen name="/jobs" component={JobList} />
-        {/* 
-        <Drawer.Screen name="/profile" component={Profile} />
-        */}
-      </Drawer.Navigator>
-    </NavigationContainer>
+          <Drawer.Screen name="/signup" component={Signup} />
+          <Drawer.Screen name="SingleJob" component={SingleJob} />
+          <Drawer.Screen name="/jobs" component={JobList} />
+          {/* <Drawer.Screen name="/profile" component={Profile} /> */}
+        </Drawer.Navigator>
+      </NavigationContainer>
+    </>
   );
 };
 

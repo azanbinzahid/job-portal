@@ -17,9 +17,9 @@ export const fetchUser = (userCreds) => (dispatch) => {
         Accept: 'application/json',
       },
     })
-    .then((res) => {
+    .then(async (res) => {
       let data = res.data;
-      AsyncStorage.setItem('token', data.token);
+      await AsyncStorage.setItem('token', data.token);
       dispatch({
         type: 'SET_USER',
         payload: data.user,
@@ -32,13 +32,14 @@ export const fetchUser = (userCreds) => (dispatch) => {
     });
 };
 
-export const editUser = (userCreds) => (dispatch) => {
+export const editUser = (userCreds) => async (dispatch) => {
+  let JWTtoken = await AsyncStorage.getItem('token');
   axios
     .put(`${REACT_APP_BASE_URL}/users/current_user/`, userCreds, {
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
-        Authorization: `JWT ${AsyncStorage.getItem('token')}`,
+        Authorization: `JWT ${JWTtoken}`,
       },
     })
     .then((res) => {
@@ -51,7 +52,8 @@ export const editUser = (userCreds) => (dispatch) => {
     });
 };
 
-export const uploadImage = (userCreds) => (dispatch) => {
+export const uploadImage = (userCreds) => async (dispatch) => {
+  let JWTtoken = await AsyncStorage.getItem('token');
   let formData = new FormData();
   formData.append('image', userCreds.image);
   axios
@@ -59,7 +61,7 @@ export const uploadImage = (userCreds) => (dispatch) => {
       headers: {
         'Content-Type': 'multipart/form-data',
         Accept: 'application/json',
-        Authorization: `JWT ${AsyncStorage.getItem('token')}`,
+        Authorization: `JWT ${JWTtoken}`,
       },
     })
     .then((res) => {
@@ -92,13 +94,14 @@ export const signUserUp = (userCreds) => (dispatch) => {
     });
 };
 
-export const autoLogin = () => (dispatch) => {
-  if (AsyncStorage.getItem('token')) {
+export const autoLogin = () => async (dispatch) => {
+  let JWTtoken = await AsyncStorage.getItem('token');
+  if (JWTtoken) {
     axios(`${REACT_APP_BASE_URL}/users/current_user/`, {
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
-        Authorization: `JWT ${AsyncStorage.getItem('token')}`,
+        Authorization: `JWT ${JWTtoken}`,
       },
     })
       .then((res) => {
@@ -149,7 +152,9 @@ export const fetchJob = (jobId) => (dispatch) => {
     });
 };
 
-export const applyJob = (jobId, msg, type) => (dispatch) => {
+export const applyJob = (jobId, msg, type) => async (dispatch) => {
+  let JWTtoken = await AsyncStorage.getItem('token');
+
   axios
     .patch(
       `${REACT_APP_BASE_URL}/jobs/${jobId}/`,
@@ -158,7 +163,7 @@ export const applyJob = (jobId, msg, type) => (dispatch) => {
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
-          Authorization: `JWT ${AsyncStorage.getItem('token')}`,
+          Authorization: `JWT ${JWTtoken}`,
         },
       },
     )
