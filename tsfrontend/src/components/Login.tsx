@@ -6,6 +6,7 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import { fetchUser } from "redux/actions";
 import { RootState } from "redux/reducers";
+import TextField from "components/TextField";
 
 const validationSchema = yup.object().shape({
   username: yup.string().max(16).required(),
@@ -46,26 +47,22 @@ const Login: FC<Props> = (props) => {
         <Form
           onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
         >
-          <Form.Group controlId="formBasicEmail">
-            <Form.Control
-              type="text"
-              name="username"
-              placeholder="Username"
-              value={values.username}
-              onChange={handleChange}
-            />
-          </Form.Group>
-          {errors.username}
-          <Form.Group controlId="formBasicPassword">
-            <Form.Control
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={values.password}
-              onChange={handleChange}
-            />
-          </Form.Group>
-
+          <TextField
+            type="text"
+            name="username"
+            placeholder="Username"
+            value={values.username}
+            onChange={handleChange}
+            error={errors.username}
+          />
+          <TextField
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={values.password}
+            onChange={handleChange}
+            error={errors.password}
+          />
           <Button variant="primary" type="submit">
             Login
           </Button>

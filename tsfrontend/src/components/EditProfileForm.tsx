@@ -6,6 +6,7 @@ import * as Yup from "yup";
 import { editUser } from "redux/actions";
 import { RootState } from "redux/reducers";
 import { User } from "redux/types";
+import TextField from "./TextField";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email().required(),
@@ -42,42 +43,36 @@ const EditProfileForm: FC<Props> = (props) => {
         <Form
           onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
         >
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={values.email}
-              onChange={handleChange}
-            />
-          </Form.Group>
-          {errors.email}
-          <Form.Group controlId="formBasicFirstName">
-            <Form.Label>First Name</Form.Label>
-            <Form.Control
-              type="text"
-              name="firstName"
-              placeholder="First Name"
-              value={values.firstName}
-              onChange={handleChange}
-            />
-          </Form.Group>
-          {errors.firstName}
+          <TextField
+            label="Email Address"
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={values.email}
+            onChange={handleChange}
+            error={errors.email}
+          />
+          <TextField
+            label="First Name"
+            type="text"
+            name="firstName"
+            placeholder="First Name"
+            value={values.firstName}
+            onChange={handleChange}
+            error={errors.firstName}
+          />
 
-          <Form.Group controlId="formBasicLastName">
-            <Form.Label>Last Name</Form.Label>
-            <Form.Control
-              type="text"
-              name="lastName"
-              placeholder="Last Name"
-              value={values.lastName}
-              onChange={handleChange}
-            />
-          </Form.Group>
-          {errors.lastName}
+          <TextField
+            label="Last Name"
+            type="text"
+            name="lastName"
+            placeholder="Last Name"
+            value={values.lastName}
+            onChange={handleChange}
+            error={errors.lastName}
+          />
 
-          <Form.Group controlId="formBasicBio">
+          <Form.Group>
             <Form.Label>Bio</Form.Label>
             <Form.Control<React.ElementType>
               as="textarea"
@@ -88,21 +83,19 @@ const EditProfileForm: FC<Props> = (props) => {
               onChange={handleChange}
             />
           </Form.Group>
-          {/* {errors.bio} */}
+          {errors.profile && errors.profile.bio}
 
-          <Form.Group controlId="formBasicLocation">
-            <Form.Label>Current Location</Form.Label>
-            <Form.Control
-              type="text"
-              name="profile.location"
-              placeholder="Location"
-              value={values.profile.location}
-              onChange={handleChange}
-            />
-          </Form.Group>
-          {/* {errors.location} */}
+          <TextField
+            label="Current Location"
+            type="text"
+            name="profile.location"
+            placeholder="Location"
+            value={values.profile.location}
+            onChange={handleChange}
+            error={errors.profile && errors.profile.location}
+          />
 
-          <Form.Group controlId="formBasicEducation">
+          <Form.Group>
             <Form.Label>Education</Form.Label>
             <Form.Control<React.ElementType>
               as="textarea"
@@ -113,33 +106,30 @@ const EditProfileForm: FC<Props> = (props) => {
               onChange={handleChange}
             />
           </Form.Group>
-          {/* {errors.education} */}
+          {errors.profile && errors.profile.education}
 
-          <Form.Group controlId="formBasicEducation">
-            <Form.Label>Experiance</Form.Label>
-            <Form.Control<React.ElementType>
-              as="textarea"
-              rows="3"
-              name="profile.experiance"
-              placeholder="Experiance"
-              value={values.profile.experiance}
-              onChange={handleChange}
-            />
-          </Form.Group>
-          {/* {errors.experiance} */}
+          <Form.Label>Experiance</Form.Label>
+          <Form.Control<React.ElementType>
+            as="textarea"
+            rows="3"
+            name="profile.experiance"
+            placeholder="Experiance"
+            value={values.profile.experiance}
+            onChange={handleChange}
+          />
+          {errors.profile && errors.profile.experiance}
 
-          <Form.Group controlId="formBasicDate">
+          <Form.Group>
             <Form.Label>Birthdate</Form.Label>
-
             <Form.Control
               type="date"
-              name="profile.date"
+              name="profile.birthDate"
               placeholder="Birth Day"
               value={new Date(values.profile.birthDate).toLocaleDateString()}
               onChange={handleChange}
             />
           </Form.Group>
-          {/* {errors.date} */}
+          {errors.profile && errors.profile.birthDate}
 
           <Button variant="primary" type="submit">
             Update Profile

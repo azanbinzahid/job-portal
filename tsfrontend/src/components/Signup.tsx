@@ -6,6 +6,7 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import { signUserUp } from "redux/actions";
 import { RootState } from "redux/reducers";
+import TextField from "./TextField";
 
 const validationSchema = yup.object().shape({
   username: yup.string().max(16).required(),
@@ -55,57 +56,47 @@ const Signup: FC<Props> = (props) => {
         <Form
           onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
         >
-          <Form.Group controlId="formBasicEmail">
-            <Form.Control
-              type="text"
-              name="username"
-              placeholder="Username"
-              value={values.username}
-              onChange={handleChange}
-            />
-          </Form.Group>
-          {errors.username}
-          <Form.Group controlId="formBasicPassword">
-            <Form.Control
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={values.password}
-              onChange={handleChange}
-            />
-          </Form.Group>
-          {errors.password}
-          <Form.Group controlId="formBasicEmail">
-            <Form.Control
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={values.email}
-              onChange={handleChange}
-            />
-          </Form.Group>
-          {errors.email}
-          <Form.Group controlId="formBasicFirstName">
-            <Form.Control
-              type="text"
-              name="firstName"
-              placeholder="First Name"
-              value={values.firstName}
-              onChange={handleChange}
-            />
-          </Form.Group>
-          {errors.firstName}
+          <TextField
+            type="text"
+            name="username"
+            placeholder="Username"
+            value={values.username}
+            onChange={handleChange}
+            error={errors.username}
+          />
+          <TextField
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={values.password}
+            onChange={handleChange}
+            error={errors.password}
+          />
+          <TextField
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={values.email}
+            onChange={handleChange}
+            error={errors.email}
+          />
+          <TextField
+            type="text"
+            name="firstName"
+            placeholder="First Name"
+            value={values.firstName}
+            onChange={handleChange}
+            error={errors.firstName}
+          />
 
-          <Form.Group controlId="formBasicLastName">
-            <Form.Control
-              type="text"
-              name="lastName"
-              placeholder="Last Name"
-              value={values.lastName}
-              onChange={handleChange}
-            />
-          </Form.Group>
-          {errors.lastName}
+          <TextField
+            type="text"
+            name="lastName"
+            placeholder="Last Name"
+            value={values.lastName}
+            onChange={handleChange}
+            error={errors.lastName}
+          />
 
           <Button variant="primary" type="submit">
             SignUp
