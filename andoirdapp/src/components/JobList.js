@@ -1,20 +1,19 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import JobItem from './JobItem';
-import {View, Text} from 'react-native';
+import {Container, Content} from 'native-base';
+import MyHeader from './MyHeader';
 
 const JobList = (props) => {
   return (
-    <View>
-      <View align="center">
-        <Text> Job Listing Page </Text>
-      </View>
-      <View>
+    <Container>
+      <MyHeader {...props} />
+      <Content padder>
         {props.jobs.map((job) => (
           <JobItem key={job.id} job={job} navigation={props.navigation} />
         ))}
-      </View>
-    </View>
+      </Content>
+    </Container>
   );
 };
 
