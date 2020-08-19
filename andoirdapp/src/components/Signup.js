@@ -3,11 +3,23 @@ import {connect} from 'react-redux';
 import {useFormik} from 'formik';
 import * as yup from 'yup';
 import {signUserUp, logUserOut} from '../redux/actions';
-import {View, TextInput, Button, Text} from 'react-native';
+import {
+  Button,
+  Container,
+  Text,
+  Content,
+  Grid,
+  Col,
+  Form,
+  Item,
+  Label,
+  Input,
+} from 'native-base';
+import MyHeader from './MyHeader';
 
 const validationSchema = yup.object().shape({
   username: yup.string().max(16).required(),
-  password: yup.string().required(),
+  password: yup.string().min(8).required(),
   email: yup.string().email().required(),
   firstName: yup.string().required(),
   lastName: yup.string().required(),
@@ -22,72 +34,114 @@ const Login = (props) => {
       firstName: '',
       lastName: '',
     },
-    // validationSchema,
+    validationSchema,
     onSubmit(values) {
       props.signUserUp(values);
     },
   });
-
-  if (props.isLogged) {
-    return (
-      <View>
-        <Text>You are Logged In</Text>
-        <Button
-          title="Go to Home"
-          onPress={() => props.navigation.navigate('Home')}
-        />
-        <Button title="Log Out" onPress={() => props.logUserOut()} />
-      </View>
-    );
-  }
-
   return (
-    <View>
-      <Text>Sign Up Page</Text>
-      <View>
-        <TextInput
-          placeholder="Username"
-          value={values.username}
-          onChangeText={handleChange('username')}
-          onBlurText={handleBlur('username')}
-        />
-        {/* {errors.username} */}
-        <TextInput
-          placeholder="Password"
-          value={values.password}
-          onChangeText={handleChange('password')}
-          onBlurText={handleBlur('password')}
-        />
-        {/* {errors.password} */}
+    <Container>
+      <MyHeader {...props} />
+      <Content contentContainerStyle={StyleSheet.content} padder>
+        <Grid style={StyleSheet.grid}>
+          <Col>
+            {props.isLogged ? (
+              <>
+                <Text style={StyleSheet.text}>
+                  Are you sure you want to logout?
+                </Text>
+                <Button
+                  bordered
+                  style={StyleSheet.button}
+                  title="Log Out"
+                  onPress={() => props.logUserOut()}>
+                  <Text>Yes, Logout</Text>
+                </Button>
+              </>
+            ) : (
+              <Form>
+                <Item floatingLabel>
+                  <Label> Username </Label>
+                  <Input
+                    placeholder="Username"
+                    value={values.username}
+                    onChangeText={handleChange('username')}
+                    onBlurText={handleBlur('username')}
+                  />
+                </Item>
+                <Text style={StyleSheet.text}>{errors.username}</Text>
+                <Item floatingLabel>
+                  <Label> Password </Label>
+                  <Input
+                    placeholder="Password"
+                    value={values.password}
+                    onChangeText={handleChange('password')}
+                    onBlurText={handleBlur('password')}
+                  />
+                </Item>
+                <Text style={StyleSheet.text}>{errors.password}</Text>
 
-        <TextInput
-          placeholder="email"
-          value={values.email}
-          onChangeText={handleChange('email')}
-          onBlurText={handleBlur('email')}
-        />
-        {/* {errors.email} */}
+                <Item floatingLabel>
+                  <Label> Email </Label>
+                  <Input
+                    placeholder="email"
+                    value={values.email}
+                    onChangeText={handleChange('email')}
+                    onBlurText={handleBlur('email')}
+                  />
+                </Item>
+                <Text style={StyleSheet.text}>{errors.email}</Text>
 
-        <TextInput
-          placeholder="firstName"
-          value={values.firstName}
-          onChangeText={handleChange('firstName')}
-          onBlurText={handleBlur('firstName')}
-        />
-        {/* {errors.firstName} */}
+                <Item floatingLabel>
+                  <Label> First Name </Label>
+                  <Input
+                    placeholder="firstName"
+                    value={values.firstName}
+                    onChangeText={handleChange('firstName')}
+                    onBlurText={handleBlur('firstName')}
+                  />
+                </Item>
+                <Text style={StyleSheet.text}>{errors.firstName}</Text>
 
-        <TextInput
-          placeholder="lastName"
-          value={values.lastName}
-          onChangeText={handleChange('lastName')}
-          onBlurText={handleBlur('lastName')}
-        />
-        {/* {errors.lastName} */}
+                <Item floatingLabel>
+                  <Label> Last Name </Label>
+                  <Input
+                    placeholder="lastName"
+                    value={values.lastName}
+                    onChangeText={handleChange('lastName')}
+                    onBlurText={handleBlur('lastName')}
+                  />
+                </Item>
+                <Text style={StyleSheet.text}>{errors.lastName}</Text>
 
-        <Button onPress={handleSubmit} title="Sign Up" />
-      </View>
-    </View>
+                <Button
+                  bordered
+                  style={StyleSheet.button}
+                  onPress={handleSubmit}>
+                  <Text>Sign Up</Text>
+                </Button>
+              </Form>
+            )}
+          </Col>
+        </Grid>
+      </Content>
+    </Container>
   );
+};
+
+const StyleSheet = {
+  button: {
+    alignSelf: 'center',
+    margin: 15,
+  },
+  text: {
+    alignSelf: 'center',
+    textAlign: 'center',
+  },
+  grid: {
+    alignItems: 'center',
+  },
+  content: {},
 };
 
 const mapStateToProps = (state) => ({

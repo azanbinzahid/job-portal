@@ -1,45 +1,33 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {
-  Container,
-  Header,
-  Title,
-  Body,
-  Content,
-  Button,
-  Text,
-  H1,
-  Grid,
-  Col,
-} from 'native-base';
+import {Container, Content, Button, Text, H1, Grid, Col} from 'native-base';
+import MyHeader from './MyHeader';
 
 const Home = (props) => {
   return (
     <Container>
-      <Header>
-        <Body>
-          <Title style={{alignSelf: 'center'}}>Job Portal</Title>
-        </Body>
-      </Header>
-      <Content contentContainerStyle={{flex: 1}} padder>
-        <Grid style={{alignItems: 'center'}}>
+      <MyHeader {...props} />
+      <Content contentContainerStyle={StyleSheet.content} padder>
+        <Grid style={StyleSheet.grid}>
           <Col>
-            <H1 style={StyleSheet}>Welcome {props.firstName}</H1>
-            <Text style={StyleSheet}>
+            <H1 style={StyleSheet.text}>
+              Welcome {props.firstName ? props.firstName : ''}
+            </H1>
+            <Text style={StyleSheet.text}>
               Looking for a job? Apply online for latest jobs in Pakistan.
               Browse vacancies and apply for the latest jobs near you.
             </Text>
             {props.isLogged ? (
               <Button
                 bordered
-                style={StyleSheet}
+                style={StyleSheet.button}
                 onPress={() => props.navigation.navigate('Jobs')}>
                 <Text>Explore Jobs</Text>
               </Button>
             ) : (
               <Button
                 bordered
-                style={StyleSheet}
+                style={StyleSheet.button}
                 onPress={() => props.navigation.navigate('Login')}>
                 <Text>Login</Text>
               </Button>
@@ -52,8 +40,21 @@ const Home = (props) => {
 };
 
 const StyleSheet = {
-  alignSelf: 'center',
-  margin: 15,
+  button: {
+    alignSelf: 'center',
+    margin: 15,
+  },
+  text: {
+    alignSelf: 'center',
+    margin: 15,
+    textAlign: 'center',
+  },
+  grid: {
+    alignItems: 'center',
+  },
+  content: {
+    flex: 1,
+  },
 };
 
 const mapStateToProps = (state) => ({
