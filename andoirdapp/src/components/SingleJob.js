@@ -1,7 +1,17 @@
 import React, {useEffect, useCallback} from 'react';
 import {connect} from 'react-redux';
-import {View, Text, Button} from 'react-native';
-import {fetchJob, applyJob} from '../redux/actions';
+import {fetchJob, applyJob, autoLogin} from '../redux/actions';
+import {
+  Content,
+  Text,
+  Button,
+  Card,
+  CardItem,
+  Body,
+  Badge,
+  Container,
+} from 'native-base';
+import MyHeader from './MyHeader';
 
 const SingleJob = (props) => {
   var jobId = 1;
@@ -17,6 +27,7 @@ const SingleJob = (props) => {
 
   const handleClick = useCallback(
     (msg, type) => {
+      props.autoLogin();
       props.applyJob(jobId, msg, type);
     },
     [props, jobId],
@@ -27,71 +38,101 @@ const SingleJob = (props) => {
   }
 
   return (
-    <View>
-      <View>
-        <Text> Job Details Page </Text>
-        {!job.applicants.includes(props.username) ? (
-          <Button
-            onPress={() => handleClick('Applied', 'success')}
-            title="Apply Now"
-          />
-        ) : (
-          <Button
-            onPress={() => handleClick('Application Withdrawn', 'warning')}
-            variant="secondary"
-            title="Withdraw Application"
-          />
-        )}
-      </View>
+    <Container>
+      <MyHeader {...props} />
+      <Content padder>
+        <Card>
+          <CardItem header bordered>
+            <Text>{job.title}</Text>
+          </CardItem>
 
-      <View>
-        <View>
-          <Text> Job Title</Text>
-          <Text>{job.title}</Text>
-        </View>
+          <CardItem bordered>
+            <Text note>Company: </Text>
+            <Text>{job.company} </Text>
+          </CardItem>
 
-        <View>
-          <Text> Company</Text>
-          <Text>{job.company}</Text>
-        </View>
+          <CardItem bordered>
+            <Text note>Experiance: </Text>
+            <Text>{job.experiance}y </Text>
+          </CardItem>
 
-        <View>
-          <Text> Location(s)</Text>
-          <View>
-            {job.location.map((ele, index) => (
-              <Text key={index}>{ele}</Text>
+          <CardItem bordered>
+            <Text note>Salary: </Text>
+            <Text>{job.salaray} PKR </Text>
+          </CardItem>
+
+          <CardItem bordered>
+            <Body>
+              <Text note>Description: </Text>
+              <Text>{job.description}</Text>
+            </Body>
+          </CardItem>
+
+          <CardItem bordered>
+            <Text note>Location: </Text>
+            {job.location.map((loc) => (
+              <>
+                <Badge info>
+                  <Text>{loc}</Text>
+                </Badge>
+                <Text> </Text>
+              </>
             ))}
-          </View>
-        </View>
-        <View>
-          <Text> Job Description</Text>
-          <Text> {job.description} </Text>
-        </View>
+          </CardItem>
 
-        <View>
-          <Text> Category(s)</Text>
-          {job.category.map((ele, index) => (
-            <Text key={index}>{ele}</Text>
-          ))}
-        </View>
-        <View>
-          <Text> Qualification(s)</Text>
-          {job.qualification.map((ele, index) => (
-            <Text key={index}>{ele}</Text>
-          ))}
-        </View>
-        <View>
-          <Text> Salary</Text>
-          <Text>{job.salaray}</Text>
-        </View>
+          <CardItem bordered>
+            <Text note>Qualification: </Text>
+            {job.qualification.map((ele) => (
+              <>
+                <Badge success>
+                  <Text>{ele} </Text>
+                </Badge>
+                <Text> </Text>
+              </>
+            ))}
+          </CardItem>
 
-        <View>
-          <Text> Experiance</Text>
-          <Text>{job.experiance}</Text>
-        </View>
-      </View>
-    </View>
+          <CardItem bordered>
+            <Text note>Category: </Text>
+            {job.category.map((cat) => (
+              <>
+                <Badge warning>
+                  <Text>{cat} </Text>
+                </Badge>
+                <Text> </Text>
+              </>
+            ))}
+          </CardItem>
+        </Card>
+        <Content>
+          {!job.applicants.includes(props.username) ? (
+            <Button
+              style={StyleSheet.button}
+              rounded
+              primary
+              onPress={() => handleClick('Applied', 'success')}>
+              <Text>Apply Now</Text>
+            </Button>
+          ) : (
+            <Button
+              rounded
+              style={StyleSheet.button}
+              light
+              onPress={() => handleClick('Application Withdrawn', 'warning')}>
+              <Text>Withdraw Application</Text>
+            </Button>
+          )}
+        </Content>
+      </Content>
+    </Container>
   );
+};
+
+const StyleSheet = {
+  button: {
+    alignSelf: 'center',
+    margin: 15,
+  },
 };
 
 const mapStateToProps = (state) => ({
@@ -102,6 +143,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchJob: (jobId) => dispatch(fetchJob(jobId)),
+    autoLogin: () => dispatch(autoLogin()),
     applyJob: (jobId, msg, type) => dispatch(applyJob(jobId, msg, type)),
   };
 };

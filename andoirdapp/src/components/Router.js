@@ -24,7 +24,13 @@ const Router = (props) => {
           <Drawer.Screen name="Home" component={Home} />
           <Drawer.Screen name="Jobs" component={JobList} />
           <Drawer.Screen name="Logout" component={Login} />
-          <Drawer.Screen name="Job" component={SingleJob} />
+          <Drawer.Screen
+            name="Job"
+            component={SingleJob}
+            options={{
+              drawerLabel: () => null,
+            }}
+          />
         </Drawer.Navigator>
       ) : (
         <Drawer.Navigator>
