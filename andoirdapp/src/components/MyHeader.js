@@ -1,5 +1,6 @@
 import React from 'react';
 import {Header, Body, Title, Button, Text, Left, Right} from 'native-base';
+import AlertBox from './AlertBox';
 
 export default function MyHeader(props) {
   return (
@@ -12,7 +13,9 @@ export default function MyHeader(props) {
       <Body style={StyleSheet.body}>
         <Title style={StyleSheet.header}>{props.route.name}</Title>
       </Body>
-      <Right style={StyleSheet.body} />
+      <Right style={StyleSheet.body}>
+        <AlertBox />
+      </Right>
     </Header>
   );
 }

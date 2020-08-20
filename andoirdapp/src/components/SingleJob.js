@@ -118,7 +118,7 @@ const SingleJob = (props) => {
               rounded
               style={StyleSheet.button}
               light
-              onPress={() => handleClick('Application Withdrawn', 'warning')}>
+              onPress={() => handleClick('Withdrawn', 'warning')}>
               <Text>Withdraw Application</Text>
             </Button>
           )}
