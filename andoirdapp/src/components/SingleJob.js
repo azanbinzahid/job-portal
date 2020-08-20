@@ -10,6 +10,7 @@ import {
   Body,
   Badge,
   Container,
+  Footer,
 } from 'native-base';
 import MyHeader from './MyHeader';
 
@@ -27,7 +28,6 @@ const SingleJob = (props) => {
 
   const handleClick = useCallback(
     (msg, type) => {
-      props.autoLogin();
       props.applyJob(jobId, msg, type);
     },
     [props, jobId],
@@ -71,68 +71,49 @@ const SingleJob = (props) => {
           <CardItem bordered>
             <Text note>Location: </Text>
             {job.location.map((loc, index) => (
-              <>
-                <Badge key={index} info>
-                  <Text>{loc}</Text>
-                </Badge>
-                <Text> </Text>
-              </>
+              <Badge key={index} info style={{margin: 2}}>
+                <Text>{loc}</Text>
+              </Badge>
             ))}
           </CardItem>
 
           <CardItem bordered>
             <Text note>Qualification: </Text>
             {job.qualification.map((ele, index) => (
-              <>
-                <Badge key={index} success>
-                  <Text>{ele} </Text>
-                </Badge>
-                <Text> </Text>
-              </>
+              <Badge key={index} success style={{margin: 2}}>
+                <Text>{ele} </Text>
+              </Badge>
             ))}
           </CardItem>
 
           <CardItem bordered>
             <Text note>Category: </Text>
             {job.category.map((cat, index) => (
-              <>
-                <Badge key={index} warning>
-                  <Text>{cat} </Text>
-                </Badge>
-                <Text> </Text>
-              </>
+              <Badge key={index} warning style={{margin: 2}}>
+                <Text>{cat} </Text>
+              </Badge>
             ))}
           </CardItem>
         </Card>
-        <Content>
+      </Content>
+      <Footer>
+        <Body>
           {!job.applicants.includes(props.username) ? (
-            <Button
-              style={StyleSheet.button}
-              rounded
-              primary
-              onPress={() => handleClick('Applied', 'success')}>
+            <Button full onPress={() => handleClick('Applied', 'success')}>
               <Text>Apply Now</Text>
             </Button>
           ) : (
             <Button
-              rounded
-              style={StyleSheet.button}
-              light
+              full
+              danger
               onPress={() => handleClick('Withdrawn', 'warning')}>
               <Text>Withdraw Application</Text>
             </Button>
           )}
-        </Content>
-      </Content>
+        </Body>
+      </Footer>
     </Container>
   );
-};
-
-const StyleSheet = {
-  button: {
-    alignSelf: 'center',
-    margin: 15,
-  },
 };
 
 const mapStateToProps = (state) => ({
@@ -143,7 +124,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchJob: (jobId) => dispatch(fetchJob(jobId)),
-    autoLogin: () => dispatch(autoLogin()),
     applyJob: (jobId, msg, type) => dispatch(applyJob(jobId, msg, type)),
   };
 };

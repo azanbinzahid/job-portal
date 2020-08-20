@@ -27,24 +27,18 @@ const JobItem = (props) => {
 
       <CardItem bordered>
         <Text note>Location: </Text>
-        {job.location.map((loc) => (
-          <>
-            <Badge info>
-              <Text>{loc}</Text>
-            </Badge>
-            <Text> </Text>
-          </>
+        {job.location.map((loc, index) => (
+          <Badge key={index} info style={{margin: 2}}>
+            <Text>{loc}</Text>
+          </Badge>
         ))}
       </CardItem>
       <CardItem bordered>
         <Text note>Category: </Text>
-        {job.category.map((cat) => (
-          <>
-            <Badge warning>
-              <Text>{cat} </Text>
-            </Badge>
-            <Text> </Text>
-          </>
+        {job.category.map((cat, index) => (
+          <Badge key={index} warning style={{margin: 2}}>
+            <Text>{cat} </Text>
+          </Badge>
         ))}
       </CardItem>
       <CardItem
