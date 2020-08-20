@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Text, Button, Badge} from 'native-base';
+import {Text, Badge} from 'native-base';
 
 const AlertBox = (props) => {
   if (props.alerts !== null && props.alerts.length > 0) {

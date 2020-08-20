@@ -25,12 +25,20 @@ const Home = (props) => {
                 <Text>Explore Jobs</Text>
               </Button>
             ) : (
-              <Button
-                bordered
-                style={StyleSheet.button}
-                onPress={() => props.navigation.navigate('Login')}>
-                <Text>Login</Text>
-              </Button>
+              <>
+                <Button
+                  bordered
+                  style={StyleSheet.button}
+                  onPress={() => props.navigation.navigate('Login')}>
+                  <Text>Login</Text>
+                </Button>
+                <Button
+                  bordered
+                  style={StyleSheet.button}
+                  onPress={() => props.navigation.navigate('SignUp')}>
+                  <Text>Signup</Text>
+                </Button>
+              </>
             )}
           </Col>
         </Grid>

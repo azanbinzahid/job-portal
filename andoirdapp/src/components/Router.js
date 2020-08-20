@@ -8,6 +8,7 @@ import Login from './Login';
 import Signup from './Signup';
 import JobList from './JobList';
 import SingleJob from './SingleJob';
+import Profile from './Profile';
 
 const Drawer = createDrawerNavigator();
 
@@ -23,6 +24,7 @@ const Router = (props) => {
         <Drawer.Navigator>
           <Drawer.Screen name="Home" component={Home} />
           <Drawer.Screen name="Jobs" component={JobList} />
+          <Drawer.Screen name="Profile" component={Profile} />
           <Drawer.Screen name="Logout" component={Login} />
           <Drawer.Screen
             name="Job"

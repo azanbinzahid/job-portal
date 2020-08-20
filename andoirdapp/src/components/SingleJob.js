@@ -70,9 +70,9 @@ const SingleJob = (props) => {
 
           <CardItem bordered>
             <Text note>Location: </Text>
-            {job.location.map((loc) => (
+            {job.location.map((loc, index) => (
               <>
-                <Badge info>
+                <Badge key={index} info>
                   <Text>{loc}</Text>
                 </Badge>
                 <Text> </Text>
@@ -82,9 +82,9 @@ const SingleJob = (props) => {
 
           <CardItem bordered>
             <Text note>Qualification: </Text>
-            {job.qualification.map((ele) => (
+            {job.qualification.map((ele, index) => (
               <>
-                <Badge success>
+                <Badge key={index} success>
                   <Text>{ele} </Text>
                 </Badge>
                 <Text> </Text>
@@ -94,9 +94,9 @@ const SingleJob = (props) => {
 
           <CardItem bordered>
             <Text note>Category: </Text>
-            {job.category.map((cat) => (
+            {job.category.map((cat, index) => (
               <>
-                <Badge warning>
+                <Badge key={index} warning>
                   <Text>{cat} </Text>
                 </Badge>
                 <Text> </Text>

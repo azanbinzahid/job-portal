@@ -2,42 +2,63 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {
   Container,
-  Row,
-  Col,
-  Jumbotron,
-  ListGroup,
-  ListGroupItem,
-} from 'react-bootstrap';
-import {LinkContainer} from 'react-router-bootstrap';
-import EditProfileForm from 'components/EditProfileForm';
-import ProfilePicture from 'components/ProfilePicture';
+  Content,
+  Text,
+  Button,
+  Card,
+  CardItem,
+  Body,
+  Right,
+  Left,
+  H3,
+} from 'native-base';
+
+import EditProfileForm from './EditProfileForm';
+import MyHeader from './MyHeader';
 
 const Profile = (props) => {
   return (
     <Container>
-      <Jumbotron align="center">
-        <h1> {props.firstName + ' ' + props.lastName} </h1>
-        <h3> Profile Page </h3>
-      </Jumbotron>
+      <MyHeader {...props} />
+      <Content padder>
+        <Card>
+          <CardItem header>
+            <Body style={{alignItems: 'center'}}>
+              <H3>
+                {props.firstName} {props.lastName}
+              </H3>
+            </Body>
+          </CardItem>
+        </Card>
+        <Card>
+          <CardItem header bordered>
+            <Text>Jobs Applied</Text>
+          </CardItem>
+          {props.jobsApplied.map((job, index) => (
+            <CardItem key={index}>
+              <Left>
+                <Text>{job.title}</Text>
+              </Left>
+              <Right>
+                <Button
+                  transparent
+                  onPress={() =>
+                    props.navigation.navigate('Job', {jobId: job.id})
+                  }>
+                  <Text>View</Text>
+                </Button>
+              </Right>
+            </CardItem>
+          ))}
+        </Card>
+        <Card>
+          <CardItem header bordered>
+            <Text>Update Profile</Text>
+          </CardItem>
 
-      <Row>
-        <Col>
           <EditProfileForm />
-        </Col>
-        <Col>
-          <ProfilePicture />
-          <h1> Jobs Applied </h1>
-          <ListGroup>
-            {props.jobsApplied.map((job, index) => (
-              <LinkContainer key={index} to={`/jobs/${job.id}`}>
-                <ListGroupItem action key={index}>
-                  {job.title}
-                </ListGroupItem>
-              </LinkContainer>
-            ))}
-          </ListGroup>
-        </Col>
-      </Row>
+        </Card>
+      </Content>
     </Container>
   );
 };
@@ -45,7 +66,7 @@ const Profile = (props) => {
 const mapStateToProps = (state) => ({
   firstName: state.userReducer.user.firstName,
   lastName: state.userReducer.user.lastName,
-  profileImage: state.userReducer.user.profile.image,
+  profileImage: 'http://10.0.2.2:8000' + state.userReducer.user.profile.image,
   jobsApplied: state.userReducer.user.jobsApplied,
 });
 

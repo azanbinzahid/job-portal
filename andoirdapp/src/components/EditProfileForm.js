@@ -1,183 +1,143 @@
-import React from 'react'
-import {connect} from 'react-redux'
-import { Form, Button, Jumbotron, Container } from 'react-bootstrap';
-import { useFormik } from "formik";
-import * as Yup from 'yup'
-import {editUser} from 'redux/actions'
+import React from 'react';
+import {connect} from 'react-redux';
+import {useFormik} from 'formik';
+import * as Yup from 'yup';
+import {editUser} from '../redux/actions';
+import {Form, Input, Item, Text, Button, Label, Textarea} from 'native-base';
 
-const validationSchema = Yup.object().shape({   
-    email: Yup     
-        .string()     
-        .email()     
-        .required(),
-    firstName: Yup     
-        .string()     
-        .max(16)     
-        .required(),   
-    lastName: Yup     
-        .string()     
-        .max(16)     
-        .required(), 
-    
-    // validation errors, need to fix 
-    profile: Yup.object().shape({  
-        bio: Yup     
-            .string()     
-            .max(500)     
-            .required(),   
-        location: Yup     
-            .string()     
-            .max(30)     
-            .required(),   
-        education: Yup     
-            .string()     
-            .max(300)     
-            .required(),   
-        experiance: Yup     
-            .string()     
-            .max(300)     
-            .required(),   
-
-        birthDate: Yup     
-            .date()     
-            .required()   
-    })
-})
+const validationSchema = Yup.object().shape({
+  email: Yup.string().email().required(),
+  firstName: Yup.string().max(16).required(),
+  lastName: Yup.string().max(16).required(),
+  profile: Yup.object().shape({
+    bio: Yup.string().max(500).required(),
+    location: Yup.string().max(30).required(),
+    education: Yup.string().max(300).required(),
+    experiance: Yup.string().max(300).required(),
+    // birthDate: Yup.date().required(),
+  }),
+});
 
 const EditProfileForm = (props) => {
-    const { handleSubmit, handleChange, values, errors} = useFormik({
-        initialValues: props.userDetails,
-        validationSchema,
-        onSubmit(values) {
-            props.editUser(values)
-        }
-    })
-
-
-    return(
-        <Container>
-        <Jumbotron>
-        <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-                <Form.Control 
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    value={values.email}
-                    onChange={handleChange}
-                    />
-            </Form.Group>
-            {errors.email}
-            <Form.Group controlId="formBasicFirstName">
-            <Form.Label>First Name</Form.Label>
-                <Form.Control 
-                    type="text"
-                    name="firstName"
-                    placeholder="First Name"
-                    value={values.firstName}
-                    onChange={handleChange}
-                />
-            </Form.Group>
-            {errors.firstName}
-
-            <Form.Group controlId="formBasicLastName">
-            <Form.Label>Last Name</Form.Label>
-                <Form.Control 
-                    type="text"
-                    name="lastName"
-                    placeholder="Last Name"
-                    value={values.lastName}
-                    onChange={handleChange}
-                />
-            </Form.Group>
-            {errors.lastName}
-
-            <Form.Group controlId="formBasicBio">
-            <Form.Label>Bio</Form.Label>
-                <Form.Control 
-                    as="textarea"
-                    rows="3"
-                    name="profile.bio"
-                    placeholder="Bio"
-                    value={values.profile.bio}
-                    onChange={handleChange}
-                />
-            </Form.Group>
-            {errors.bio}
-
-            <Form.Group controlId="formBasicLocation">
-            <Form.Label>Current Location</Form.Label>
-                <Form.Control 
-                    type="text"
-                    name="profile.location"
-                    placeholder="Location"
-                    value={values.profile.location}
-                    onChange={handleChange}
-                />
-            </Form.Group>
-            {errors.location}
-
-            <Form.Group controlId="formBasicEducation">
-
-            <Form.Label>Education</Form.Label>
-                <Form.Control 
-                    as="textarea"
-                    rows="3"
-                    name="profile.education"
-                    placeholder="Education"
-                    value={values.profile.education}
-                    onChange={handleChange}
-                />
-            </Form.Group>
-            {errors.education}
-
-            <Form.Group controlId="formBasicEducation">
-            <Form.Label>Experiance</Form.Label>
-                <Form.Control 
-                    as="textarea"
-                    rows="3"
-                    name="profile.experiance"
-                    placeholder="Experiance"
-                    value={values.profile.experiance}
-                    onChange={handleChange}
-                />
-            </Form.Group>
-            {errors.experiance}
-
-
-            <Form.Group controlId="formBasicDate">
-            <Form.Label>Birthdate</Form.Label>
-
-                <Form.Control 
-                    type="date"
-                    name="profile.date"
-                    placeholder="Birth Day"
-                    value={values.profile.birthDate}
-                    onChange={handleChange}
-                />
-            </Form.Group>
-            {errors.date}
-
-
-            <Button variant="primary" type="submit">
-                Update Profile
-            </Button>
-        </Form>
-        </Jumbotron>
-        </Container>
-    )
-}
-
-
-const mapStateToProps = state => ({
-    userDetails: state.userReducer.user
+  const {handleSubmit, handleChange, handleBlur, values, errors} = useFormik({
+    initialValues: props.userDetails,
+    validationSchema,
+    onSubmit(values) {
+      props.editUser(values);
+    },
   });
 
+  return (
+    <Form>
+      <Item floatingLabel>
+        <Label> Email </Label>
+        <Input
+          placeholder="email"
+          value={values.email}
+          onChangeText={handleChange('email')}
+          onBlurText={handleBlur('email')}
+        />
+      </Item>
+      <Text style={StyleSheet.text}>{errors.email}</Text>
+
+      <Item floatingLabel>
+        <Label> First Name </Label>
+        <Input
+          placeholder="firstName"
+          value={values.firstName}
+          onChangeText={handleChange('firstName')}
+          onBlurText={handleBlur('firstName')}
+        />
+      </Item>
+      <Text style={StyleSheet.text}>{errors.firstName}</Text>
+
+      <Item floatingLabel>
+        <Label> Last Name </Label>
+        <Input
+          placeholder="lastName"
+          value={values.lastName}
+          onChangeText={handleChange('lastName')}
+          onBlurText={handleBlur('lastName')}
+        />
+      </Item>
+      <Text style={StyleSheet.text}>{errors.lastName}</Text>
+
+      <Item floatingLabel>
+        <Label> Bio </Label>
+        <Input
+          multiline={true}
+          numberOfLines={5}
+          placeholder="bio"
+          value={values.profile.bio}
+          onChangeText={handleChange('profile.bio')}
+          onBlurText={handleBlur('profile.bio')}
+        />
+      </Item>
+      <Text style={StyleSheet.text}>{errors.profile && errors.bio}</Text>
+
+      <Item floatingLabel>
+        <Label> Location </Label>
+        <Input
+          placeholder="location"
+          value={values.profile.location}
+          onChangeText={handleChange('profile.location')}
+          onBlurText={handleBlur('profile.location')}
+        />
+      </Item>
+      <Text style={StyleSheet.text}>{errors.profile && errors.location}</Text>
+
+      <Item floatingLabel>
+        <Label> Education </Label>
+        <Input
+          multiline={true}
+          numberOfLines={5}
+          placeholder="education"
+          value={values.profile.education}
+          onChangeText={handleChange('profile.education')}
+          onBlurText={handleBlur('profile.education')}
+        />
+      </Item>
+      <Text style={StyleSheet.text}>{errors.profile && errors.lastName}</Text>
+
+      <Item floatingLabel>
+        <Label> Experiance </Label>
+        <Input
+          multiline={true}
+          numberOfLines={5}
+          placeholder="experiance"
+          value={values.profile.experiance}
+          onChangeText={handleChange('profile.experiance')}
+          onBlurText={handleBlur('profile.experiance')}
+        />
+      </Item>
+      <Text style={StyleSheet.text}>{errors.profile && errors.lastName}</Text>
+
+      <Button bordered style={StyleSheet.button} onPress={handleSubmit}>
+        <Text>Update</Text>
+      </Button>
+    </Form>
+  );
+};
+
+const StyleSheet = {
+  button: {
+    alignSelf: 'center',
+    margin: 15,
+  },
+  text: {
+    alignSelf: 'center',
+    textAlign: 'center',
+  },
+};
+
+const mapStateToProps = (state) => ({
+  userDetails: state.userReducer.user,
+});
+
 const mapDispatchToProps = (dispatch) => {
-    return {
-        editUser: (userInfo) => dispatch(editUser(userInfo))
-    }
-}
+  return {
+    editUser: (userInfo) => dispatch(editUser(userInfo)),
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditProfileForm);
