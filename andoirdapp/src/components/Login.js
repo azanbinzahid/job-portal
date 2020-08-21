@@ -16,6 +16,7 @@ import {
   Input,
 } from 'native-base';
 import MyHeader from './MyHeader';
+import TextInput from './TextInput';
 
 const validationSchema = yup.object().shape({
   username: yup.string().max(16).required(),
@@ -55,26 +56,23 @@ const Login = (props) => {
               </>
             ) : (
               <Form>
-                <Item floatingLabel>
-                  <Label> Username </Label>
-                  <Input
-                    placeholder="Username"
-                    value={values.username}
-                    onChangeText={handleChange('username')}
-                    onBlurText={handleBlur('username')}
-                  />
-                </Item>
-                <Text style={StyleSheet.text}>{errors.username}</Text>
-                <Item floatingLabel>
-                  <Label> Password </Label>
-                  <Input
-                    placeholder="Password"
-                    value={values.password}
-                    onChangeText={handleChange('password')}
-                    onBlurText={handleBlur('password')}
-                  />
-                </Item>
-                <Text style={StyleSheet.text}>{errors.password}</Text>
+                <TextInput
+                  name="username"
+                  label="Username"
+                  value={values.username}
+                  handleChange={handleChange}
+                  handleBlur={handleBlur}
+                  errors={errors.username}
+                />
+                <TextInput
+                  name="password"
+                  label="Password"
+                  value={values.password}
+                  handleChange={handleChange}
+                  handleBlur={handleBlur}
+                  errors={errors.password}
+                />
+
                 <Button
                   bordered
                   style={StyleSheet.button}

@@ -4,6 +4,7 @@ import {useFormik} from 'formik';
 import * as Yup from 'yup';
 import {editUser} from '../redux/actions';
 import {Form, Input, Item, Text, Button, Label, Textarea} from 'native-base';
+import TextInput from './TextInput';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email().required(),
@@ -29,88 +30,71 @@ const EditProfileForm = (props) => {
 
   return (
     <Form>
-      <Item floatingLabel>
-        <Label> Email </Label>
-        <Input
-          placeholder="email"
-          value={values.email}
-          onChangeText={handleChange('email')}
-          onBlurText={handleBlur('email')}
-        />
-      </Item>
-      <Text style={StyleSheet.text}>{errors.email}</Text>
+      <TextInput
+        name="email"
+        label="Email"
+        value={values.email}
+        handleChange={handleChange}
+        handleBlur={handleBlur}
+        errors={errors.email}
+      />
 
-      <Item floatingLabel>
-        <Label> First Name </Label>
-        <Input
-          placeholder="firstName"
-          value={values.firstName}
-          onChangeText={handleChange('firstName')}
-          onBlurText={handleBlur('firstName')}
-        />
-      </Item>
-      <Text style={StyleSheet.text}>{errors.firstName}</Text>
+      <TextInput
+        name="firstName"
+        label="First Name"
+        value={values.firstName}
+        handleChange={handleChange}
+        handleBlur={handleBlur}
+        errors={errors.firstName}
+      />
 
-      <Item floatingLabel>
-        <Label> Last Name </Label>
-        <Input
-          placeholder="lastName"
-          value={values.lastName}
-          onChangeText={handleChange('lastName')}
-          onBlurText={handleBlur('lastName')}
-        />
-      </Item>
-      <Text style={StyleSheet.text}>{errors.lastName}</Text>
+      <TextInput
+        name="lastName"
+        label="Last Name"
+        value={values.lastName}
+        handleChange={handleChange}
+        handleBlur={handleBlur}
+        errors={errors.lastName}
+      />
 
-      <Item floatingLabel>
-        <Label> Bio </Label>
-        <Input
-          multiline={true}
-          numberOfLines={5}
-          placeholder="bio"
-          value={values.profile.bio}
-          onChangeText={handleChange('profile.bio')}
-          onBlurText={handleBlur('profile.bio')}
-        />
-      </Item>
-      <Text style={StyleSheet.text}>{errors.profile && errors.bio}</Text>
+      <TextInput
+        multiline={true}
+        name="profile.bio"
+        label="Bio"
+        value={values.profile.bio}
+        handleChange={handleChange}
+        handleBlur={handleBlur}
+        errors={errors.profile && errors.profile.bio}
+      />
 
-      <Item floatingLabel>
-        <Label> Location </Label>
-        <Input
-          placeholder="location"
-          value={values.profile.location}
-          onChangeText={handleChange('profile.location')}
-          onBlurText={handleBlur('profile.location')}
-        />
-      </Item>
-      <Text style={StyleSheet.text}>{errors.profile && errors.location}</Text>
+      <TextInput
+        name="profile.location"
+        label="Location"
+        value={values.profile.location}
+        handleChange={handleChange}
+        handleBlur={handleBlur}
+        errors={errors.profile && errors.profile.location}
+      />
 
-      <Item floatingLabel>
-        <Label> Education </Label>
-        <Input
-          multiline={true}
-          numberOfLines={5}
-          placeholder="education"
-          value={values.profile.education}
-          onChangeText={handleChange('profile.education')}
-          onBlurText={handleBlur('profile.education')}
-        />
-      </Item>
-      <Text style={StyleSheet.text}>{errors.profile && errors.lastName}</Text>
+      <TextInput
+        multiline={true}
+        name="profile.education"
+        label="Education"
+        value={values.profile.education}
+        handleChange={handleChange}
+        handleBlur={handleBlur}
+        errors={errors.profile && errors.profile.education}
+      />
 
-      <Item floatingLabel>
-        <Label> Experiance </Label>
-        <Input
-          multiline={true}
-          numberOfLines={5}
-          placeholder="experiance"
-          value={values.profile.experiance}
-          onChangeText={handleChange('profile.experiance')}
-          onBlurText={handleBlur('profile.experiance')}
-        />
-      </Item>
-      <Text style={StyleSheet.text}>{errors.profile && errors.lastName}</Text>
+      <TextInput
+        multiline={true}
+        name="profile.experiance"
+        label="Experiance"
+        value={values.profile.experiance}
+        handleChange={handleChange}
+        handleBlur={handleBlur}
+        errors={errors.profile && errors.profile.experiance}
+      />
 
       <Button bordered style={StyleSheet.button} onPress={handleSubmit}>
         <Text>Update</Text>

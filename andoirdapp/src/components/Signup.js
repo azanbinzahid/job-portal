@@ -16,6 +16,7 @@ import {
   Input,
 } from 'native-base';
 import MyHeader from './MyHeader';
+import TextInput from './TextInput';
 
 const validationSchema = yup.object().shape({
   username: yup.string().max(16).required(),
@@ -60,59 +61,50 @@ const Login = (props) => {
               </>
             ) : (
               <Form>
-                <Item floatingLabel>
-                  <Label> Username </Label>
-                  <Input
-                    placeholder="Username"
-                    value={values.username}
-                    onChangeText={handleChange('username')}
-                    onBlurText={handleBlur('username')}
-                  />
-                </Item>
-                <Text style={StyleSheet.text}>{errors.username}</Text>
-                <Item floatingLabel>
-                  <Label> Password </Label>
-                  <Input
-                    placeholder="Password"
-                    value={values.password}
-                    onChangeText={handleChange('password')}
-                    onBlurText={handleBlur('password')}
-                  />
-                </Item>
-                <Text style={StyleSheet.text}>{errors.password}</Text>
+                <TextInput
+                  name="username"
+                  label="Username"
+                  value={values.username}
+                  handleChange={handleChange}
+                  handleBlur={handleBlur}
+                  errors={errors.username}
+                />
 
-                <Item floatingLabel>
-                  <Label> Email </Label>
-                  <Input
-                    placeholder="email"
-                    value={values.email}
-                    onChangeText={handleChange('email')}
-                    onBlurText={handleBlur('email')}
-                  />
-                </Item>
-                <Text style={StyleSheet.text}>{errors.email}</Text>
+                <TextInput
+                  name="password"
+                  label="Password"
+                  value={values.password}
+                  handleChange={handleChange}
+                  handleBlur={handleBlur}
+                  errors={errors.password}
+                />
 
-                <Item floatingLabel>
-                  <Label> First Name </Label>
-                  <Input
-                    placeholder="firstName"
-                    value={values.firstName}
-                    onChangeText={handleChange('firstName')}
-                    onBlurText={handleBlur('firstName')}
-                  />
-                </Item>
-                <Text style={StyleSheet.text}>{errors.firstName}</Text>
+                <TextInput
+                  name="email"
+                  label="Email"
+                  value={values.email}
+                  handleChange={handleChange}
+                  handleBlur={handleBlur}
+                  errors={errors.email}
+                />
 
-                <Item floatingLabel>
-                  <Label> Last Name </Label>
-                  <Input
-                    placeholder="lastName"
-                    value={values.lastName}
-                    onChangeText={handleChange('lastName')}
-                    onBlurText={handleBlur('lastName')}
-                  />
-                </Item>
-                <Text style={StyleSheet.text}>{errors.lastName}</Text>
+                <TextInput
+                  name="firstName"
+                  label="First Name"
+                  value={values.firstName}
+                  handleChange={handleChange}
+                  handleBlur={handleBlur}
+                  errors={errors.firstName}
+                />
+
+                <TextInput
+                  name="lastName"
+                  label="Last Name"
+                  value={values.lastName}
+                  handleChange={handleChange}
+                  handleBlur={handleBlur}
+                  errors={errors.lastName}
+                />
 
                 <Button
                   bordered
