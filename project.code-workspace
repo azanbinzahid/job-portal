@@ -1,0 +1,10 @@
+{
+    "folders": [
+        {
+            "path": "andoirdapp"
+        }
+    ],
+    "settings": {
+        "git.ignoreLimitWarning": true
+    }
+}
