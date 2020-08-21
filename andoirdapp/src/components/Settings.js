@@ -5,7 +5,6 @@ import {
   Content,
   Button,
   Text,
-  Body,
   Card,
   CardItem,
   Left,
