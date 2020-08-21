@@ -53,7 +53,7 @@ const Profile = (props) => {
         </Card>
         <Card>
           <CardItem header bordered>
-            <Text>Update Profile</Text>
+            <Text>Profile Details</Text>
           </CardItem>
 
           <EditProfileForm />

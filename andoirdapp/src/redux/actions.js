@@ -44,7 +44,7 @@ export const editUser = (userCreds) => async (dispatch) => {
     })
     .then((res) => {
       dispatch(autoLogin());
-      dispatch(setAlert('User Profile Updated', 'success'));
+      dispatch(setAlert('Profile Updated', 'success'));
     })
     .catch((error) => {
       dispatch(setAlert('Error in Update', 'danger'));
@@ -66,10 +66,10 @@ export const uploadImage = (userCreds) => async (dispatch) => {
     })
     .then((res) => {
       dispatch(autoLogin());
-      dispatch(setAlert('Profile Picture Updated', 'success'));
+      dispatch(setAlert('Picture Updated', 'success'));
     })
     .catch((error) => {
-      dispatch(setAlert('Error in Profile Picture Update', 'danger'));
+      dispatch(setAlert('Error Update', 'danger'));
       console.error(error);
     });
 };
