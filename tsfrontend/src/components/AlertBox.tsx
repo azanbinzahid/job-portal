@@ -1,36 +1,31 @@
-import React from 'react'
-import {connect} from 'react-redux';
-import { Alert } from 'react-bootstrap';
-import {Alert as AlertType} from 'redux/types'
-import { RootState } from 'redux/reducers';
-
+import React, { FC } from "react";
+import { connect } from "react-redux";
+import { Alert } from "react-bootstrap";
+import { Alert as AlertType } from "redux/types";
+import { RootState } from "redux/reducers";
 
 type Props = {
-    alerts: AlertType[]
-}
+  alerts: AlertType[];
+};
 
-const AlertBox = (props: Props) => {
-
-   
-    if(props.alerts !==null && props.alerts.length>0){
-        return(
-            <>
-            {
-                props.alerts.map(alert=>(
-                        <Alert key={alert.id} variant={alert.alertType}>
-                            {alert.msg}
-                        </Alert>
-                    ))
-            }
-            </>
-        )
-    } else {
-        return null
-    }
-}
+const AlertBox: FC<Props> = (props) => {
+  if (props.alerts !== null && props.alerts.length > 0) {
+    return (
+      <>
+        {props.alerts.map((alert) => (
+          <Alert key={alert.id} variant={alert.alertType}>
+            {alert.msg}
+          </Alert>
+        ))}
+      </>
+    );
+  } else {
+    return null;
+  }
+};
 
 const mapStateToProps = (state: RootState) => ({
-    alerts: state.alertReducer.alerts
-  });
+  alerts: state.alertReducer.alerts,
+});
 
 export default connect(mapStateToProps)(AlertBox);

@@ -3,17 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@types/axios": "^0.14.0",
-    "@types/react-bootstrap": "^0.32.22",
-    "@types/react-dom": "^16.9.8",
-    "@types/react-redux": "^7.1.9",
-    "@types/react-router-bootstrap": "^0.24.5",
-    "@types/react-router-dom": "^5.1.5",
-    "@types/redux": "^3.6.0",
-    "@types/redux-thunk": "^2.1.0",
-    "@types/styled-components": "^5.1.2",
-    "@types/uuid": "^8.0.1",
-    "@types/yup": "^0.29.4",
     "bootstrap": "^4.5.2",
     "cra-template-typescript": "1.0.3",
     "formik": "^2.1.5",
@@ -50,5 +39,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/react-bootstrap": "^0.32.22",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-redux": "^7.1.9",
+    "@types/react-router-bootstrap": "^0.24.5",
+    "@types/react-router-dom": "^5.1.5",
+    "@types/redux": "^3.6.0",
+    "@types/redux-thunk": "^2.1.0",
+    "@types/styled-components": "^5.1.2",
+    "@types/uuid": "^8.0.1",
+    "@types/yup": "^0.29.4"
   }
 }
