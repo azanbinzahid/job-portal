@@ -1,12 +1,13 @@
 import React from 'react';
 import {Header, Body, Title, Button, Text, Left, Right} from 'native-base';
 import AlertBox from './AlertBox';
+import {connect} from 'react-redux';
 
-export default function MyHeader(props) {
+const MyHeader = (props) => {
   return (
-    <Header>
+    <Header style={{backgroundColor: props.headerColor}}>
       <Left style={StyleSheet.body}>
-        <Button onPress={() => props.navigation.toggleDrawer()}>
+        <Button transparent onPress={() => props.navigation.toggleDrawer()}>
           <Text>Menu</Text>
         </Button>
       </Left>
@@ -18,7 +19,7 @@ export default function MyHeader(props) {
       </Right>
     </Header>
   );
-}
+};
 
 const StyleSheet = {
   header: {
@@ -29,3 +30,8 @@ const StyleSheet = {
     flex: 1,
   },
 };
+const mapStateToProps = (state) => ({
+  headerColor: state.themeReducer.headerColor,
+});
+
+export default connect(mapStateToProps)(MyHeader);

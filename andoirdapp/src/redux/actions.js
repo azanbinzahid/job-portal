@@ -194,3 +194,9 @@ export const setAlert = (msg, alertType, timeout = 3000) => (dispatch) => {
     timeout,
   );
 };
+
+export const toggleTheme = () => (dispatch) => {
+  dispatch({
+    type: 'TOGGLE_THEME',
+  });
+};
