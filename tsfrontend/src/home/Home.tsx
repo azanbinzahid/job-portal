@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { connect } from "react-redux";
 import { Container, Jumbotron, Button, Badge } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import Slider from "components/Slider";
+import Slider from "home/Slider";
 import { RootState } from "redux/reducers";
 
 type Props = {

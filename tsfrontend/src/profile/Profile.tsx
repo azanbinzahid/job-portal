@@ -9,8 +9,8 @@ import {
   ListGroupItem,
 } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import EditProfileForm from "components/EditProfileForm";
-import ProfilePicture from "components/ProfilePicture";
+import EditProfileForm from "profile/EditProfileForm";
+import ProfilePicture from "profile/ProfilePicture";
 import { RootState } from "redux/reducers";
 import { Job } from "redux/types";
 

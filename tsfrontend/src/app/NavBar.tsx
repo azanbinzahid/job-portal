@@ -4,7 +4,7 @@ import { Navbar, Nav, Badge } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import styled from "styled-components";
 import { logUserOut } from "redux/actions";
-import AlertBox from "components/AlertBox";
+import AlertBox from "utility/AlertBox";
 import { RootState } from "redux/reducers";
 
 const Title = styled.h3`

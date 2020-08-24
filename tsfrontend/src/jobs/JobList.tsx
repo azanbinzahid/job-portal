@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { connect } from "react-redux";
-import JobItem from "components/JobItem";
+import JobItem from "jobs/JobItem";
 import { Container, Jumbotron, CardColumns } from "react-bootstrap";
 import { RootState } from "redux/reducers";
 import { Job } from "redux/types";

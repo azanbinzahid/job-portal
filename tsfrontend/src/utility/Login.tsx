@@ -6,7 +6,7 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import { fetchUser } from "redux/actions";
 import { RootState } from "redux/reducers";
-import TextField from "components/TextField";
+import TextField from "utility/TextField";
 
 const validationSchema = yup.object().shape({
   username: yup.string().max(16).required(),
