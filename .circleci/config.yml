@@ -5,5 +5,5 @@ workflows:
   node-tests:
     jobs:
       - node/test:
-          app-dir: ~/tsfrontend
+          app-dir: ~/project/tsfrontend
 
