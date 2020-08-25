@@ -1,10 +1,10 @@
 {
-    "folders": [
-        {
-            "path": "andoirdapp"
-        }
-    ],
-    "settings": {
-        "git.ignoreLimitWarning": true
+  "folders": [
+    {
+      "path": "."
     }
+  ],
+  "settings": {
+    "git.ignoreLimitWarning": true
+  }
 }

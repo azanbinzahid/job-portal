@@ -1,18 +1,12 @@
 import React, { FC } from "react";
 import { connect } from "react-redux";
-import {
-  Container,
-  Row,
-  Col,
-  Jumbotron,
-  ListGroup,
-  ListGroupItem,
-} from "react-bootstrap";
-import { LinkContainer } from "react-router-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import EditProfileForm from "profile/EditProfileForm";
 import ProfilePicture from "profile/ProfilePicture";
+import JobsApplied from "profile/JobsApplied";
 import { RootState } from "redux/reducers";
 import { Job } from "redux/types";
+import PageHeader from "app/common/PageHeader";
 
 type Props = {
   firstName: string;
@@ -23,27 +17,17 @@ type Props = {
 const Profile: FC<Props> = (props) => {
   return (
     <Container>
-      <Jumbotron<React.ElementType> align="center">
-        <h1> {props.firstName + " " + props.lastName} </h1>
-        <h3> Profile Page </h3>
-      </Jumbotron>
-
+      <PageHeader
+        title={props.firstName + " " + props.lastName}
+        subtitle="Profile Page"
+      />
       <Row>
         <Col>
           <EditProfileForm />
         </Col>
         <Col>
           <ProfilePicture />
-          <h1> Jobs Applied </h1>
-          <ListGroup>
-            {props.jobsApplied.map((job, index) => (
-              <LinkContainer key={index} to={`/jobs/${job.id}`}>
-                <ListGroupItem action key={index}>
-                  {job.title}
-                </ListGroupItem>
-              </LinkContainer>
-            ))}
-          </ListGroup>
+          <JobsApplied jobsApplied={props.jobsApplied} />
         </Col>
       </Row>
     </Container>

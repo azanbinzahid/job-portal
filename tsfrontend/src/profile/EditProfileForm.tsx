@@ -6,7 +6,7 @@ import * as Yup from "yup";
 import { editUser } from "redux/actions";
 import { RootState } from "redux/reducers";
 import { User } from "redux/types";
-import TextField from "utility/TextField";
+import TextField from "app/common/TextField";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email().required(),

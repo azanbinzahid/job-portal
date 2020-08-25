@@ -20,19 +20,16 @@ const ProfilePicture: FC<Props> = (props) => {
   return (
     <Container<React.ElementType> align="center" className="pb-5">
       <Image src={process.env.REACT_APP_BASE_URL + props.profileImage} fluid />
-
       <Form
         inline
         onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
       >
-        <Form.Group controlId="formBasicDate">
-          <Form.File<React.ElementType>
-            name="image"
-            onChange={(event: any) => {
-              setFieldValue("image", event.currentTarget.files[0]);
-            }}
-          />
-        </Form.Group>
+        <Form.File<React.ElementType>
+          name="image"
+          onChange={(event: any) => {
+            setFieldValue("image", event.currentTarget.files[0]);
+          }}
+        />
 
         <Button variant="primary" type="submit">
           Update Image

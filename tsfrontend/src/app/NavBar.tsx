@@ -4,7 +4,7 @@ import { Navbar, Nav, Badge } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import styled from "styled-components";
 import { logUserOut } from "redux/actions";
-import AlertBox from "utility/AlertBox";
+import AlertBox from "alerts/AlertBox";
 import { RootState } from "redux/reducers";
 
 const Title = styled.h3`
@@ -16,11 +16,14 @@ const Title = styled.h3`
 
 const NavItem = (toPath: string, menuName: string) => {
   return (
-    <LinkContainer to={toPath}>
-      <Nav.Link>
-        <h4>{menuName}</h4>
-      </Nav.Link>
-    </LinkContainer>
+    <>
+      <LinkContainer to={toPath}>
+        <Nav.Link>
+          <h4>{menuName}</h4>
+        </Nav.Link>
+      </LinkContainer>
+      <p>{menuName === "Jobs" ? <Badge variant="primary">New</Badge> : null}</p>
+    </>
   );
 };
 
@@ -28,6 +31,7 @@ type Props = {
   isLogged: boolean;
   logUserOut: () => void;
 };
+
 const NavBar: FC<Props> = (props) => {
   return (
     <Navbar bg="light" expand="lg">
@@ -47,22 +51,20 @@ const NavBar: FC<Props> = (props) => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
           <AlertBox />
-          {NavItem("/", "Home")}
-          {NavItem("/jobs", "Jobs")}
-          <p>
-            <Badge variant="primary">New</Badge>
-          </p>
           {!props.isLogged ? (
             <>
+              {NavItem("/", "Home")}
+              {NavItem("/jobs", "Jobs")}
               {NavItem("/login", "Login")}
               {NavItem("/signup", "SignUp")}
             </>
           ) : (
             <>
+              {NavItem("/", "Home")}
+              {NavItem("/jobs", "Jobs")}
               {NavItem("/profile", "Profile")}
               <Nav.Link onClick={props.logUserOut}>
-                {" "}
-                <h4>Logout</h4>{" "}
+                <h4>Logout</h4>
               </Nav.Link>
             </>
           )}
