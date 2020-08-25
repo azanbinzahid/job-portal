@@ -32,13 +32,11 @@ const ProtectedRoute: FC<PrivateRouteProps> = (props) => {
   return props.isLogged ? (
     <Route {...rest} render={(props) => <Component {...props} />} />
   ) : (
-    <>
-      <Redirect
-        to={{
-          pathname: "/login",
-        }}
-      />
-    </>
+    <Redirect
+      to={{
+        pathname: "/login",
+      }}
+    />
   );
 };
 

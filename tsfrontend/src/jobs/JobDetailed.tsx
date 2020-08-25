@@ -13,6 +13,7 @@ import {
 import { fetchJob, applyJob } from "redux/actions";
 import { RootState } from "redux/reducers";
 import { Job } from "redux/types";
+import CardList from "./CardList";
 
 const Title = styled.div`
   color: white;
@@ -78,7 +79,6 @@ const JobList: FC<Props> = (props) => {
       <CardColumns>
         <Card bg="primary">
           <Card.Header>
-            {" "}
             <Title> Job Title </Title>
           </Card.Header>
           <ListGroup variant="flush">
@@ -88,7 +88,6 @@ const JobList: FC<Props> = (props) => {
 
         <Card bg="primary">
           <Card.Header>
-            {" "}
             <Title>Company </Title>
           </Card.Header>
           <ListGroup variant="flush">
@@ -96,55 +95,24 @@ const JobList: FC<Props> = (props) => {
           </ListGroup>
         </Card>
 
+        <CardList title="Location" list={job.location} />
+
         <Card bg="primary">
           <Card.Header>
-            {" "}
-            <Title>Location(s) </Title>
-          </Card.Header>
-          <ListGroup variant="flush">
-            {job.location.map((ele, index) => (
-              <ListGroup.Item key={index}>{ele}</ListGroup.Item>
-            ))}
-          </ListGroup>
-        </Card>
-        <Card bg="primary">
-          <Card.Header>
-            {" "}
             <Title>Job Description </Title>
           </Card.Header>
           <Card.Body style={{ background: "white" }}>
             <Card.Text style={{ textAlign: "justify" }}>
-              {" "}
-              {job.description}{" "}
+              {job.description}
             </Card.Text>
           </Card.Body>
         </Card>
 
+        <CardList title="Category" list={job.category} />
+        <CardList title="Qualification" list={job.qualification} />
+
         <Card bg="primary">
           <Card.Header>
-            {" "}
-            <Title>Category(s) </Title>
-          </Card.Header>
-          <ListGroup variant="flush">
-            {job.category.map((ele, index) => (
-              <ListGroup.Item key={index}>{ele}</ListGroup.Item>
-            ))}
-          </ListGroup>
-        </Card>
-        <Card bg="primary">
-          <Card.Header>
-            {" "}
-            <Title>Qualification(s) </Title>
-          </Card.Header>
-          <ListGroup variant="flush">
-            {job.qualification.map((ele, index) => (
-              <ListGroup.Item key={index}>{ele}</ListGroup.Item>
-            ))}
-          </ListGroup>
-        </Card>
-        <Card bg="primary">
-          <Card.Header>
-            {" "}
             <Title>Salary </Title>
           </Card.Header>
           <ListGroup variant="flush">
@@ -154,7 +122,6 @@ const JobList: FC<Props> = (props) => {
 
         <Card bg="primary">
           <Card.Header>
-            {" "}
             <Title>Experiance </Title>
           </Card.Header>
           <ListGroup variant="flush">

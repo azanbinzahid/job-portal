@@ -6,7 +6,8 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import { signUserUp } from "redux/actions";
 import { RootState } from "redux/reducers";
-import TextField from "./TextField";
+import TextField from "../app/common/TextField";
+import PageHeader from "app/common/PageHeader";
 
 const validationSchema = yup.object().shape({
   username: yup.string().max(16).required(),
@@ -49,9 +50,7 @@ const Signup: FC<Props> = (props) => {
 
   return (
     <Container>
-      <Jumbotron<React.ElementType> align="center">
-        <h1> Signup Page </h1>
-      </Jumbotron>
+      <PageHeader title="SignUp Page" />
       <Jumbotron>
         <Form
           onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
