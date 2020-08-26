@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the component 1`] = `
+<Container
+  fluid={false}
+>
+  <PageHeader
+    title="SignUp Page"
+  />
+  <Jumbotron
+    fluid={false}
+  >
+    <Form
+      inline={false}
+      onSubmit={[Function]}
+    >
+      <TextField
+        name="username"
+        onChange={[Function]}
+        placeholder="Username"
+        type="text"
+        value=""
+      />
+      <TextField
+        name="password"
+        onChange={[Function]}
+        placeholder="Password"
+        type="password"
+        value=""
+      />
+      <TextField
+        name="email"
+        onChange={[Function]}
+        placeholder="Email"
+        type="email"
+        value=""
+      />
+      <TextField
+        name="firstName"
+        onChange={[Function]}
+        placeholder="First Name"
+        type="text"
+        value=""
+      />
+      <TextField
+        name="lastName"
+        onChange={[Function]}
+        placeholder="Last Name"
+        type="text"
+        value=""
+      />
+      <Button
+        active={false}
+        disabled={false}
+        type="submit"
+        variant="primary"
+      >
+        SignUp
+      </Button>
+    </Form>
+  </Jumbotron>
+</Container>
+`;
+
+exports[`renders the component 2`] = `
+<Redirect
+  to="/"
+/>
+`;

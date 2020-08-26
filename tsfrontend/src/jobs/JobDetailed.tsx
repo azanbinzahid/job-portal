@@ -30,7 +30,7 @@ type Props = {
     };
   };
 };
-const JobList: FC<Props> = (props) => {
+export const JobDetailed: FC<Props> = (props) => {
   const {
     params: { jobId },
   } = props.match;
@@ -143,4 +143,4 @@ const mapDispatchToProps = {
   applyJob,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(JobList as any);
+export default connect(mapStateToProps, mapDispatchToProps)(JobDetailed as any);

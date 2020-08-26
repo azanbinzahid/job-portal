@@ -32,7 +32,7 @@ type Props = {
   logUserOut: () => void;
 };
 
-const NavBar: FC<Props> = (props) => {
+export const NavBar: FC<Props> = (props) => {
   return (
     <Navbar bg="light" expand="lg">
       <LinkContainer to="/">

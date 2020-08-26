@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the component 1`] = `
+<ListGroup>
+  <h3>
+     Jobs Applied 
+  </h3>
+  <withRouter(LinkContainer)
+    key="0"
+    to="/jobs/1"
+  >
+    <ListGroupItem
+      action={true}
+      active={false}
+      disabled={false}
+      key="0"
+    >
+      WordPress Developer
+    </ListGroupItem>
+  </withRouter(LinkContainer)>
+</ListGroup>
+`;

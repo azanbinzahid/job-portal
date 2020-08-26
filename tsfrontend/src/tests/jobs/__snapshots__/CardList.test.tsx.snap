@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the component 1`] = `
+<Card
+  bg="primary"
+  body={false}
+>
+  <CardHeader>
+    <styled.div>
+      (s) 
+    </styled.div>
+  </CardHeader>
+  <ListGroup
+    variant="flush"
+  />
+</Card>
+`;

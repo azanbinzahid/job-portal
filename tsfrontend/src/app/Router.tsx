@@ -15,7 +15,7 @@ type Props = {
   autoLogin: () => void;
   fetchJobs: () => void;
 };
-const Router: FC<Props> = (props) => {
+export const Router: FC<Props> = (props) => {
   useEffect(() => {
     props.autoLogin();
     props.fetchJobs();

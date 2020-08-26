@@ -14,7 +14,7 @@ type Props = {
   profileImage: string;
   jobsApplied: Job[];
 };
-const Profile: FC<Props> = (props) => {
+export const Profile: FC<Props> = (props) => {
   return (
     <Container>
       <PageHeader

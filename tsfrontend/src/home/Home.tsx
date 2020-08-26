@@ -11,7 +11,7 @@ type Props = {
   isLogged: boolean;
 };
 
-const Home: FC<Props> = ({ firstName, jobCount, isLogged }) => {
+export const Home: FC<Props> = ({ firstName, jobCount, isLogged }) => {
   return (
     <div>
       <Slider />

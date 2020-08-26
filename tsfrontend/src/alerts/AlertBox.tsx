@@ -8,7 +8,7 @@ type Props = {
   alerts: AlertType[];
 };
 
-const AlertBox: FC<Props> = (props) => {
+export const AlertBox: FC<Props> = (props) => {
   if (props.alerts !== null && props.alerts.length > 0) {
     return (
       <>

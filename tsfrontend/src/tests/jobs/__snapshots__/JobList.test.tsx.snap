@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the component 1`] = `
+<Container
+  fluid={false}
+>
+  <PageHeader
+    title="Job Listing Page"
+  />
+  <CardColumns />
+</Container>
+`;

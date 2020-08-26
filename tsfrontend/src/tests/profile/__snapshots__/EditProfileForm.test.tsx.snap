@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the component 1`] = `
+<Container
+  fluid={false}
+>
+  <Jumbotron
+    fluid={false}
+  >
+    <Form
+      inline={false}
+      onSubmit={[Function]}
+    >
+      <TextField
+        label="Email Address"
+        name="email"
+        onChange={[Function]}
+        placeholder="Email"
+        type="email"
+        value=""
+      />
+      <TextField
+        label="First Name"
+        name="firstName"
+        onChange={[Function]}
+        placeholder="First Name"
+        type="text"
+        value=""
+      />
+      <TextField
+        label="Last Name"
+        name="lastName"
+        onChange={[Function]}
+        placeholder="Last Name"
+        type="text"
+        value=""
+      />
+      <FormGroup>
+        <FormLabel
+          column={false}
+          srOnly={false}
+        >
+          Bio
+        </FormLabel>
+        <FormControl
+          as="textarea"
+          name="profile.bio"
+          onChange={[Function]}
+          placeholder="Bio"
+          rows="3"
+          value=""
+        />
+      </FormGroup>
+      <TextField
+        label="Current Location"
+        name="profile.location"
+        onChange={[Function]}
+        placeholder="Location"
+        type="text"
+        value=""
+      />
+      <FormGroup>
+        <FormLabel
+          column={false}
+          srOnly={false}
+        >
+          Education
+        </FormLabel>
+        <FormControl
+          as="textarea"
+          name="profile.education"
+          onChange={[Function]}
+          placeholder="Education"
+          rows="3"
+          value=""
+        />
+      </FormGroup>
+      <FormLabel
+        column={false}
+        srOnly={false}
+      >
+        Experiance
+      </FormLabel>
+      <FormControl
+        as="textarea"
+        name="profile.experiance"
+        onChange={[Function]}
+        placeholder="Experiance"
+        rows="3"
+        value=""
+      />
+      <FormGroup>
+        <FormLabel
+          column={false}
+          srOnly={false}
+        >
+          Birthdate
+        </FormLabel>
+        <FormControl
+          name="profile.birthDate"
+          onChange={[Function]}
+          placeholder="Birth Day"
+          type="date"
+          value="1/1/1970"
+        />
+      </FormGroup>
+      <Button
+        active={false}
+        disabled={false}
+        type="submit"
+        variant="primary"
+      >
+        Update Profile
+      </Button>
+    </Form>
+  </Jumbotron>
+</Container>
+`;

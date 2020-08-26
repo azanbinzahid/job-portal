@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the component 1`] = `
+<Container
+  fluid={false}
+>
+  <PageHeader
+    subtitle="Profile Page"
+    title=" "
+  />
+  <Row
+    noGutters={false}
+  >
+    <Col>
+      <Connect(Component) />
+    </Col>
+    <Col>
+      <Connect(Component) />
+      <JobsApplied
+        jobsApplied={
+          Array [
+            Object {
+              "applicants": Array [
+                "admin",
+              ],
+              "category": Array [
+                "Customer Service",
+              ],
+              "company": "Modern Tech",
+              "datestamp": 1970-01-01T00:00:00.000Z,
+              "description": "This is test job description",
+              "experiance": 1,
+              "id": 1,
+              "location": Array [
+                "Lahore",
+              ],
+              "qualification": Array [
+                "Bachelors",
+              ],
+              "salaray": 60000,
+              "title": "WordPress Developer",
+            },
+          ]
+        }
+      />
+    </Col>
+  </Row>
+</Container>
+`;

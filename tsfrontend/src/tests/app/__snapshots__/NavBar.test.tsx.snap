@@ -1,0 +1,245 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the component 1`] = `
+<Navbar
+  bg="light"
+  collapseOnSelect={false}
+  expand="lg"
+  variant="light"
+>
+  <withRouter(LinkContainer)
+    to="/"
+  >
+    <NavbarBrand>
+      <img
+        alt=""
+        className="d-inline-block align-top"
+        height="50"
+        src="https://image.flaticon.com/icons/svg/3232/3232975.svg"
+        width="50"
+      />
+      <styled.h3>
+         Job Portal
+      </styled.h3>
+    </NavbarBrand>
+  </withRouter(LinkContainer)>
+  <NavbarToggle
+    aria-controls="basic-navbar-nav"
+    label="Toggle navigation"
+  />
+  <NavbarCollapse
+    id="basic-navbar-nav"
+  >
+    <Nav
+      className="ml-auto"
+      fill={false}
+      justify={false}
+    >
+      <Connect(Component) />
+      <withRouter(LinkContainer)
+        to="/"
+      >
+        <NavLink
+          as={
+            Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "displayName": "SafeAnchor",
+              "render": [Function],
+            }
+          }
+          disabled={false}
+        >
+          <h4>
+            Home
+          </h4>
+        </NavLink>
+      </withRouter(LinkContainer)>
+      <p />
+      <withRouter(LinkContainer)
+        to="/jobs"
+      >
+        <NavLink
+          as={
+            Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "displayName": "SafeAnchor",
+              "render": [Function],
+            }
+          }
+          disabled={false}
+        >
+          <h4>
+            Jobs
+          </h4>
+        </NavLink>
+      </withRouter(LinkContainer)>
+      <p>
+        <Badge
+          pill={false}
+          variant="primary"
+        >
+          New
+        </Badge>
+      </p>
+      <withRouter(LinkContainer)
+        to="/profile"
+      >
+        <NavLink
+          as={
+            Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "displayName": "SafeAnchor",
+              "render": [Function],
+            }
+          }
+          disabled={false}
+        >
+          <h4>
+            Profile
+          </h4>
+        </NavLink>
+      </withRouter(LinkContainer)>
+      <p />
+      <NavLink
+        as={
+          Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "displayName": "SafeAnchor",
+            "render": [Function],
+          }
+        }
+        disabled={false}
+        onClick={[MockFunction]}
+      >
+        <h4>
+          Logout
+        </h4>
+      </NavLink>
+    </Nav>
+  </NavbarCollapse>
+</Navbar>
+`;
+
+exports[`renders the component 2`] = `
+<Navbar
+  bg="light"
+  collapseOnSelect={false}
+  expand="lg"
+  variant="light"
+>
+  <withRouter(LinkContainer)
+    to="/"
+  >
+    <NavbarBrand>
+      <img
+        alt=""
+        className="d-inline-block align-top"
+        height="50"
+        src="https://image.flaticon.com/icons/svg/3232/3232975.svg"
+        width="50"
+      />
+      <styled.h3>
+         Job Portal
+      </styled.h3>
+    </NavbarBrand>
+  </withRouter(LinkContainer)>
+  <NavbarToggle
+    aria-controls="basic-navbar-nav"
+    label="Toggle navigation"
+  />
+  <NavbarCollapse
+    id="basic-navbar-nav"
+  >
+    <Nav
+      className="ml-auto"
+      fill={false}
+      justify={false}
+    >
+      <Connect(Component) />
+      <withRouter(LinkContainer)
+        to="/"
+      >
+        <NavLink
+          as={
+            Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "displayName": "SafeAnchor",
+              "render": [Function],
+            }
+          }
+          disabled={false}
+        >
+          <h4>
+            Home
+          </h4>
+        </NavLink>
+      </withRouter(LinkContainer)>
+      <p />
+      <withRouter(LinkContainer)
+        to="/jobs"
+      >
+        <NavLink
+          as={
+            Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "displayName": "SafeAnchor",
+              "render": [Function],
+            }
+          }
+          disabled={false}
+        >
+          <h4>
+            Jobs
+          </h4>
+        </NavLink>
+      </withRouter(LinkContainer)>
+      <p>
+        <Badge
+          pill={false}
+          variant="primary"
+        >
+          New
+        </Badge>
+      </p>
+      <withRouter(LinkContainer)
+        to="/login"
+      >
+        <NavLink
+          as={
+            Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "displayName": "SafeAnchor",
+              "render": [Function],
+            }
+          }
+          disabled={false}
+        >
+          <h4>
+            Login
+          </h4>
+        </NavLink>
+      </withRouter(LinkContainer)>
+      <p />
+      <withRouter(LinkContainer)
+        to="/signup"
+      >
+        <NavLink
+          as={
+            Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "displayName": "SafeAnchor",
+              "render": [Function],
+            }
+          }
+          disabled={false}
+        >
+          <h4>
+            SignUp
+          </h4>
+        </NavLink>
+      </withRouter(LinkContainer)>
+      <p />
+    </Nav>
+  </NavbarCollapse>
+</Navbar>
+`;

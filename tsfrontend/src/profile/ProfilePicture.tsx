@@ -9,7 +9,7 @@ type Props = {
   profileImage: string;
   uploadImage: (values: { image: string }) => void;
 };
-const ProfilePicture: FC<Props> = (props) => {
+export const ProfilePicture: FC<Props> = (props) => {
   const { handleSubmit, setFieldValue } = useFormik({
     initialValues: { image: "" },
     onSubmit(values) {
