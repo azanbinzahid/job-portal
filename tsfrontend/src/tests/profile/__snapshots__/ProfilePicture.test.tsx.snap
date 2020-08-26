@@ -10,7 +10,7 @@ exports[`renders the component 1`] = `
     fluid={true}
     rounded={false}
     roundedCircle={false}
-    src="http://localhost:8000"
+    src=""
     thumbnail={false}
   />
   <Form
