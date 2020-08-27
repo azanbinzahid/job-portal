@@ -32,3 +32,20 @@ test("renders the component", () => {
   );
   expect(component).toMatchSnapshot();
 });
+
+test("renders the component", () => {
+  const component = shallow(
+    <JobDetailed
+      job={job}
+      username="admin"
+      applyJob={jest.fn()}
+      fetchJob={jest.fn()}
+      match={{
+        params: {
+          jobId: "",
+        },
+      }}
+    />
+  );
+  expect(component).toMatchSnapshot();
+});

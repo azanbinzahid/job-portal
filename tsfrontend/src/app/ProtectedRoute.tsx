@@ -15,7 +15,8 @@ interface PrivateRouteProps extends RouteProps {
   path: string;
   component:
     | React.ComponentType<RouteComponentProps<any>>
-    | React.ComponentType<any>;
+    | React.ComponentType<any>
+    | any;
 }
 
 export const ProtectedRoute: FC<PrivateRouteProps> = (props) => {

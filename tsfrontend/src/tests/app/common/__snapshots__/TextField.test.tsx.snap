@@ -3,6 +3,27 @@
 exports[`renders the component 1`] = `
 <Fragment>
   <FormGroup>
+    <FormLabel
+      column={false}
+      srOnly={false}
+    >
+      test
+    </FormLabel>
+    <FormControl
+      name="username"
+      onChange={[MockFunction]}
+      placeholder="Username"
+      type="text"
+      value="username"
+    />
+  </FormGroup>
+  error
+</Fragment>
+`;
+
+exports[`renders the component 2`] = `
+<Fragment>
+  <FormGroup>
     <FormControl
       name="username"
       onChange={[MockFunction]}

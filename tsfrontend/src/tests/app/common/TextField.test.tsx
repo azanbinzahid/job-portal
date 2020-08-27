@@ -10,6 +10,21 @@ test("renders the component", () => {
       value="username"
       onChange={jest.fn()}
       error="error"
+      label="test"
+    />
+  );
+  expect(component).toMatchSnapshot();
+});
+
+test("renders the component", () => {
+  const component = shallow(
+    <TextField
+      type="text"
+      name="username"
+      placeholder="Username"
+      value="username"
+      onChange={jest.fn()}
+      error="error"
     />
   );
   expect(component).toMatchSnapshot();

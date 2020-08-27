@@ -15,3 +15,34 @@ exports[`renders the component 1`] = `
   />
 </Card>
 `;
+
+exports[`renders the component 2`] = `
+<Card
+  bg="primary"
+  body={false}
+>
+  <CardHeader>
+    <styled.div>
+      (s) 
+    </styled.div>
+  </CardHeader>
+  <ListGroup
+    variant="flush"
+  >
+    <ListGroupItem
+      active={false}
+      disabled={false}
+      key="0"
+    >
+      a
+    </ListGroupItem>
+    <ListGroupItem
+      active={false}
+      disabled={false}
+      key="1"
+    >
+      b
+    </ListGroupItem>
+  </ListGroup>
+</Card>
+`;

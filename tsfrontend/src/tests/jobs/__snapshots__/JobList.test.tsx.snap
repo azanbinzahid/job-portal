@@ -10,3 +10,41 @@ exports[`renders the component 1`] = `
   <CardColumns />
 </Container>
 `;
+
+exports[`renders the component 2`] = `
+<Container
+  fluid={false}
+>
+  <PageHeader
+    title="Job Listing Page"
+  />
+  <CardColumns>
+    <JobItem
+      job={
+        Object {
+          "applicants": Array [
+            "admin",
+          ],
+          "category": Array [
+            "Customer Service",
+          ],
+          "company": "Modern Tech",
+          "datestamp": 1970-01-01T00:00:00.000Z,
+          "description": "This is test job description",
+          "experiance": 1,
+          "id": 1,
+          "location": Array [
+            "Lahore",
+          ],
+          "qualification": Array [
+            "Bachelors",
+          ],
+          "salaray": 60000,
+          "title": "WordPress Developer",
+        }
+      }
+      key="1"
+    />
+  </CardColumns>
+</Container>
+`;
