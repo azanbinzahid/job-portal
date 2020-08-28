@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Job, Qualification, Location, Category, Company
+from ..models import Job, Qualification, Location, Category, Company
 
 import datetime
 
