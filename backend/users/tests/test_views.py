@@ -6,8 +6,6 @@ from django.urls import reverse
 from ..serializers import UserSerializer, UserSerializerWithToken
 from django.contrib.auth.models import User
 
-import datetime
-
 # initialize the APIClient app
 client = APIClient()
 
@@ -77,3 +75,55 @@ class UserSignUpTest(TestCase):
         serializer = UserSerializer(user)
         self.assertEqual(response.data, serializer.data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+        client.credentials()
+
+
+class UserUpdateTest(TestCase):
+    """ Test module to update user profile """
+
+    def setUp(self):
+        response = client.post('/users/', data=json.dumps({
+            "username": "test2",
+            "password": "test2",
+            "firstName": "test",
+            "lastName": "test",
+        }), content_type='application/json')
+        self.token = response.data['token']
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+    def test_invalid_signup(self):
+        response = client.post('/users/', data=json.dumps({
+            "username": "test2",
+        }), content_type='application/json')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+    def test_user_profile_update(self):
+        client.credentials(HTTP_AUTHORIZATION='JWT ' + self.token)
+        response = client.get('/users/current_user/',
+                              content_type='application/json')
+        user = response.data
+        user['username'] = "test3"
+        user['profile']['bio'] = "ABC"
+        user['profile']['education'] = "ABC"
+        user['profile']['experiance'] = "ABC"
+        user['profile']['birthDate'] = "2020-11-11"
+
+        response = client.put('/users/current_user/', data=json.dumps(user),
+                              content_type='application/json')
+
+        user = User.objects.get(username="test3")
+        serializer = UserSerializer(user)
+        self.assertEqual(response.data, serializer.data)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        client.credentials()
+
+    def test_invalid_user_profile_update(self):
+        client.credentials(HTTP_AUTHORIZATION='JWT ' + self.token)
+        response = client.get('/users/current_user/',
+                              content_type='application/json')
+        user = response.data
+        response = client.put('/users/current_user/', data=json.dumps(user),
+                              content_type='application/json')
+
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        client.credentials()

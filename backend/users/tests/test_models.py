@@ -16,6 +16,9 @@ class ProfileModelTests(TestCase):
 
     def test_profile(self):
         user = User.objects.get(username="test")
+        profile = Profile.objects.get(user=user)
+        self.assertEqual(str(profile), user.username)
+        self.assertEqual(str(user), user.username)
         self.assertEqual(user.profile.bio, "test bio")
         self.assertEqual(user.profile.location, "test location")
         self.assertEqual(user.profile.education, "test education")

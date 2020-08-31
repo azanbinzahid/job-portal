@@ -161,6 +161,12 @@ class UpdateSingleJobTest(TestCase):
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
+        response = client.patch(
+            '/jobs/{}/'.format(pk),
+            content_type='application/json'
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
     def test_unauth_update_Job(self):
         pk = self.job1.pk
         response = client.patch(
