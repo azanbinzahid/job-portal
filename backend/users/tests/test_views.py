@@ -55,8 +55,25 @@ class UserLoginTest(TestCase):
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
 
-# JWT token auth
-# token = response.data.token
-# client.credentials(HTTP_AUTHORIZATION='JWT ' + token)
-# response = client.post('/users/current_user/',
-#                        content_type='application/json')
+class UserSignUpTest(TestCase):
+    """ Test module for GET single User API """
+
+    def setUp(self):
+        response = client.post('/users/', data=json.dumps({
+            "username": "test2",
+            "password": "test2",
+            "firstName": "test",
+            "lastName": "test",
+        }), content_type='application/json')
+        self.token = response.data['token']
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+    def test_created_user_with_JWT_auth(self):
+        client.credentials(HTTP_AUTHORIZATION='JWT ' + self.token)
+        response = client.get('/users/current_user/',
+                              content_type='application/json')
+
+        user = User.objects.get(username="test2")
+        serializer = UserSerializer(user)
+        self.assertEqual(response.data, serializer.data)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
