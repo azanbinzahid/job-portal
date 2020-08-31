@@ -159,7 +159,6 @@ class UpdateSingleJobTest(TestCase):
             '/jobs/{}/'.format(pk),
             content_type='application/json'
         )
-        print(response.data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_unauth_update_Job(self):
