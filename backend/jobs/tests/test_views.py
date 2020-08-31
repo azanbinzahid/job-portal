@@ -5,6 +5,8 @@ from django.test import TestCase, Client
 from django.urls import reverse
 from ..models import Job, Company
 from ..serializers import JobSerializer
+from django.contrib.auth.models import User
+
 import datetime
 
 # initialize the APIClient app
@@ -124,3 +126,45 @@ class GellSingleJobTest(TestCase):
     def test_get_invalid_single_job(self):
         response = client.get('/jobs/99/')
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+
+class UpdateSingleJobTest(TestCase):
+    """ Test module for updating an existing Job record """
+
+    def setUp(self):
+        User.objects.create_user(username="test")
+        company = Company.objects.create(
+            name="Company X",
+        )
+        company2 = Company.objects.create(
+            name="Company Y",
+        )
+
+        self.job1 = Job.objects.create(
+            title="Test Job",
+            salaray=1000,
+            description="Test Description",
+            experiance=10,
+            datestamp=datetime.datetime.now(),
+            company=company,
+        )
+        pk = self.job1.pk
+        self.valid_payload = client.get('/jobs/{}/'.format(pk))
+
+    def test_valid_update_Job(self):
+        user = User.objects.get(username='test')
+        client.force_authenticate(user=user)
+        pk = self.job1.pk
+        response = client.patch(
+            '/jobs/{}/'.format(pk),
+            content_type='application/json'
+        )
+        print(response.data)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_unauth_update_Job(self):
+        pk = self.job1.pk
+        response = client.patch(
+            '/jobs/{}/'.format(pk),
+            content_type='application/json')
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
