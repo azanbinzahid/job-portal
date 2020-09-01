@@ -1,18 +1,20 @@
 from django.contrib.auth.models import User
+from django_auto_prefetching import AutoPrefetchViewSetMixin
 from rest_framework import permissions, status, generics
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializers import UserSerializer, UserSerializerWithToken, ProfilePictureSerializer
 
+
 @api_view(["PUT"])
 def upload_picture(request):
-    serializer = ProfilePictureSerializer(request.user.profile, data=request.data)
+    serializer = ProfilePictureSerializer(
+        request.user.profile, data=request.data)
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
 
 
 @api_view(["GET", "PUT"])
@@ -26,7 +28,7 @@ def current_user(request):
 
     if request.method == "PUT":
         user = User.objects.get(username=request.user)
-        serializer = UserSerializer(user, data = request.data)
+        serializer = UserSerializer(user, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
