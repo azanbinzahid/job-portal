@@ -26,8 +26,8 @@ SECRET_KEY = 'a2hn0@tguw*2#5736$j24ymni8n#7sqa4yk%8_frw+ue6=0l+$'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-CORS_ORIGIN_ALLOW_ALL = True # If this is used then `CORS_ORIGIN_WHITELIST` will not have any effect
-
+# If this is used then `CORS_ORIGIN_WHITELIST` will not have any effect
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 # Application definition
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'jobs.apps.JobsConfig',
     'users.apps.UsersConfig',
+    'ddtrace.contrib.django',
 ]
 
 MIDDLEWARE = [
