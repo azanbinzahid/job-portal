@@ -12,7 +12,6 @@ type Props = {
 };
 
 const CardList: FC<Props> = ({ title, list }) => {
-  console.log(list);
   return (
     <Card bg="primary">
       <Card.Header>

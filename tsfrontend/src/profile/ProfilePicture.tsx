@@ -9,7 +9,7 @@ type Props = {
   profileImage: string;
   uploadImage: (values: { image: string }) => void;
 };
-const ProfilePicture: FC<Props> = (props) => {
+export const ProfilePicture: FC<Props> = (props) => {
   const { handleSubmit, setFieldValue } = useFormik({
     initialValues: { image: "" },
     onSubmit(values) {
@@ -19,7 +19,7 @@ const ProfilePicture: FC<Props> = (props) => {
 
   return (
     <Container<React.ElementType> align="center" className="pb-5">
-      <Image src={process.env.REACT_APP_BASE_URL + props.profileImage} fluid />
+      <Image src={props.profileImage} fluid />
       <Form
         inline
         onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
@@ -40,7 +40,8 @@ const ProfilePicture: FC<Props> = (props) => {
 };
 
 const mapStateToProps = (state: RootState) => ({
-  profileImage: state.userReducer.user.profile.image,
+  profileImage:
+    process.env.REACT_APP_BASE_URL + state.userReducer.user.profile.image,
 });
 
 const mapDispatchToProps = {

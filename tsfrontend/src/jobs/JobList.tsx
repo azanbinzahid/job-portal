@@ -9,7 +9,7 @@ import { Job } from "redux/types";
 type Props = {
   jobs: Job[];
 };
-const JobList: FC<Props> = (props) => {
+export const JobList: FC<Props> = (props) => {
   return (
     <Container>
       <PageHeader title="Job Listing Page" />

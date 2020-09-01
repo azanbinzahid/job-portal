@@ -29,7 +29,7 @@ interface Props {
   signUserUp: (values: User) => void;
 }
 
-const Signup: FC<Props> = (props) => {
+export const Signup: FC<Props> = (props) => {
   const { handleSubmit, handleChange, values, errors } = useFormik({
     initialValues: {
       username: "",

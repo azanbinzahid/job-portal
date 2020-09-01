@@ -23,7 +23,7 @@ interface Props {
   fetchUser: (values: User) => void;
 }
 
-const Login: FC<Props> = (props) => {
+export const Login: FC<Props> = (props) => {
   const { handleSubmit, handleChange, values, errors } = useFormik({
     initialValues: {
       username: "",

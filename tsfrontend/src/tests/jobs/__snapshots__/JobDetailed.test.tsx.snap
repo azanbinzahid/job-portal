@@ -1,0 +1,313 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the component 1`] = `
+<Container
+  fluid={false}
+>
+  <Jumbotron
+    align="center"
+    fluid={false}
+  >
+    <h1>
+       Job Details Page 
+    </h1>
+    <Button
+      active={false}
+      disabled={false}
+      onClick={[Function]}
+      variant="primary"
+    >
+      Apply Now
+    </Button>
+  </Jumbotron>
+  <CardColumns>
+    <Card
+      bg="primary"
+      body={false}
+    >
+      <CardHeader>
+        <styled.div>
+           Job Title 
+        </styled.div>
+      </CardHeader>
+      <ListGroup
+        variant="flush"
+      >
+        <ListGroupItem
+          active={false}
+          disabled={false}
+        >
+          WordPress Developer
+        </ListGroupItem>
+      </ListGroup>
+    </Card>
+    <Card
+      bg="primary"
+      body={false}
+    >
+      <CardHeader>
+        <styled.div>
+          Company 
+        </styled.div>
+      </CardHeader>
+      <ListGroup
+        variant="flush"
+      >
+        <ListGroupItem
+          active={false}
+          disabled={false}
+        >
+          Modern Tech
+        </ListGroupItem>
+      </ListGroup>
+    </Card>
+    <CardList
+      list={
+        Array [
+          "Lahore",
+        ]
+      }
+      title="Location"
+    />
+    <Card
+      bg="primary"
+      body={false}
+    >
+      <CardHeader>
+        <styled.div>
+          Job Description 
+        </styled.div>
+      </CardHeader>
+      <CardBody
+        style={
+          Object {
+            "background": "white",
+          }
+        }
+      >
+        <CardText
+          style={
+            Object {
+              "textAlign": "justify",
+            }
+          }
+        >
+          This is test job description
+        </CardText>
+      </CardBody>
+    </Card>
+    <CardList
+      list={
+        Array [
+          "Customer Service",
+        ]
+      }
+      title="Category"
+    />
+    <CardList
+      list={
+        Array [
+          "Bachelors",
+        ]
+      }
+      title="Qualification"
+    />
+    <Card
+      bg="primary"
+      body={false}
+    >
+      <CardHeader>
+        <styled.div>
+          Salary 
+        </styled.div>
+      </CardHeader>
+      <ListGroup
+        variant="flush"
+      >
+        <ListGroupItem
+          active={false}
+          disabled={false}
+        >
+          60000
+        </ListGroupItem>
+      </ListGroup>
+    </Card>
+    <Card
+      bg="primary"
+      body={false}
+    >
+      <CardHeader>
+        <styled.div>
+          Experiance 
+        </styled.div>
+      </CardHeader>
+      <ListGroup
+        variant="flush"
+      >
+        <ListGroupItem
+          active={false}
+          disabled={false}
+        >
+          1
+        </ListGroupItem>
+      </ListGroup>
+    </Card>
+  </CardColumns>
+</Container>
+`;
+
+exports[`renders the component 2`] = `
+<Container
+  fluid={false}
+>
+  <Jumbotron
+    align="center"
+    fluid={false}
+  >
+    <h1>
+       Job Details Page 
+    </h1>
+    <Button
+      active={false}
+      disabled={false}
+      onClick={[Function]}
+      variant="secondary"
+    >
+      Withdraw Application
+    </Button>
+  </Jumbotron>
+  <CardColumns>
+    <Card
+      bg="primary"
+      body={false}
+    >
+      <CardHeader>
+        <styled.div>
+           Job Title 
+        </styled.div>
+      </CardHeader>
+      <ListGroup
+        variant="flush"
+      >
+        <ListGroupItem
+          active={false}
+          disabled={false}
+        >
+          WordPress Developer
+        </ListGroupItem>
+      </ListGroup>
+    </Card>
+    <Card
+      bg="primary"
+      body={false}
+    >
+      <CardHeader>
+        <styled.div>
+          Company 
+        </styled.div>
+      </CardHeader>
+      <ListGroup
+        variant="flush"
+      >
+        <ListGroupItem
+          active={false}
+          disabled={false}
+        >
+          Modern Tech
+        </ListGroupItem>
+      </ListGroup>
+    </Card>
+    <CardList
+      list={
+        Array [
+          "Lahore",
+        ]
+      }
+      title="Location"
+    />
+    <Card
+      bg="primary"
+      body={false}
+    >
+      <CardHeader>
+        <styled.div>
+          Job Description 
+        </styled.div>
+      </CardHeader>
+      <CardBody
+        style={
+          Object {
+            "background": "white",
+          }
+        }
+      >
+        <CardText
+          style={
+            Object {
+              "textAlign": "justify",
+            }
+          }
+        >
+          This is test job description
+        </CardText>
+      </CardBody>
+    </Card>
+    <CardList
+      list={
+        Array [
+          "Customer Service",
+        ]
+      }
+      title="Category"
+    />
+    <CardList
+      list={
+        Array [
+          "Bachelors",
+        ]
+      }
+      title="Qualification"
+    />
+    <Card
+      bg="primary"
+      body={false}
+    >
+      <CardHeader>
+        <styled.div>
+          Salary 
+        </styled.div>
+      </CardHeader>
+      <ListGroup
+        variant="flush"
+      >
+        <ListGroupItem
+          active={false}
+          disabled={false}
+        >
+          60000
+        </ListGroupItem>
+      </ListGroup>
+    </Card>
+    <Card
+      bg="primary"
+      body={false}
+    >
+      <CardHeader>
+        <styled.div>
+          Experiance 
+        </styled.div>
+      </CardHeader>
+      <ListGroup
+        variant="flush"
+      >
+        <ListGroupItem
+          active={false}
+          disabled={false}
+        >
+          1
+        </ListGroupItem>
+      </ListGroup>
+    </Card>
+  </CardColumns>
+</Container>
+`;

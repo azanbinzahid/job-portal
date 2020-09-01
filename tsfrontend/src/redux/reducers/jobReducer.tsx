@@ -10,7 +10,6 @@ const defaultState: JobState = {
     qualification: [],
     title: "",
     company: "",
-    salary: 0,
     experiance: 0,
     datestamp: new Date(),
     description: "",

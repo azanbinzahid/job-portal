@@ -20,7 +20,6 @@ export interface Job {
   qualification: string[];
   title: string;
   company: string;
-  salary: number;
   experiance: number;
   datestamp: Date;
   description: string;

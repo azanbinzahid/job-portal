@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the component 1`] = `
+<Redirect
+  to={
+    Object {
+      "pathname": "/login",
+    }
+  }
+/>
+`;
+
+exports[`renders the component 2`] = `
+<Container
+  align="center"
+  className="p-5"
+  fluid={false}
+>
+  <Spinner
+    animation="border"
+  />
+</Container>
+`;
+
+exports[`renders the component 3`] = `
+<Route
+  isLogged={true}
+  loadded={true}
+  path=""
+  render={[Function]}
+/>
+`;
+
+exports[`renders the component 4`] = `
+<Container
+  align="center"
+  className="p-5"
+  fluid={false}
+>
+  <Spinner
+    animation="border"
+  />
+</Container>
+`;

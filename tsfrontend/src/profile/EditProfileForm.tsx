@@ -28,7 +28,7 @@ type Props = {
   userDetails: User;
   editUser: (values: User) => void;
 };
-const EditProfileForm: FC<Props> = (props) => {
+export const EditProfileForm: FC<Props> = (props) => {
   const { handleSubmit, handleChange, values, errors } = useFormik({
     initialValues: props.userDetails,
     validationSchema,

@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the component 1`] = `
+<Card
+  body={false}
+  border="primary"
+>
+  <CardHeader>
+    Customer Service, 
+  </CardHeader>
+  <CardBody>
+    <CardTitle>
+      WordPress Developer
+    </CardTitle>
+    <CardSubtitle
+      className="mb-2 text-muted"
+    >
+      Modern Tech
+    </CardSubtitle>
+    <CardText>
+      This is test job description
+    </CardText>
+    <withRouter(LinkContainer)
+      to="jobs/1"
+    >
+      <Button
+        active={false}
+        disabled={false}
+        variant="primary"
+      >
+         View Details 
+      </Button>
+    </withRouter(LinkContainer)>
+  </CardBody>
+  <ListGroup
+    variant="flush"
+  >
+    <ListGroupItem
+      active={false}
+      disabled={false}
+      key="0"
+    >
+      Lahore
+    </ListGroupItem>
+  </ListGroup>
+</Card>
+`;

@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the component 1`] = `
+<Card
+  bg="primary"
+  body={false}
+>
+  <CardHeader>
+    <styled.div>
+      (s) 
+    </styled.div>
+  </CardHeader>
+  <ListGroup
+    variant="flush"
+  />
+</Card>
+`;
+
+exports[`renders the component 2`] = `
+<Card
+  bg="primary"
+  body={false}
+>
+  <CardHeader>
+    <styled.div>
+      (s) 
+    </styled.div>
+  </CardHeader>
+  <ListGroup
+    variant="flush"
+  >
+    <ListGroupItem
+      active={false}
+      disabled={false}
+      key="0"
+    >
+      a
+    </ListGroupItem>
+    <ListGroupItem
+      active={false}
+      disabled={false}
+      key="1"
+    >
+      b
+    </ListGroupItem>
+  </ListGroup>
+</Card>
+`;
