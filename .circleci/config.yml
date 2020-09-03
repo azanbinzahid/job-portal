@@ -1,9 +1,40 @@
 version: 2.1
 orbs:
   node: circleci/node@3.0.0
+
+jobs:
+  django-test:
+    docker:
+      - image: circleci/python:3.7.3
+    working_directory: ~/job-portal/backend
+    steps:
+      - checkout:
+          path: ~/job-portal
+      - restore_cache:
+          key: v001-app-{{ .Branch }}-{{ checksum "requirements.txt" }}
+      - run:
+          name: Install Python dependencies
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install -r requirements.txt
+      - save_cache:
+          key: v001-app-{{ .Branch }}-{{ checksum "requirements.txt" }}
+          paths:
+            - "venv"
+      - run:
+          name: Add python project to path
+          command: 'echo "$(realpath .)/app" > venv/lib/python3.7/site-packages/app.pth'
+      - run:
+          name: Run tests
+          command: |
+            . venv/bin/activate
+            python manage.py test
+
 workflows:
-  node-tests:
+  version: 2
+  app-tests:
     jobs:
+      - django-test
       - node/test:
           app-dir: ~/project/tsfrontend
-
