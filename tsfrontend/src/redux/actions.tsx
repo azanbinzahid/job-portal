@@ -22,8 +22,8 @@ export const logUserOut = () => (
   dispatch(setAlert("Logged out", "warning"));
 };
 
-// var proxy = `${process.env.REACT_APP_BASE_URL}`;
-var proxy = "http://0.0.0.0:8000";
+var proxy = `${process.env.REACT_APP_BASE_URL}`;
+// var proxy = "http://0.0.0.0:8000";
 
 export const fetchUser = (userCreds: User) => (dispatch: any) => {
   axios
@@ -162,8 +162,7 @@ export const fetchJobs = () => (dispatch: Dispatch<FetchJobsAction>) => {
 export const fetchJob = (jobId: number) => (
   dispatch: Dispatch<FetchJobAction>
 ) => {
-  console.log("job action", jobId);
-  axios(proxy + "/jobs/${jobId}/")
+  axios(proxy + `/jobs/${jobId}/`)
     .then((res: AxiosResponse) => {
       let job = res.data;
       dispatch({
@@ -181,7 +180,7 @@ export const applyJob = (jobId: number, msg: string, type: string) => (
 ) => {
   axios
     .patch(
-      proxy + "/jobs/${jobId}/",
+      proxy + `/jobs/${jobId}/`,
       {},
       {
         headers: {

@@ -15,7 +15,7 @@ services:
     build:
       context: ./tsfrontend
       args:
-        API_URL: "http://0.0.0.0:8000"
+        API_URL: http://0.0.0.0:8000
     volumes:
       - build_folder:/frontend/build
   nginx:
