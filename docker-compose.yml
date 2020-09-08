@@ -5,7 +5,7 @@ services:
     build:
       context: ./backend
       args:
-        DJANGO_ALLOWED_HOSTS: http://127.0.0.1, api
+        DJANGO_ALLOWED_HOSTS: http://127.0.0.1
         DJANGO_SECRET_KEY: "a2hn0@tguw*2#5736$$j24ymni8n#7sqa4yk%8_frw+ue6=0l+$$"
         DJANGO_CORS_ORIGIN_WHITELIST: http://127.0.0.1
     command: gunicorn backend.wsgi --bind 0.0.0.0:8000
@@ -15,7 +15,7 @@ services:
     build:
       context: ./tsfrontend
       args:
-        API_URL: http://0.0.0.0:8000
+        API_URL: http://127.0.0.1:8000
     volumes:
       - build_folder:/frontend/build
   nginx:

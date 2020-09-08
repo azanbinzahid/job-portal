@@ -22,12 +22,11 @@ export const logUserOut = () => (
   dispatch(setAlert("Logged out", "warning"));
 };
 
-var proxy = `${process.env.REACT_APP_BASE_URL}`;
-// var proxy = "http://0.0.0.0:8000";
+const BASE_URL = `${process.env.REACT_APP_BASE_URL}`;
 
 export const fetchUser = (userCreds: User) => (dispatch: any) => {
   axios
-    .post(proxy + "/token-auth/", userCreds, {
+    .post(BASE_URL + "/token-auth/", userCreds, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -52,7 +51,7 @@ export const editUser = (userCreds: User) => (
   dispatch: (arg0: any) => void
 ) => {
   axios
-    .put(proxy + "/users/current_user/", userCreds, {
+    .put(BASE_URL + "/users/current_user/", userCreds, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -75,7 +74,7 @@ export const uploadImage = (userCreds: { image: string }) => (
   let formData = new FormData();
   formData.append("image", userCreds.image);
   axios
-    .put(proxy + "/users/upload_picture/", formData, {
+    .put(BASE_URL + "/users/upload_picture/", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
         Accept: "application/json",
@@ -96,7 +95,7 @@ export const signUserUp = (userCreds: User) => (
   dispatch: (arg0: any) => void
 ) => {
   axios
-    .post(proxy + "/users/", userCreds, {
+    .post(BASE_URL + "/users/", userCreds, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -118,7 +117,7 @@ export const autoLogin = () => (
   dispatch: Dispatch<AutoLoginUserAction | SetUserAction>
 ) => {
   if (localStorage.getItem("token")) {
-    axios(proxy + "/users/current_user/", {
+    axios(BASE_URL + "/users/current_user/", {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -146,7 +145,7 @@ export const autoLogin = () => (
 };
 
 export const fetchJobs = () => (dispatch: Dispatch<FetchJobsAction>) => {
-  axios(proxy + "/jobs/")
+  axios(BASE_URL + "/jobs/")
     .then((res: AxiosResponse) => {
       let jobs = res.data;
       dispatch({
@@ -162,7 +161,7 @@ export const fetchJobs = () => (dispatch: Dispatch<FetchJobsAction>) => {
 export const fetchJob = (jobId: number) => (
   dispatch: Dispatch<FetchJobAction>
 ) => {
-  axios(proxy + `/jobs/${jobId}/`)
+  axios(BASE_URL + `/jobs/${jobId}/`)
     .then((res: AxiosResponse) => {
       let job = res.data;
       dispatch({
@@ -180,7 +179,7 @@ export const applyJob = (jobId: number, msg: string, type: string) => (
 ) => {
   axios
     .patch(
-      proxy + `/jobs/${jobId}/`,
+      BASE_URL + `/jobs/${jobId}/`,
       {},
       {
         headers: {

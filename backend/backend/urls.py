@@ -18,7 +18,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('token-auth/', obtain_jwt_token,),
     url(r'^media/(?P<path>.*)$', serve,
-        {'document_root': settings.MEDIA_ROOT, })
+        {'document_root': settings.MEDIA_ROOT, }),
+    url(r'^static/(?P<path>.*)$', serve,
+        {'document_root': settings.STATIC_ROOT, }),
 ]
 
 
