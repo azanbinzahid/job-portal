@@ -15,6 +15,7 @@ urlpatterns = [
 
     path('jobs/', include('jobs.urls')),
     path('users/', include('users.urls')),
+    url(r'^admin/', include('smuggler.urls')),  # before admin url patterns!
     path('admin/', admin.site.urls),
     path('token-auth/', obtain_jwt_token,),
     url(r'^media/(?P<path>.*)$', serve,

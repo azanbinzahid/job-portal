@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'ddtrace.contrib.django',
     'debug_toolbar',
+    'smuggler',
 ]
 
 CACHES = {
@@ -141,6 +142,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+SMUGGLER_FIXTURE_DIR = os.path.join(BASE_DIR, 'smuggler')
 
 
 REST_FRAMEWORK = {
