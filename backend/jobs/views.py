@@ -1,18 +1,27 @@
 from django_auto_prefetching import AutoPrefetchViewSetMixin
-from rest_framework import permissions, status, generics, viewsets
+from rest_framework import permissions, status, generics, viewsets, filters
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework import mixins
 from .serializers import JobSerializer
 from .models import Job
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
+from .filters import JobFilter
+import django_filters
 
 
 class JobViewSet(AutoPrefetchViewSetMixin, mixins.ListModelMixin,
                  mixins.RetrieveModelMixin,
                  mixins.UpdateModelMixin,
                  viewsets.GenericViewSet):
+
     queryset = Job.objects.all()
+    filter_backends = (
+        django_filters.rest_framework.DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter, )
+    filter_class = JobFilter
+    search_fields = ['id', 'description', 'location__name',
+                     "category__name", "qualification__education", "company__name"]
+    ordering_fields = "__all__"
 
     permission_classes_by_action = {
         'perform_update': [permissions.IsAuthenticated],
