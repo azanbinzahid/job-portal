@@ -144,8 +144,10 @@ export const autoLogin = () => (
   }
 };
 
-export const fetchJobs = () => (dispatch: Dispatch<FetchJobsAction>) => {
-  axios(BASE_URL + "/jobs/")
+export const fetchJobs = (params: String) => (
+  dispatch: Dispatch<FetchJobsAction>
+) => {
+  axios(BASE_URL + "/jobs/" + params)
     .then((res: AxiosResponse) => {
       let jobs = res.data;
       dispatch({

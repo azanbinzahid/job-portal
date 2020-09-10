@@ -20,7 +20,7 @@ class JobViewSet(AutoPrefetchViewSetMixin, mixins.ListModelMixin,
         django_filters.rest_framework.DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter, )
     filter_class = JobFilter
     search_fields = ['id', 'description', 'location__name',
-                     "category__name", "qualification__education", "company__name"]
+                     "category__name", "qualification__education", "company__name", "title"]
     ordering_fields = "__all__"
 
     permission_classes_by_action = {

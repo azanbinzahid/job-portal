@@ -1,17 +1,17 @@
 import React, { FC } from "react";
 import { connect } from "react-redux";
-import { Container, Jumbotron, Button, Badge } from "react-bootstrap";
+import { Container, Jumbotron, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import Slider from "home/Slider";
+import Search from "jobs/Search";
 import { RootState } from "redux/reducers";
 
 type Props = {
   firstName: string;
-  jobCount: number;
   isLogged: boolean;
 };
 
-export const Home: FC<Props> = ({ firstName, jobCount, isLogged }) => {
+export const Home: FC<Props> = ({ firstName, isLogged }) => {
   return (
     <div>
       <Slider />
@@ -23,11 +23,9 @@ export const Home: FC<Props> = ({ firstName, jobCount, isLogged }) => {
             vacancies and apply for the latest jobs near you.
           </p>
           {isLogged ? (
-            <LinkContainer to="/jobs">
-              <Button variant="primary">
-                Explore Jobs <Badge variant="light">{jobCount}</Badge>
-              </Button>
-            </LinkContainer>
+            <>
+              <Search />
+            </>
           ) : (
             <LinkContainer to="/login">
               <Button variant="primary"> Login </Button>
@@ -42,7 +40,6 @@ export const Home: FC<Props> = ({ firstName, jobCount, isLogged }) => {
 const mapStateToProps = (state: RootState) => ({
   firstName: state.userReducer.user.firstName,
   isLogged: state.userReducer.loggedIn,
-  jobCount: state.jobReducer.jobs.length,
 });
 
 export default connect(mapStateToProps)(Home);
