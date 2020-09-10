@@ -22,15 +22,18 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'a2hn0@tguw*2#5736$j24ymni8n#7sqa4yk%8_frw+ue6=0l+$'
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(",")
+
 # If this is used then `CORS_ORIGIN_WHITELIST` will not have any effect
-CORS_ORIGIN_ALLOW_ALL = True
-
+# CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_WHITELIST = os.environ.get(
+    "DJANGO_CORS_ORIGIN_WHITELIST").split(",")
 
 # Application definition
 
@@ -47,6 +50,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'ddtrace.contrib.django',
     'debug_toolbar',
+    'smuggler',
 ]
 
 CACHES = {
@@ -137,6 +141,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+SMUGGLER_FIXTURE_DIR = os.path.join(BASE_DIR, 'smuggler')
+
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (

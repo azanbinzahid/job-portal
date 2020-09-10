@@ -1,0 +1,1978 @@
+[
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "jobs",
+    "model": "category"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "jobs",
+    "model": "company"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "jobs",
+    "model": "location"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "jobs",
+    "model": "qualification"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "jobs",
+    "model": "job"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "users",
+    "model": "profile"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "3jj6qkr412swipex0nnx8u9rn83fbufs",
+  "fields": {
+    "session_data": "ODQ2MDg0ZWZhNmQzNTZhYmUxMWI5YzFmZmUzY2JjNjM0NjczODMyZDp7Il9hdXRoX3VzZXJfaWQiOiIyIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIxYjRiYWUxYTllZjU1NWVhZDc1MGRjY2MyNDE4YTY2ZDVkNzdlNTkxIn0=",
+    "expire_date": "2020-08-12T10:55:27.193Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "tgaribp3y5kb9glnsqgar9h7lydsnjj0",
+  "fields": {
+    "session_data": "NzYxZjUxM2QwNGUzMGQ1ZmY0OGE3ZGFiNTgzMzc3ZGU0YmUyNDgzOTp7Il9hdXRoX3VzZXJfaWQiOiIyIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIzMDE1ZTk4MDkyZDQ1YzNjZGQ3ZDgzOTZkYjMwNjRjOTRiMmYxZjdiIn0=",
+    "expire_date": "2020-09-22T12:44:24.260Z"
+  }
+},
+{
+  "model": "jobs.qualification",
+  "pk": 1,
+  "fields": {
+    "education": "Bachelors"
+  }
+},
+{
+  "model": "jobs.qualification",
+  "pk": 2,
+  "fields": {
+    "education": "Masters"
+  }
+},
+{
+  "model": "jobs.category",
+  "pk": 1,
+  "fields": {
+    "name": "Admin Support"
+  }
+},
+{
+  "model": "jobs.category",
+  "pk": 2,
+  "fields": {
+    "name": "Customer Service"
+  }
+},
+{
+  "model": "jobs.category",
+  "pk": 3,
+  "fields": {
+    "name": "Software Engineer"
+  }
+},
+{
+  "model": "jobs.category",
+  "pk": 4,
+  "fields": {
+    "name": "Teaching"
+  }
+},
+{
+  "model": "jobs.category",
+  "pk": 5,
+  "fields": {
+    "name": "Accounts"
+  }
+},
+{
+  "model": "jobs.category",
+  "pk": 6,
+  "fields": {
+    "name": "Developer"
+  }
+},
+{
+  "model": "jobs.category",
+  "pk": 7,
+  "fields": {
+    "name": "SCB"
+  }
+},
+{
+  "model": "jobs.company",
+  "pk": 1,
+  "fields": {
+    "name": "Ez Sols"
+  }
+},
+{
+  "model": "jobs.company",
+  "pk": 2,
+  "fields": {
+    "name": "Modern Tech"
+  }
+},
+{
+  "model": "jobs.company",
+  "pk": 3,
+  "fields": {
+    "name": "Le Finance"
+  }
+},
+{
+  "model": "jobs.company",
+  "pk": 4,
+  "fields": {
+    "name": "TechValley"
+  }
+},
+{
+  "model": "jobs.company",
+  "pk": 5,
+  "fields": {
+    "name": "SCB"
+  }
+},
+{
+  "model": "jobs.location",
+  "pk": 1,
+  "fields": {
+    "name": "Lahore"
+  }
+},
+{
+  "model": "jobs.location",
+  "pk": 2,
+  "fields": {
+    "name": "Remote"
+  }
+},
+{
+  "model": "jobs.location",
+  "pk": 3,
+  "fields": {
+    "name": "Berlin"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add category",
+    "content_type": [
+      "jobs",
+      "category"
+    ],
+    "codename": "add_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change category",
+    "content_type": [
+      "jobs",
+      "category"
+    ],
+    "codename": "change_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete category",
+    "content_type": [
+      "jobs",
+      "category"
+    ],
+    "codename": "delete_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view category",
+    "content_type": [
+      "jobs",
+      "category"
+    ],
+    "codename": "view_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add company",
+    "content_type": [
+      "jobs",
+      "company"
+    ],
+    "codename": "add_company"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change company",
+    "content_type": [
+      "jobs",
+      "company"
+    ],
+    "codename": "change_company"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete company",
+    "content_type": [
+      "jobs",
+      "company"
+    ],
+    "codename": "delete_company"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view company",
+    "content_type": [
+      "jobs",
+      "company"
+    ],
+    "codename": "view_company"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add location",
+    "content_type": [
+      "jobs",
+      "location"
+    ],
+    "codename": "add_location"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change location",
+    "content_type": [
+      "jobs",
+      "location"
+    ],
+    "codename": "change_location"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete location",
+    "content_type": [
+      "jobs",
+      "location"
+    ],
+    "codename": "delete_location"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view location",
+    "content_type": [
+      "jobs",
+      "location"
+    ],
+    "codename": "view_location"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add qualification",
+    "content_type": [
+      "jobs",
+      "qualification"
+    ],
+    "codename": "add_qualification"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change qualification",
+    "content_type": [
+      "jobs",
+      "qualification"
+    ],
+    "codename": "change_qualification"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete qualification",
+    "content_type": [
+      "jobs",
+      "qualification"
+    ],
+    "codename": "delete_qualification"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view qualification",
+    "content_type": [
+      "jobs",
+      "qualification"
+    ],
+    "codename": "view_qualification"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add job",
+    "content_type": [
+      "jobs",
+      "job"
+    ],
+    "codename": "add_job"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change job",
+    "content_type": [
+      "jobs",
+      "job"
+    ],
+    "codename": "change_job"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete job",
+    "content_type": [
+      "jobs",
+      "job"
+    ],
+    "codename": "delete_job"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view job",
+    "content_type": [
+      "jobs",
+      "job"
+    ],
+    "codename": "view_job"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add profile",
+    "content_type": [
+      "users",
+      "profile"
+    ],
+    "codename": "add_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change profile",
+    "content_type": [
+      "users",
+      "profile"
+    ],
+    "codename": "change_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete profile",
+    "content_type": [
+      "users",
+      "profile"
+    ],
+    "codename": "delete_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view profile",
+    "content_type": [
+      "users",
+      "profile"
+    ],
+    "codename": "view_profile"
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$180000$Sp8c4v7UY8e5$IMijZtOyGYM2gmfYzd8I9r0C1jvvoE60L1Apa/1e6RI=",
+    "last_login": "2020-09-08T12:44:24.247Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "Shah 2",
+    "last_name": "Sultan",
+    "email": "hello2@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2020-07-29T10:46:59Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "jobs.job",
+  "pk": 1,
+  "fields": {
+    "title": "WordPress Developer",
+    "salaray": 60000,
+    "description": "This is test job description",
+    "experiance": 1,
+    "datestamp": "2020-07-29",
+    "company": 2,
+    "location": [
+      1
+    ],
+    "category": [
+      2
+    ],
+    "qualification": [
+      1
+    ],
+    "applicants": []
+  }
+},
+{
+  "model": "jobs.job",
+  "pk": 2,
+  "fields": {
+    "title": "Community Manager",
+    "salaray": 100000,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "experiance": 1,
+    "datestamp": "2020-07-29",
+    "company": 4,
+    "location": [
+      3
+    ],
+    "category": [
+      1
+    ],
+    "qualification": [
+      1
+    ],
+    "applicants": []
+  }
+},
+{
+  "model": "jobs.job",
+  "pk": 3,
+  "fields": {
+    "title": "Task Manager",
+    "salaray": 100000,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "experiance": 1,
+    "datestamp": "2020-07-30",
+    "company": 3,
+    "location": [
+      1,
+      3
+    ],
+    "category": [
+      2,
+      5
+    ],
+    "qualification": [
+      1
+    ],
+    "applicants": []
+  }
+},
+{
+  "model": "jobs.job",
+  "pk": 4,
+  "fields": {
+    "title": "Staff",
+    "salaray": 100000,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "experiance": 1,
+    "datestamp": "2020-07-30",
+    "company": 1,
+    "location": [
+      2
+    ],
+    "category": [
+      2
+    ],
+    "qualification": [
+      1
+    ],
+    "applicants": []
+  }
+},
+{
+  "model": "jobs.job",
+  "pk": 5,
+  "fields": {
+    "title": "Banker",
+    "salaray": 100000,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "experiance": 1,
+    "datestamp": "2020-07-30",
+    "company": 5,
+    "location": [
+      2
+    ],
+    "category": [
+      5
+    ],
+    "qualification": [
+      1,
+      2
+    ],
+    "applicants": [
+      [
+        "admin"
+      ]
+    ]
+  }
+},
+{
+  "model": "users.profile",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "bio": "This is bio",
+    "location": "Pakistan",
+    "education": "MSc - 2020\nBS CS -2018\nFSc -2014",
+    "experiance": "ABC, 2019\nDEF, 2018\nXYX, 2010",
+    "birth_date": "2020-08-20",
+    "image": "user_images/Screenshot_from_2020-07-23_12-32-15_UXaYl8g.png"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2020-07-29T10:55:47.018Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "category"
+    ],
+    "object_id": "1",
+    "object_repr": "Admin Support",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2020-07-29T10:56:51.003Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "category"
+    ],
+    "object_id": "2",
+    "object_repr": "Customer Service",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2020-07-29T10:56:52.718Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "category"
+    ],
+    "object_id": "2",
+    "object_repr": "Customer Service",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2020-07-29T10:57:08.993Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "category"
+    ],
+    "object_id": "3",
+    "object_repr": "Software Engineer",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2020-07-29T10:57:21.270Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "category"
+    ],
+    "object_id": "4",
+    "object_repr": "Teaching",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2020-07-29T10:57:39.914Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "category"
+    ],
+    "object_id": "5",
+    "object_repr": "Accounts",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2020-07-29T10:57:59.344Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "company"
+    ],
+    "object_id": "1",
+    "object_repr": "Ez Sols",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2020-07-29T10:58:11.297Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "company"
+    ],
+    "object_id": "2",
+    "object_repr": "Modern Tech",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2020-07-29T10:58:24.289Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "company"
+    ],
+    "object_id": "3",
+    "object_repr": "Le Finance",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2020-07-29T10:59:41.503Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "location"
+    ],
+    "object_id": "1",
+    "object_repr": "Lahore",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2020-07-29T10:59:51.270Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "location"
+    ],
+    "object_id": "2",
+    "object_repr": "Remote",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2020-07-29T11:00:00.499Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "location"
+    ],
+    "object_id": "3",
+    "object_repr": "Berlin",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2020-07-29T11:00:15.684Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "category"
+    ],
+    "object_id": "6",
+    "object_repr": "Developer",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2020-07-29T11:00:28.688Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "qualification"
+    ],
+    "object_id": "1",
+    "object_repr": "Bachelors",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2020-07-29T11:00:34.562Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "job"
+    ],
+    "object_id": "1",
+    "object_repr": "WordPress Developer",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2020-07-29T13:56:43.820Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "company"
+    ],
+    "object_id": "4",
+    "object_repr": "TechValley",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2020-07-29T13:58:19.963Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "job"
+    ],
+    "object_id": "2",
+    "object_repr": "Community Manager",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2020-07-30T08:12:55.671Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "job"
+    ],
+    "object_id": "3",
+    "object_repr": "Task Manager",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2020-07-30T08:16:18.770Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "job"
+    ],
+    "object_id": "4",
+    "object_repr": "Staff",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2020-07-30T08:18:06.433Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "category"
+    ],
+    "object_id": "7",
+    "object_repr": "SCB",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2020-07-30T08:18:16.748Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "qualification"
+    ],
+    "object_id": "2",
+    "object_repr": "Masters",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2020-07-30T08:18:58.107Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "company"
+    ],
+    "object_id": "5",
+    "object_repr": "SCB",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2020-07-30T08:19:08.286Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "job"
+    ],
+    "object_id": "5",
+    "object_repr": "Banker",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2020-08-03T13:44:38.122Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "job"
+    ],
+    "object_id": "1",
+    "object_repr": "WordPress Developer",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Location\", \"Category\", \"Qualification\", \"Applicants\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2020-08-03T13:46:13.879Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "job"
+    ],
+    "object_id": "4",
+    "object_repr": "Staff",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Applicants\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2020-08-03T13:47:40.666Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "job"
+    ],
+    "object_id": "5",
+    "object_repr": "Banker",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Location\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2020-08-04T08:15:00.437Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "job"
+    ],
+    "object_id": "3",
+    "object_repr": "Task Manager",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Applicants\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2020-08-05T10:22:18.167Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "users",
+      "profile"
+    ],
+    "object_id": "1",
+    "object_repr": "Profile object (1)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2020-08-05T10:30:19.629Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "users",
+      "profile"
+    ],
+    "object_id": "1",
+    "object_repr": "admin",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"User\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2020-08-05T13:14:26.455Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "14",
+    "object_repr": "erwer",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2020-08-05T13:14:26.461Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "15",
+    "object_repr": "erwersfds",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2020-08-05T13:14:26.466Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "16",
+    "object_repr": "erwersfdssds",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2020-08-05T13:14:26.474Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "17",
+    "object_repr": "ferwersfdssds",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2020-08-05T13:14:26.479Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "5",
+    "object_repr": "ijaz",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2020-08-05T13:14:26.485Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "11",
+    "object_repr": "lateef",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2020-08-05T13:14:26.493Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "6",
+    "object_repr": "sasas",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 39,
+  "fields": {
+    "action_time": "2020-08-05T13:14:26.499Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "7",
+    "object_repr": "sasasas",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2020-08-05T13:14:26.504Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "13",
+    "object_repr": "sfdsdfsdfsdf",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 41,
+  "fields": {
+    "action_time": "2020-08-05T13:14:26.509Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "9",
+    "object_repr": "subhan",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 42,
+  "fields": {
+    "action_time": "2020-08-05T13:14:26.515Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "19",
+    "object_repr": "subhanbinzahid",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 43,
+  "fields": {
+    "action_time": "2020-08-05T13:14:26.520Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "8",
+    "object_repr": "test23",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 44,
+  "fields": {
+    "action_time": "2020-08-05T13:14:26.525Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "10",
+    "object_repr": "test24",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 45,
+  "fields": {
+    "action_time": "2020-08-05T13:14:26.531Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "12",
+    "object_repr": "test25",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2020-08-05T13:14:26.536Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "18",
+    "object_repr": "test255fsdf",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2020-08-05T13:15:24.535Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "4",
+    "object_repr": "Azan",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2020-08-06T10:03:41.346Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "users",
+      "profile"
+    ],
+    "object_id": "1",
+    "object_repr": "admin",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Education\", \"Experiance\", \"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2020-08-06T10:32:13.919Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "users",
+      "profile"
+    ],
+    "object_id": "1",
+    "object_repr": "admin",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 50,
+  "fields": {
+    "action_time": "2020-08-06T10:32:34.254Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "users",
+      "profile"
+    ],
+    "object_id": "1",
+    "object_repr": "admin",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 51,
+  "fields": {
+    "action_time": "2020-08-06T10:33:16.241Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "users",
+      "profile"
+    ],
+    "object_id": "1",
+    "object_repr": "admin",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 52,
+  "fields": {
+    "action_time": "2020-08-06T10:33:24.790Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "users",
+      "profile"
+    ],
+    "object_id": "1",
+    "object_repr": "admin",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 53,
+  "fields": {
+    "action_time": "2020-08-06T12:03:02.001Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "users",
+      "profile"
+    ],
+    "object_id": "1",
+    "object_repr": "admin",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 54,
+  "fields": {
+    "action_time": "2020-09-09T07:16:17.010Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "25",
+    "object_repr": "abc",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 55,
+  "fields": {
+    "action_time": "2020-09-09T07:16:17.018Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "24",
+    "object_repr": "assasasas",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 56,
+  "fields": {
+    "action_time": "2020-09-09T07:16:17.026Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "21",
+    "object_repr": "dsadsad",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 57,
+  "fields": {
+    "action_time": "2020-09-09T07:16:17.034Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "23",
+    "object_repr": "pakistan123",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 58,
+  "fields": {
+    "action_time": "2020-09-09T07:16:17.039Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "26",
+    "object_repr": "saSAS",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 59,
+  "fields": {
+    "action_time": "2020-09-09T07:16:17.049Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "27",
+    "object_repr": "sdfsdfsd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 60,
+  "fields": {
+    "action_time": "2020-09-09T07:16:17.062Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "22",
+    "object_repr": "sdfsdfsdfsfd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 61,
+  "fields": {
+    "action_time": "2020-09-09T07:16:17.077Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "20",
+    "object_repr": "sfsdfdsfdfgdf",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 62,
+  "fields": {
+    "action_time": "2020-09-09T07:16:17.102Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "28",
+    "object_repr": "sfsdfsdf",
+    "action_flag": 3,
+    "change_message": ""
+  }
+}
+]
