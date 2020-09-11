@@ -28,6 +28,7 @@ const Filter: FC<Props> = (props) => {
     <div className="pb-5">
       <Select<any>
         isMulti
+        label={filterName}
         defaultValue={selectedOption}
         onChange={setSelectedOption}
         options={options}

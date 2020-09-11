@@ -52,7 +52,8 @@ INSTALLED_APPS = [
     'ddtrace.contrib.django',
     'debug_toolbar',
     'smuggler',
-    'django_filters'
+    'django_filters',
+    'drf_multiple_model',
 ]
 
 CACHES = {

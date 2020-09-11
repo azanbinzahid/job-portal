@@ -4,9 +4,9 @@ from django.contrib.auth.models import User
 
 class Qualification(models.Model):
     def __str__(self):
-        return self.education
+        return self.name
 
-    education = models.CharField(max_length=100, unique=True)
+    name = models.CharField(max_length=100, unique=True)
 
 
 class Category(models.Model):

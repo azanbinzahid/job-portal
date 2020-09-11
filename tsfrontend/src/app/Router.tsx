@@ -1,7 +1,7 @@
 import React, { useEffect, FC } from "react";
 import { connect } from "react-redux";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { autoLogin } from "redux/actions";
+import { autoLogin, fetchFilters } from "redux/actions";
 import Home from "home/Home";
 import Login from "auth/Login";
 import Signup from "auth/Signup";
@@ -13,11 +13,14 @@ import ProtectedRoute from "app/ProtectedRoute";
 
 type Props = {
   autoLogin: () => void;
+  fetchFilters: () => void;
 };
 export const Router: FC<Props> = (props) => {
+  const { autoLogin, fetchFilters } = props;
   useEffect(() => {
-    props.autoLogin();
-  }, [props]);
+    autoLogin();
+    fetchFilters();
+  }, [fetchFilters, autoLogin]);
 
   return (
     <BrowserRouter>
@@ -37,6 +40,7 @@ export const Router: FC<Props> = (props) => {
 
 const mapDispatchToProps = {
   autoLogin,
+  fetchFilters,
 };
 
 export default connect(null, mapDispatchToProps)(Router);

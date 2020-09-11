@@ -13,6 +13,7 @@ import {
   User,
   AutoLoginUserAction,
   SetUserAction,
+  SetFiltersAction,
 } from "redux/types";
 
 export const logUserOut = () => (
@@ -153,6 +154,21 @@ export const fetchJobs = (params: String) => (
       dispatch({
         type: JobActionTypes.FETCH_JOBS,
         payload: jobs,
+      });
+    })
+    .catch((error: AxiosError) => {
+      console.log(error);
+    });
+};
+
+export const fetchFilters = () => (dispatch: Dispatch<SetFiltersAction>) => {
+  axios(BASE_URL + "/jobs/filters/")
+    .then((res: AxiosResponse) => {
+      let filters = res.data;
+      console.log(filters);
+      dispatch({
+        type: JobActionTypes.SET_FILTERS,
+        payload: filters,
       });
     })
     .catch((error: AxiosError) => {
