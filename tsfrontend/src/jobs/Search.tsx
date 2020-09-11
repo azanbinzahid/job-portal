@@ -3,20 +3,24 @@ import { Form, Button, Container } from "react-bootstrap";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import TextField from "app/common/TextField";
-import { withRouter } from "react-router-dom";
+import { searchQuery } from "utils/helper";
+import { withRouter, useLocation } from "react-router-dom";
 
 const validationSchema = yup.object().shape({
   search: yup.string(),
 });
 
 const Search = (props: any) => {
+  let params = useLocation().search.split("&");
+  let query = searchQuery(params, "search");
+
   const { handleSubmit, handleChange, values, errors } = useFormik({
     initialValues: {
       search: "",
     },
     validationSchema,
     onSubmit(values) {
-      let q = "/jobs/?search=" + values.search;
+      let q = query + "&search=" + values.search;
       props.history.push(q);
     },
   });
