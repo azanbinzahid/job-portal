@@ -10,6 +10,20 @@ import { useLocation } from "react-router-dom";
 import { fetchJobs } from "redux/actions";
 import Filter from "jobs/Filter";
 
+const optionsLocation = [
+  { value: "Lahore", label: "Lahore" },
+  { value: "Berlin", label: "Berlin" },
+  { value: "Karachi", label: "Karachi" },
+];
+
+const optionsCompany = [
+  { value: "SCB", label: "SCB" },
+  { value: "TechValley", label: "TechValley" },
+  { value: "Le Finance", label: "Le Finance" },
+  { value: "Modern Tech", label: "Modern Tech" },
+  { value: "Ez Sols", label: "Ez Sols" },
+];
+
 type Props = {
   jobs: Job[];
   fetchJobs: (params: String) => void;
@@ -24,7 +38,8 @@ export const JobList: FC<Props> = ({ jobs, fetchJobs }) => {
     <Container>
       <PageHeader title="Job Listing Page" />
       <Search />
-      <Filter />
+      <Filter filterName="location" options={optionsLocation} />
+      <Filter filterName="company" options={optionsCompany} />
       <CardColumns>
         {jobs ? jobs.map((job) => <JobItem key={job.id} job={job} />) : null}
       </CardColumns>

@@ -16,5 +16,7 @@ export function searchQuery(params: String[], filterName: String) {
     query = "?" + query;
   }
 
+  query = "/jobs/" + query;
+
   return query;
 }

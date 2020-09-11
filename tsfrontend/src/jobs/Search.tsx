@@ -1,16 +1,16 @@
-import React from "react";
+import React, { FC } from "react";
 import { Form, Button, Container } from "react-bootstrap";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import TextField from "app/common/TextField";
 import { searchQuery } from "utils/helper";
-import { withRouter, useLocation } from "react-router-dom";
+import { withRouter, useLocation, RouteComponentProps } from "react-router-dom";
 
 const validationSchema = yup.object().shape({
-  search: yup.string(),
+  search: yup.string().required().min(3),
 });
 
-const Search = (props: any) => {
+const Search: FC<RouteComponentProps<any>> = (props) => {
   let params = useLocation().search.split("&");
   let query = searchQuery(params, "search");
 

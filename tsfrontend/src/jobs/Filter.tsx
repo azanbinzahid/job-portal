@@ -1,17 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, FC } from "react";
 import Select from "react-select";
 import { searchQuery } from "utils/helper";
-import { withRouter, useLocation } from "react-router-dom";
+import { withRouter, useLocation, RouteComponentProps } from "react-router-dom";
 
-const options = [
-  { value: "Lahore", label: "Lahore" },
-  { value: "Berlin", label: "Berlin" },
-  { value: "Karachi", label: "Karachi" },
-];
+interface Props extends RouteComponentProps<any> {
+  filterName: String;
+  options: { value: String; label: String }[];
+}
 
-const filterName = "location";
-
-const Filter = (props: any) => {
+const Filter: FC<Props> = (props) => {
+  const { filterName, options } = props;
   const [selectedOption, setSelectedOption] = useState([]);
   let params = useLocation().search.split("&");
   let query = searchQuery(params, filterName);
@@ -19,7 +17,7 @@ const Filter = (props: any) => {
   useEffect(() => {
     let q = query;
     if (selectedOption) {
-      selectedOption.forEach((element: any) => {
+      selectedOption.forEach((element: { value: String; label: String }) => {
         q = q + `&${filterName}=${element.value}`;
       });
     }
