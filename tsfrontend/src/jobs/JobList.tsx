@@ -8,7 +8,7 @@ import { RootState } from "redux/reducers";
 import { Job } from "redux/types";
 import { useLocation } from "react-router-dom";
 import { fetchJobs } from "redux/actions";
-import Filter from "jobs/Filter";
+import Filters from "jobs/Filters";
 
 type Props = {
   jobs: Job[];
@@ -26,17 +26,15 @@ export const JobList: FC<Props> = ({ jobs, fetchJobs, filters }) => {
     <Container>
       <PageHeader title="Job Listing Page" />
       <Search />
-
-      {Object.keys(filters).map((key) => {
-        let temp: any = [];
-        filters[key].forEach((e: any) => {
-          temp.push({ value: e.name, label: e.name });
-        });
-        return <Filter filterName={key.toLowerCase()} options={temp} />;
-      })}
-
+      <Filters />
       <CardColumns>
-        {jobs ? jobs.map((job) => <JobItem key={job.id} job={job} />) : null}
+        {jobs.length > 0 ? (
+          jobs.map((job) => <JobItem key={job.id} job={job} />)
+        ) : (
+          <>
+            <h1>No results found!</h1>
+          </>
+        )}
       </CardColumns>
     </Container>
   );

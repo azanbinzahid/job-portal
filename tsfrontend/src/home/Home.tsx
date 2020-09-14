@@ -1,45 +1,48 @@
 import React, { FC } from "react";
 import { connect } from "react-redux";
-import { Container, Jumbotron, Button } from "react-bootstrap";
+import { Container, Jumbotron, Button, Col, Row, Badge } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import Slider from "home/Slider";
-import Search from "jobs/Search";
 import { RootState } from "redux/reducers";
+import { FaBeer } from "react-icons/fa";
 
 type Props = {
   firstName: string;
   isLogged: boolean;
+  filters: any;
 };
 
-export const Home: FC<Props> = ({ firstName, isLogged }) => {
+export const Home: FC<Props> = ({ firstName, isLogged, filters }) => {
   return (
-    <div>
+    <>
       <Slider />
-      <Container className="p-5">
-        <Jumbotron>
-          <h2> Welcome {firstName}</h2>
-          <p>
-            Looking for a job? Apply online for latest jobs in Pakistan. Browse
-            vacancies and apply for the latest jobs near you.
-          </p>
-          {isLogged ? (
-            <>
-              <Search />
-            </>
-          ) : (
-            <LinkContainer to="/login">
-              <Button variant="primary"> Login </Button>
-            </LinkContainer>
-          )}
-        </Jumbotron>
+      <Container<React.ElementType> className="pt-5 pb-5" align="center">
+        <Row>
+          {Object.keys(filters).map((key) => {
+            return (
+              <Col>
+                <LinkContainer to="/jobs">
+                  <Button variant="outline-primary">
+                    <h1>
+                      {filters[key].length}
+                      <Badge variant="warning"></Badge>
+                    </h1>
+                    {key}{" "}
+                  </Button>
+                </LinkContainer>
+              </Col>
+            );
+          })}
+        </Row>
       </Container>
-    </div>
+    </>
   );
 };
 
 const mapStateToProps = (state: RootState) => ({
   firstName: state.userReducer.user.firstName,
   isLogged: state.userReducer.loggedIn,
+  filters: state.jobReducer.filters,
 });
 
 export default connect(mapStateToProps)(Home);
