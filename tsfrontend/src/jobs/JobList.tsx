@@ -16,7 +16,7 @@ type Props = {
   fetchJobs: (params: String) => void;
 };
 
-export const JobList: FC<Props> = ({ jobs, fetchJobs, filters }) => {
+export const JobList: FC<Props> = ({ jobs, fetchJobs }) => {
   let q = useLocation().search;
   useEffect(() => {
     fetchJobs(q);

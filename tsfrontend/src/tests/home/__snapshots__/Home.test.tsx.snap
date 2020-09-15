@@ -1,73 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders the component 1`] = `
-<div>
+<Fragment>
   <Slider />
-  <Container
-    className="p-5"
-    fluid={false}
-  >
-    <Jumbotron
-      fluid={false}
-    >
-      <h2>
-         Welcome 
-        name
-      </h2>
-      <p>
-        Looking for a job? Apply online for latest jobs in Pakistan. Browse vacancies and apply for the latest jobs near you.
-      </p>
-      <withRouter(LinkContainer)
-        to="/jobs"
-      >
-        <Button
-          active={false}
-          disabled={false}
-          variant="primary"
-        >
-          Explore Jobs 
-          <Badge
-            pill={false}
-            variant="light"
-          >
-            100
-          </Badge>
-        </Button>
-      </withRouter(LinkContainer)>
-    </Jumbotron>
-  </Container>
-</div>
-`;
-
-exports[`renders the component 2`] = `
-<div>
-  <Slider />
-  <Container
-    className="p-5"
-    fluid={false}
-  >
-    <Jumbotron
-      fluid={false}
-    >
-      <h2>
-         Welcome 
-        name
-      </h2>
-      <p>
-        Looking for a job? Apply online for latest jobs in Pakistan. Browse vacancies and apply for the latest jobs near you.
-      </p>
-      <withRouter(LinkContainer)
-        to="/login"
-      >
-        <Button
-          active={false}
-          disabled={false}
-          variant="primary"
-        >
-           Login 
-        </Button>
-      </withRouter(LinkContainer)>
-    </Jumbotron>
-  </Container>
-</div>
+  <Connect(Component) />
+  <Connect(Component) />
+</Fragment>
 `;

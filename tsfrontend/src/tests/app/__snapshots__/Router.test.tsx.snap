@@ -5,15 +5,7 @@ exports[`renders the component 1`] = `
   <Connect(Component) />
   <Switch>
     <Route
-      component={
-        Object {
-          "$$typeof": Symbol(react.memo),
-          "WrappedComponent": [Function],
-          "compare": null,
-          "displayName": "Connect(Component)",
-          "type": [Function],
-        }
-      }
+      component={[Function]}
       exact={true}
       path="/"
     />
@@ -75,18 +67,10 @@ exports[`renders the component 1`] = `
           "type": [Function],
         }
       }
-      path="/jobs"
+      path="/jobs/"
     />
     <Route
-      component={
-        Object {
-          "$$typeof": Symbol(react.memo),
-          "WrappedComponent": [Function],
-          "compare": null,
-          "displayName": "Connect(Component)",
-          "type": [Function],
-        }
-      }
+      component={[Function]}
     />
   </Switch>
 </BrowserRouter>

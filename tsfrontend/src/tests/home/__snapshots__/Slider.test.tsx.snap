@@ -8,38 +8,43 @@ exports[`renders the component 1`] = `
   indicators={true}
   interval={5000}
   keyboard={true}
-  nextIcon={
-    <span
-      aria-hidden="true"
-      className="carousel-control-next-icon"
-    />
-  }
+  nextIcon={<React.Fragment />}
   nextLabel="Next"
   pause="hover"
-  prevIcon={
-    <span
-      aria-hidden="true"
-      className="carousel-control-prev-icon"
-    />
-  }
+  prevIcon={<React.Fragment />}
   prevLabel="Previous"
   slide={true}
   touch={true}
   wrap={true}
 >
   <CarouselItem>
-    <img
+    <styled.img
       alt="First slide"
       className="d-block w-100"
-      src="/images/1.jpg"
+      src="https://www.jobs.punjab.gov.pk/new_design/images/banner2.jpg"
     />
-  </CarouselItem>
-  <CarouselItem>
-    <img
-      alt="First slide"
-      className="d-block w-100"
-      src="/images/2.jpg"
-    />
+    <CarouselCaption>
+      <div>
+        <img
+          alt=""
+          className="d-inline-block align-top pb-3"
+          height="150"
+          src="https://image.flaticon.com/icons/svg/3232/3232975.svg"
+          width="150"
+        />
+        <styled.h1>
+          <span>
+             Get The Career You Deserve 
+          </span>
+        </styled.h1>
+        <withRouter(Search) />
+        <styled.p>
+          <span>
+            Example keywords: remote, lahore, manager 
+          </span>
+        </styled.p>
+      </div>
+    </CarouselCaption>
   </CarouselItem>
 </Carousel>
 `;
