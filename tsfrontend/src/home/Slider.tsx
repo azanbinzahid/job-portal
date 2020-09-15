@@ -6,10 +6,17 @@ import styled from "styled-components";
 const BannerTitle = styled.h1`
   display: block;
   margin-bottom: 12px;
-  font-size: 47px;
+  font-size: 37px;
   font-family: "Jost", "PT Serif", sans-serif;
   font-weight: 700;
   color: #fff;
+  padding-bottom: 7px;
+  span {
+    background: #007bff;
+    border-radius: 5px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
 `;
 
 const BannerText = styled.p`
@@ -17,16 +24,23 @@ const BannerText = styled.p`
   margin-bottom: 12px;
   font-family: "Jost", "PT Serif", sans-serif;
   font-weight: 700;
-  color: #fff;
+  color: #007bff;
+  span {
+    background: #fff;
+    border-radius: 5px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
 `;
 
 const Image = styled.img`
-  filter: brightness(50%);
+  // filter: brightness(50%);
+  filter: blur(20px);
 `;
 
 const Slider: FC = () => {
   return (
-    <Carousel>
+    <Carousel prevIcon={<></>} nextIcon={<></>}>
       <Carousel.Item>
         <Image
           // className="d-block w-100"
@@ -34,9 +48,21 @@ const Slider: FC = () => {
           alt="First slide"
         />
         <Carousel.Caption>
-          <BannerTitle>Get The Career You Deserve</BannerTitle>
+          <img
+            alt=""
+            src="https://image.flaticon.com/icons/svg/3232/3232975.svg"
+            width="150"
+            height="150"
+            className="d-inline-block align-top pb-3"
+          />
+
+          <BannerTitle>
+            <span> Get The Career You Deserve </span>
+          </BannerTitle>
           <Search />
-          <BannerText> For example: remote, lahore, manager </BannerText>
+          <BannerText>
+            <span>Example keywords: remote, lahore, manager </span>
+          </BannerText>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>

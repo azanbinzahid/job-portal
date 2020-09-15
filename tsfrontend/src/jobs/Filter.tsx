@@ -10,13 +10,23 @@ interface Props extends RouteComponentProps<any> {
 
 const Filter: FC<Props> = (props) => {
   const { filterName, options, isMulti, history } = props;
-  const [selectedOption, setSelectedOption] = useState([]);
-  const [selectedOptionSingle, setSelectedOptionSingle] = useState({
-    value: "",
-    label: "",
-  });
   let params = useLocation().search.split("&");
   let query = searchQuery(params, filterName);
+
+  let qFilter = { value: "", label: "" };
+  if (params) {
+    for (let index = 0; index < params.length; index++) {
+      const element = params[index];
+      if (element.includes(filterName + "=")) {
+        qFilter.value = unescape(element.slice(filterName.length + 1));
+        qFilter.label = unescape(element.slice(filterName.length + 1));
+        break;
+      }
+    }
+  }
+
+  const [selectedOption, setSelectedOption] = useState([]);
+  const [selectedOptionSingle, setSelectedOptionSingle] = useState(qFilter);
 
   useEffect(() => {
     let q = query;
@@ -24,12 +34,11 @@ const Filter: FC<Props> = (props) => {
     if (selectedOption && isMulti) {
       selectedOption.forEach((element: { value: String; label: String }) => {
         q = q + `&${filterName}=${element.value}`;
-        history.push(q);
       });
     } else if (selectedOptionSingle && selectedOptionSingle.value !== "") {
       q = q + `&${filterName}=${selectedOptionSingle.value}`;
-      history.push(q);
     }
+    history.push(q);
   }, [selectedOption, selectedOptionSingle]);
 
   return isMulti ? (
