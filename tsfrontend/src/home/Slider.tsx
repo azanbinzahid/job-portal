@@ -35,7 +35,7 @@ const BannerText = styled.p`
 
 const Image = styled.img`
   // filter: brightness(50%);
-  filter: blur(20px);
+  filter: blur(7px);
 `;
 
 const Slider: FC = () => {
@@ -43,26 +43,28 @@ const Slider: FC = () => {
     <Carousel prevIcon={<></>} nextIcon={<></>}>
       <Carousel.Item>
         <Image
-          // className="d-block w-100"
+          className="d-block w-100"
           src="https://www.jobs.punjab.gov.pk/new_design/images/banner2.jpg"
           alt="First slide"
         />
         <Carousel.Caption>
-          <img
-            alt=""
-            src="https://image.flaticon.com/icons/svg/3232/3232975.svg"
-            width="150"
-            height="150"
-            className="d-inline-block align-top pb-3"
-          />
+          <div>
+            <img
+              alt=""
+              src="https://image.flaticon.com/icons/svg/3232/3232975.svg"
+              width="150"
+              height="150"
+              className="d-inline-block align-top pb-3"
+            />
 
-          <BannerTitle>
-            <span> Get The Career You Deserve </span>
-          </BannerTitle>
-          <Search />
-          <BannerText>
-            <span>Example keywords: remote, lahore, manager </span>
-          </BannerText>
+            <BannerTitle>
+              <span> Get The Career You Deserve </span>
+            </BannerTitle>
+            <Search />
+            <BannerText>
+              <span>Example keywords: remote, lahore, manager </span>
+            </BannerText>
+          </div>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>

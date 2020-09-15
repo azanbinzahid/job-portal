@@ -25,3 +25,20 @@ export const capitalize = (s: String) => {
   if (typeof s !== "string") return "";
   return s.charAt(0).toUpperCase() + s.slice(1);
 };
+
+export function pluralize(word: string): string {
+  if (!word) {
+    return "";
+  }
+  const isPluralAlready =
+    word.endsWith("ies") ||
+    word.endsWith("es") ||
+    (!word.endsWith("us") && word.endsWith("s"));
+  if (isPluralAlready) {
+    return word;
+  }
+  if (word.endsWith("y") && !word.endsWith("ay")) {
+    return `${word.substring(0, word.length - 1)}ies`;
+  }
+  return word.endsWith("us") ? `${word}es` : `${word}s`;
+}
