@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 import {
   Container,
-  Jumbotron,
   Button,
   Card,
   ListGroup,
@@ -14,6 +13,7 @@ import { fetchJob, applyJob } from "redux/actions";
 import { RootState } from "redux/reducers";
 import { Job } from "redux/types";
 import CardList from "./CardList";
+import SectionHeading from "app/common/SectionHeading";
 
 const Title = styled.div`
   color: white;
@@ -57,10 +57,11 @@ export const JobDetailed: FC<Props> = (props) => {
 
   return (
     <Container>
-      <Jumbotron<React.ElementType> align="center">
-        <h1> Job Details Page </h1>
+      <Container<React.ElementType> align="center" className="pb-5">
+        <SectionHeading title="Job Details" />
         {!job.applicants.includes(props.username) ? (
           <Button
+            size="lg"
             onClick={() => handleClick("Applied", "success")}
             variant="primary"
           >
@@ -74,7 +75,7 @@ export const JobDetailed: FC<Props> = (props) => {
             Withdraw Application
           </Button>
         )}
-      </Jumbotron>
+      </Container>
 
       <CardColumns>
         <Card bg="primary">
