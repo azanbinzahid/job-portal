@@ -4,6 +4,7 @@ import { Container, Button, Col, Row } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { RootState } from "redux/reducers";
 import { FaAirbnb } from "react-icons/fa";
+import SectionHeading from "app/common/SectionHeading";
 
 type Props = {
   filters: any;
@@ -11,13 +12,14 @@ type Props = {
 
 export const FeaturedCategories: FC<Props> = ({ filters }) => {
   return (
-    <Container<React.ElementType> className="pt-5 pb-3" align="center">
-      <h1 className="pb-5">Featured Categories</h1>
+    <Container<React.ElementType> className="" align="center">
+      <SectionHeading title="Featured Categories" />
+
       <Row>
         {filters.Category
           ? filters.Category.map((e: any) => {
               return (
-                <Col xs="3" className="pb-3">
+                <Col className="pb-3">
                   <LinkContainer to={`/jobs/?&category=${e.name}`}>
                     <Button variant="link" block>
                       <h1>

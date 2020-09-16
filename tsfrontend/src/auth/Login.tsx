@@ -7,7 +7,7 @@ import * as yup from "yup";
 import { fetchUser } from "redux/actions";
 import { RootState } from "redux/reducers";
 import TextField from "app/common/TextField";
-import PageHeader from "app/common/PageHeader";
+import SectionHeading from "app/common/SectionHeading";
 
 const validationSchema = yup.object().shape({
   username: yup.string().max(16).required(),
@@ -40,34 +40,36 @@ export const Login: FC<Props> = (props) => {
   }
 
   return (
-    <Container>
-      <PageHeader title="Login Page" />
-      <Jumbotron>
-        <Form
-          onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
-        >
-          <TextField
-            type="text"
-            name="username"
-            placeholder="Username"
-            value={values.username}
-            onChange={handleChange}
-            error={errors.username}
-          />
-          <TextField
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={values.password}
-            onChange={handleChange}
-            error={errors.password}
-          />
-          <Button variant="primary" type="submit">
-            Login
-          </Button>
-        </Form>
-      </Jumbotron>
-    </Container>
+    <>
+      <SectionHeading title="Login Page" />
+      <Container>
+        <Jumbotron>
+          <Form
+            onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
+          >
+            <TextField
+              type="text"
+              name="username"
+              placeholder="Username"
+              value={values.username}
+              onChange={handleChange}
+              error={errors.username}
+            />
+            <TextField
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={values.password}
+              onChange={handleChange}
+              error={errors.password}
+            />
+            <Button variant="primary" type="submit">
+              Login
+            </Button>
+          </Form>
+        </Jumbotron>
+      </Container>
+    </>
   );
 };
 

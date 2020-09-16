@@ -4,6 +4,7 @@ import { Container, Jumbotron, Button, Col, Row } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { RootState } from "redux/reducers";
 import { pluralize } from "utils/helper";
+import SectionHeading from "app/common/SectionHeading";
 
 type Props = {
   filters: any;
@@ -11,8 +12,8 @@ type Props = {
 
 export const FilterStats: FC<Props> = ({ filters }) => {
   return (
-    <Jumbotron<React.ElementType> className="pt-5 pb-5" align="center">
-      <h1 className="pb-5">Easily filter jobs across</h1>
+    <Jumbotron<React.ElementType> className="pt-2" align="center" fluid>
+      <SectionHeading title="Our Stats" subtitle="Filter jobs across.." />
       <Container>
         <Row>
           {Object.keys(filters).map((key) => {

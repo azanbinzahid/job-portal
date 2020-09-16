@@ -23,6 +23,7 @@ class JobViewSet(AutoPrefetchViewSetMixin, mixins.ListModelMixin,
     search_fields = ['id', 'description', 'location__name',
                      "category__name", "qualification__name", "company__name", "title"]
     ordering_fields = "__all__"
+    ordering = ['title']
 
     permission_classes_by_action = {
         'perform_update': [permissions.IsAuthenticated],

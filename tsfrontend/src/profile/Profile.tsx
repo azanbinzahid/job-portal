@@ -6,7 +6,7 @@ import ProfilePicture from "profile/ProfilePicture";
 import JobsApplied from "profile/JobsApplied";
 import { RootState } from "redux/reducers";
 import { Job } from "redux/types";
-import PageHeader from "app/common/PageHeader";
+import SectionHeading from "app/common/SectionHeading";
 
 type Props = {
   firstName: string;
@@ -17,7 +17,7 @@ type Props = {
 export const Profile: FC<Props> = (props) => {
   return (
     <Container>
-      <PageHeader
+      <SectionHeading
         title={props.firstName + " " + props.lastName}
         subtitle="Profile Page"
       />

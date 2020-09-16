@@ -44,8 +44,8 @@ const Search: FC<RouteComponentProps<any>> = (props) => {
   return (
     <Container<React.ElementType> className="pt-2 pb-2" align="center">
       <Form onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}>
-        <Form.Row>
-          <Col xs="9">
+        <Form.Row style={{ justifyContent: "space-between" }}>
+          <Col xs="10">
             <TextField
               type="text"
               name="search"
@@ -56,11 +56,9 @@ const Search: FC<RouteComponentProps<any>> = (props) => {
             />
           </Col>
           <Col xs="auto">
-            <Button variant="primary" type="submit">
-              Search Jobs
+            <Button variant="primary" type="submit" className="mr-1">
+              Serach
             </Button>
-          </Col>
-          <Col xs="auto">
             <Button
               variant="primary"
               onClick={() => {
