@@ -6,10 +6,12 @@ import Home from "home/Home";
 import Login from "auth/Login";
 import Signup from "auth/Signup";
 import NavBar from "app/NavBar";
+import Footer from "app/Footer";
 import Jobs from "jobs/Jobs";
 import JobDetailed from "jobs/JobDetailed";
 import Profile from "profile/Profile";
 import ProtectedRoute from "app/ProtectedRoute";
+import { Container } from "react-bootstrap";
 
 type Props = {
   autoLogin: () => void;
@@ -25,15 +27,24 @@ export const Router: FC<Props> = (props) => {
   return (
     <BrowserRouter>
       <NavBar />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/login" component={Login} />
-        <Route path="/signup" component={Signup} />
-        <ProtectedRoute path="/jobs/:jobId" component={JobDetailed} />
-        <ProtectedRoute path="/profile" component={Profile} />
-        <Route path="/jobs/" component={Jobs} />
-        <Route component={Home} />
-      </Switch>
+      <Container
+        fluid
+        style={{
+          minHeight: "70vh",
+          padding: 0,
+        }}
+      >
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={Signup} />
+          <ProtectedRoute path="/jobs/:jobId" component={JobDetailed} />
+          <ProtectedRoute path="/profile" component={Profile} />
+          <Route path="/jobs/" component={Jobs} />
+          <Route component={Home} />
+        </Switch>
+      </Container>
+      <Footer />
     </BrowserRouter>
   );
 };

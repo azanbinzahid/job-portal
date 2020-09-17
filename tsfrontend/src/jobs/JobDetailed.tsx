@@ -1,23 +1,11 @@
 import React, { useEffect, useCallback, FC } from "react";
 import { connect } from "react-redux";
-import styled from "styled-components";
-import {
-  Container,
-  Button,
-  Card,
-  ListGroup,
-  CardColumns,
-  Spinner,
-} from "react-bootstrap";
+import { Container, Button, Card, Spinner, Row, Col } from "react-bootstrap";
 import { fetchJob, applyJob } from "redux/actions";
 import { RootState } from "redux/reducers";
 import { Job } from "redux/types";
-import CardList from "./CardList";
 import SectionHeading from "app/common/SectionHeading";
-
-const Title = styled.div`
-  color: white;
-`;
+import { FaBeer } from "react-icons/fa";
 
 type Props = {
   job: Job;
@@ -58,7 +46,7 @@ export const JobDetailed: FC<Props> = (props) => {
   return (
     <Container>
       <Container<React.ElementType> align="center" className="pb-5">
-        <SectionHeading title="Job Details" />
+        <SectionHeading title={job.title} />
         {!job.applicants.includes(props.username) ? (
           <Button
             size="lg"
@@ -76,60 +64,78 @@ export const JobDetailed: FC<Props> = (props) => {
           </Button>
         )}
       </Container>
+      <Row>
+        <Col md="8">
+          <Card className="mb-2" border="primary">
+            <Card.Body style={{ background: "white" }}>
+              <Card.Title>Overview</Card.Title>
+              <Row>
+                <Col xs="6">
+                  <FaBeer />
+                  Experiance:
+                  {job.experiance}
+                </Col>
+                <Col xs="6">
+                  <FaBeer />
+                  Salary:
+                  {job.salaray}
+                </Col>
+                <Col xs="6">
+                  <FaBeer />
+                  Company:
+                  {job.company}
+                </Col>
+                <Col xs="6">
+                  <FaBeer />
+                  Location:
+                  {job.location}
+                </Col>
+                <Col xs="6">
+                  <FaBeer />
+                  Qualification:
+                  {job.qualification}
+                </Col>
+                <Col xs="6">
+                  <FaBeer />
+                  Category:
+                  {job.category}
+                </Col>
+              </Row>
+            </Card.Body>
+          </Card>
+          <Card border="primary" className="mb-2">
+            <Card.Body style={{ background: "white" }}>
+              <Card.Title>Description</Card.Title>
+              <Card.Text style={{ textAlign: "justify" }}>
+                {job.description}
+              </Card.Text>
+              <Card.Text style={{ textAlign: "justify" }}>
+                {job.description}
+              </Card.Text>
 
-      <CardColumns>
-        <Card bg="primary">
-          <Card.Header>
-            <Title> Job Title </Title>
-          </Card.Header>
-          <ListGroup variant="flush">
-            <ListGroup.Item>{job.title}</ListGroup.Item>
-          </ListGroup>
-        </Card>
+              <Card.Text style={{ textAlign: "justify" }}>
+                {job.description}
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col md="4">
+          <Card border="primary">
+            <Card.Header>Company Profile </Card.Header>
+            <Card.Body>
+              <Card.Title>{job.company} </Card.Title>
 
-        <Card bg="primary">
-          <Card.Header>
-            <Title>Company </Title>
-          </Card.Header>
-          <ListGroup variant="flush">
-            <ListGroup.Item>{job.company}</ListGroup.Item>
-          </ListGroup>
-        </Card>
-
-        <CardList title="Location" list={job.location} />
-
-        <Card bg="primary">
-          <Card.Header>
-            <Title>Job Description </Title>
-          </Card.Header>
-          <Card.Body style={{ background: "white" }}>
-            <Card.Text style={{ textAlign: "justify" }}>
-              {job.description}
-            </Card.Text>
-          </Card.Body>
-        </Card>
-
-        <CardList title="Category" list={job.category} />
-        <CardList title="Qualification" list={job.qualification} />
-
-        <Card bg="primary">
-          <Card.Header>
-            <Title>Salary </Title>
-          </Card.Header>
-          <ListGroup variant="flush">
-            <ListGroup.Item>{job.salaray}</ListGroup.Item>
-          </ListGroup>
-        </Card>
-
-        <Card bg="primary">
-          <Card.Header>
-            <Title>Experiance </Title>
-          </Card.Header>
-          <ListGroup variant="flush">
-            <ListGroup.Item>{job.experiance}</ListGroup.Item>
-          </ListGroup>
-        </Card>
-      </CardColumns>
+              <Card.Text>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </Card.Text>
+              <Button variant="primary">View Company Jobs</Button>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
     </Container>
   );
 };

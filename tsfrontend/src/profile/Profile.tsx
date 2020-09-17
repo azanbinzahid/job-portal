@@ -22,10 +22,10 @@ export const Profile: FC<Props> = (props) => {
         subtitle="Profile Page"
       />
       <Row>
-        <Col>
+        <Col md="7">
           <EditProfileForm />
         </Col>
-        <Col>
+        <Col md="5">
           <ProfilePicture />
           <JobsApplied jobsApplied={props.jobsApplied} />
         </Col>

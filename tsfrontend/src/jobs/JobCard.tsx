@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Button, Card, Container } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 import { Job } from "redux/types";
 import { truncate } from "utils/helper";
 import { withRouter, RouteComponentProps } from "react-router-dom";

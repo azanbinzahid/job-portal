@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import JobItem from "jobs/JobItem";
+import JobItem from "jobs/JobCard";
 
 const job = {
   id: 1,
