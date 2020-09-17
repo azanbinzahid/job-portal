@@ -1,11 +1,11 @@
 import React, { FC, useEffect } from "react";
 import { connect } from "react-redux";
-import JobItem from "jobs/JobItem";
 import { Container, CardColumns } from "react-bootstrap";
 import { RootState } from "redux/reducers";
 import { Job } from "redux/types";
 import { useLocation } from "react-router-dom";
 import { fetchJobs } from "redux/actions";
+import JobCard from "jobs/JobCard";
 
 type Props = {
   jobs: Job[];
@@ -27,7 +27,7 @@ export const JobList: FC<Props> = ({ jobs, fetchJobs, limit }) => {
     <Container>
       <CardColumns>
         {jobs.length > 0 ? (
-          jobs.map((job) => <JobItem key={job.id} job={job} />)
+          jobs.map((job) => <JobCard key={job.id} job={job} />)
         ) : (
           <h1>No results found!</h1>
         )}
