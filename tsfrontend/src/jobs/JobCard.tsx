@@ -15,11 +15,7 @@ const JobCard: FC<Props> = (props) => {
   return (
     <Card border="primary">
       <Card.Header>
-        {job.category.map((cat) => (
-          <>
-            <FaStream /> {cat}{" "}
-          </>
-        ))}
+        <FaStream /> {job.category.join(", ")}
       </Card.Header>
       <Card.Body>
         <Card.Title className="font-weight-bold">{job.title}</Card.Title>
@@ -29,11 +25,7 @@ const JobCard: FC<Props> = (props) => {
         <Card.Text>{truncate(job.description)}</Card.Text>
       </Card.Body>
       <Card.Footer>
-        {job.location.map((cat) => (
-          <>
-            <FaMapMarkerAlt /> {cat}{" "}
-          </>
-        ))}
+        <FaMapMarkerAlt /> {job.location.join(", ")}
         <Button
           style={{
             float: "right",

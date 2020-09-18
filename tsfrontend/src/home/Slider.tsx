@@ -7,7 +7,7 @@ import styled from "styled-components";
 const BannerTitle = styled.h1`
   display: block;
   margin-bottom: 12px;
-  font-size: 30px;
+  font-size: 4vmin;
   font-family: "Jost", "PT Serif", sans-serif;
   font-weight: 700;
   color: #fff;
@@ -26,6 +26,8 @@ const BannerText = styled.p`
   font-family: "Jost", "PT Serif", sans-serif;
   font-weight: 700;
   color: #007bff;
+  font-size: 2vmin;
+
   span {
     background: #fff;
     border-radius: 5px;

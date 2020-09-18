@@ -1,11 +1,34 @@
 import React, { useEffect, useCallback, FC } from "react";
 import { connect } from "react-redux";
-import { Container, Button, Card, Spinner, Row, Col } from "react-bootstrap";
+import {
+  Container,
+  Button,
+  Card,
+  Spinner,
+  Row,
+  Col,
+  Badge,
+} from "react-bootstrap";
 import { fetchJob, applyJob } from "redux/actions";
 import { RootState } from "redux/reducers";
 import { Job } from "redux/types";
 import SectionHeading from "app/common/SectionHeading";
 import { FaBeer } from "react-icons/fa";
+
+const OverviewItem = (icon: String, key: String, value: any) => {
+  return (
+    <Col xs="12" sm="6" className="overview-item">
+      <p>
+        <FaBeer /> {key}:
+      </p>
+      <h5>
+        <Badge variant="primary" pill>
+          {value}
+        </Badge>
+      </h5>
+    </Col>
+  );
+};
 
 type Props = {
   job: Job;
@@ -70,36 +93,16 @@ export const JobDetailed: FC<Props> = (props) => {
             <Card.Body style={{ background: "white" }}>
               <Card.Title>Overview</Card.Title>
               <Row>
-                <Col xs="6">
-                  <FaBeer />
-                  Experiance:
-                  {job.experiance}
-                </Col>
-                <Col xs="6">
-                  <FaBeer />
-                  Salary:
-                  {job.salaray}
-                </Col>
-                <Col xs="6">
-                  <FaBeer />
-                  Company:
-                  {job.company}
-                </Col>
-                <Col xs="6">
-                  <FaBeer />
-                  Location:
-                  {job.location}
-                </Col>
-                <Col xs="6">
-                  <FaBeer />
-                  Qualification:
-                  {job.qualification}
-                </Col>
-                <Col xs="6">
-                  <FaBeer />
-                  Category:
-                  {job.category}
-                </Col>
+                {OverviewItem("", "Experiance", job.experiance)}
+                {OverviewItem("", "Salary", job.salaray)}
+                {OverviewItem("", "Company", job.company)}
+                {OverviewItem("", "Category", job.category.join(", "))}
+                {OverviewItem(
+                  "",
+                  "Qualification",
+                  job.qualification.join(", ")
+                )}
+                {OverviewItem("", "Location", job.location.join(", "))}
               </Row>
             </Card.Body>
           </Card>
@@ -120,7 +123,7 @@ export const JobDetailed: FC<Props> = (props) => {
           </Card>
         </Col>
         <Col md="4">
-          <Card border="primary">
+          <Card border="primary" className="mb-2">
             <Card.Header>Company Profile </Card.Header>
             <Card.Body>
               <Card.Title>{job.company} </Card.Title>

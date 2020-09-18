@@ -6,12 +6,12 @@ const Header = styled.div`
   h1 {
     font-family: "Jost", "PT Serif", sans-serif;
     font-weight: 700;
-    font-size: 36px;
+    font-size: 6vmin;
   }
   h3 {
     font-family: "Jost", "PT Serif", sans-serif;
     font-weight: 300;
-    font-size: 18px;
+    font-size: 3vmin;
   }
 `;
 

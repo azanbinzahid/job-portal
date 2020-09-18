@@ -26,11 +26,9 @@ export const JobList: FC<Props> = ({ jobs, fetchJobs, limit }) => {
   return (
     <Container>
       <CardColumns>
-        {jobs.length > 0 ? (
-          jobs.map((job) => <JobCard key={job.id} job={job} />)
-        ) : (
-          <h1>No results found!</h1>
-        )}
+        {jobs.map((job) => (
+          <JobCard key={job.id} job={job} />
+        ))}
       </CardColumns>
     </Container>
   );

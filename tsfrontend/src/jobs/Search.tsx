@@ -44,8 +44,8 @@ const Search: FC<RouteComponentProps<any>> = (props) => {
   return (
     <Container<React.ElementType> className="pt-2 pb-2" align="center">
       <Form onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}>
-        <Form.Row style={{ justifyContent: "space-between" }}>
-          <Col xs={6} sm={7} lg={9}>
+        <Form.Row style={{ justifyContent: "center" }}>
+          <Col xs={7} xl={9}>
             <TextField
               type="text"
               name="search"

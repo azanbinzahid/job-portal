@@ -9,3 +9,8 @@
     column-count: 1;
   }
 }
+
+.overview-item {
+  display: inline-flex;
+  justify-content: space-between;
+}
