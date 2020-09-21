@@ -20,7 +20,7 @@ export const FilterStats: FC<Props> = ({ filters }) => {
             return (
               <Col className="pb-3">
                 <LinkContainer to="/jobs">
-                  <Button variant="outline-dark">
+                  <Button variant="outline-dark" className="home-stats-item">
                     <h1>{filters[key].length}+ </h1>
                     {pluralize(key)}
                   </Button>

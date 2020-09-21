@@ -18,7 +18,7 @@ export const Filters: FC<Props> = ({ filters }) => {
             temp.push({ value: e.name, label: e.name });
           });
           return (
-            <Col xs={12} sm={6} md={3}>
+            <Col xs={6} md={3}>
               <Filter
                 filterName={key.toLowerCase()}
                 options={temp}

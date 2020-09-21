@@ -14,3 +14,8 @@
   display: inline-flex;
   justify-content: space-between;
 }
+
+.home-stats-item {
+  width: 150px;
+  height: 100px;
+}
