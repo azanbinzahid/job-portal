@@ -26,6 +26,13 @@ export interface Job {
   salaray: number;
 }
 
+export interface FilterOptions {
+  name: String;
+}
+
+export interface Filter {
+  filterName: {};
+}
 export interface User {
   username: string;
   firstName: string;
@@ -44,6 +51,7 @@ export interface UserState {
 export interface JobState {
   job: Job;
   jobs: Job[];
+  filters: {};
 }
 
 export interface AlertState {
@@ -64,6 +72,7 @@ export enum AlertActionTypes {
 export enum JobActionTypes {
   FETCH_JOB = "FETCH_JOB",
   FETCH_JOBS = "FETCH_JOBS",
+  SET_FILTERS = "SET_FILTERS",
 }
 
 export interface BaseUserAction {
@@ -106,6 +115,11 @@ export interface FetchJobAction extends BaseJobAction {
   payload: Job;
 }
 
+export interface SetFiltersAction extends BaseJobAction {
+  type: JobActionTypes.SET_FILTERS;
+  payload: {};
+}
+
 export interface FetchJobsAction extends BaseJobAction {
   type: JobActionTypes.FETCH_JOBS;
   payload: Job[];
@@ -116,4 +130,4 @@ export type UserActions =
   | LogOutUserAction
   | AutoLoginUserAction;
 export type AlertActions = SetAlertAction | RemoveAlertAction;
-export type JobActions = FetchJobAction | FetchJobsAction;
+export type JobActions = FetchJobAction | FetchJobsAction | SetFiltersAction;

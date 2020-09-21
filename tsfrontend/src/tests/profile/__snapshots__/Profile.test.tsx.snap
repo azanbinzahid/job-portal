@@ -4,17 +4,21 @@ exports[`renders the component 1`] = `
 <Container
   fluid={false}
 >
-  <PageHeader
+  <SectionHeading
     subtitle="Profile Page"
     title=" "
   />
   <Row
     noGutters={false}
   >
-    <Col>
+    <Col
+      md="7"
+    >
       <Connect(Component) />
     </Col>
-    <Col>
+    <Col
+      md="5"
+    >
       <Connect(Component) />
       <JobsApplied
         jobsApplied={

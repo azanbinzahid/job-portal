@@ -15,6 +15,7 @@ const defaultState: JobState = {
     description: "",
     salaray: 0,
   },
+  filters: {},
 };
 
 const jobReducer = (state = defaultState, action: JobActions): JobState => {
@@ -28,6 +29,12 @@ const jobReducer = (state = defaultState, action: JobActions): JobState => {
       return {
         ...state,
         job: { ...action.payload },
+      };
+
+    case "SET_FILTERS":
+      return {
+        ...state,
+        filters: { ...action.payload },
       };
 
     default:

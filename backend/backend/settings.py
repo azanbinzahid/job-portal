@@ -25,7 +25,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get("DJANGO_DEBUG", False)
+# DEBUG = False
 
 # ALLOWED_HOSTS = ['*']
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(",")
@@ -51,6 +52,8 @@ INSTALLED_APPS = [
     'ddtrace.contrib.django',
     'debug_toolbar',
     'smuggler',
+    'django_filters',
+    'drf_multiple_model',
 ]
 
 CACHES = {
@@ -156,6 +159,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
     ),
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
 
 JWT_AUTH = {

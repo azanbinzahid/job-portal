@@ -4,155 +4,246 @@ exports[`renders the component 1`] = `
 <Container
   fluid={false}
 >
-  <Jumbotron
+  <Container
     align="center"
+    className="pb-5"
     fluid={false}
   >
-    <h1>
-       Job Details Page 
-    </h1>
+    <SectionHeading
+      title="WordPress Developer"
+    />
     <Button
       active={false}
       disabled={false}
       onClick={[Function]}
+      size="lg"
       variant="primary"
     >
       Apply Now
     </Button>
-  </Jumbotron>
-  <CardColumns>
-    <Card
-      bg="primary"
-      body={false}
+  </Container>
+  <Row
+    noGutters={false}
+  >
+    <Col
+      md="8"
     >
-      <CardHeader>
-        <styled.div>
-           Job Title 
-        </styled.div>
-      </CardHeader>
-      <ListGroup
-        variant="flush"
+      <Card
+        body={false}
+        border="primary"
+        className="mb-2"
       >
-        <ListGroupItem
-          active={false}
-          disabled={false}
-        >
-          WordPress Developer
-        </ListGroupItem>
-      </ListGroup>
-    </Card>
-    <Card
-      bg="primary"
-      body={false}
-    >
-      <CardHeader>
-        <styled.div>
-          Company 
-        </styled.div>
-      </CardHeader>
-      <ListGroup
-        variant="flush"
-      >
-        <ListGroupItem
-          active={false}
-          disabled={false}
-        >
-          Modern Tech
-        </ListGroupItem>
-      </ListGroup>
-    </Card>
-    <CardList
-      list={
-        Array [
-          "Lahore",
-        ]
-      }
-      title="Location"
-    />
-    <Card
-      bg="primary"
-      body={false}
-    >
-      <CardHeader>
-        <styled.div>
-          Job Description 
-        </styled.div>
-      </CardHeader>
-      <CardBody
-        style={
-          Object {
-            "background": "white",
-          }
-        }
-      >
-        <CardText
+        <CardBody
           style={
             Object {
-              "textAlign": "justify",
+              "background": "white",
             }
           }
         >
-          This is test job description
-        </CardText>
-      </CardBody>
-    </Card>
-    <CardList
-      list={
-        Array [
-          "Customer Service",
-        ]
-      }
-      title="Category"
-    />
-    <CardList
-      list={
-        Array [
-          "Bachelors",
-        ]
-      }
-      title="Qualification"
-    />
-    <Card
-      bg="primary"
-      body={false}
-    >
-      <CardHeader>
-        <styled.div>
-          Salary 
-        </styled.div>
-      </CardHeader>
-      <ListGroup
-        variant="flush"
+          <CardTitle>
+            Overview
+          </CardTitle>
+          <Row
+            noGutters={false}
+          >
+            <Col
+              className="overview-item"
+              sm="6"
+              xs="12"
+            >
+              <p>
+                <FaBeer />
+                 
+                Experiance
+                :
+              </p>
+              <h5>
+                <Badge
+                  pill={true}
+                  variant="primary"
+                >
+                  1
+                </Badge>
+              </h5>
+            </Col>
+            <Col
+              className="overview-item"
+              sm="6"
+              xs="12"
+            >
+              <p>
+                <FaBeer />
+                 
+                Salary
+                :
+              </p>
+              <h5>
+                <Badge
+                  pill={true}
+                  variant="primary"
+                >
+                  60000
+                </Badge>
+              </h5>
+            </Col>
+            <Col
+              className="overview-item"
+              sm="6"
+              xs="12"
+            >
+              <p>
+                <FaBeer />
+                 
+                Company
+                :
+              </p>
+              <h5>
+                <Badge
+                  pill={true}
+                  variant="primary"
+                >
+                  Modern Tech
+                </Badge>
+              </h5>
+            </Col>
+            <Col
+              className="overview-item"
+              sm="6"
+              xs="12"
+            >
+              <p>
+                <FaBeer />
+                 
+                Category
+                :
+              </p>
+              <h5>
+                <Badge
+                  pill={true}
+                  variant="primary"
+                >
+                  Customer Service
+                </Badge>
+              </h5>
+            </Col>
+            <Col
+              className="overview-item"
+              sm="6"
+              xs="12"
+            >
+              <p>
+                <FaBeer />
+                 
+                Qualification
+                :
+              </p>
+              <h5>
+                <Badge
+                  pill={true}
+                  variant="primary"
+                >
+                  Bachelors
+                </Badge>
+              </h5>
+            </Col>
+            <Col
+              className="overview-item"
+              sm="6"
+              xs="12"
+            >
+              <p>
+                <FaBeer />
+                 
+                Location
+                :
+              </p>
+              <h5>
+                <Badge
+                  pill={true}
+                  variant="primary"
+                >
+                  Lahore
+                </Badge>
+              </h5>
+            </Col>
+          </Row>
+        </CardBody>
+      </Card>
+      <Card
+        body={false}
+        border="primary"
+        className="mb-2"
       >
-        <ListGroupItem
-          active={false}
-          disabled={false}
+        <CardBody
+          style={
+            Object {
+              "background": "white",
+            }
+          }
         >
-          60000
-        </ListGroupItem>
-      </ListGroup>
-    </Card>
-    <Card
-      bg="primary"
-      body={false}
+          <CardTitle>
+            Description
+          </CardTitle>
+          <CardText
+            style={
+              Object {
+                "textAlign": "justify",
+              }
+            }
+          >
+            This is test job description
+          </CardText>
+          <CardText
+            style={
+              Object {
+                "textAlign": "justify",
+              }
+            }
+          >
+            This is test job description
+          </CardText>
+          <CardText
+            style={
+              Object {
+                "textAlign": "justify",
+              }
+            }
+          >
+            This is test job description
+          </CardText>
+        </CardBody>
+      </Card>
+    </Col>
+    <Col
+      md="4"
     >
-      <CardHeader>
-        <styled.div>
-          Experiance 
-        </styled.div>
-      </CardHeader>
-      <ListGroup
-        variant="flush"
+      <Card
+        body={false}
+        border="primary"
+        className="mb-2"
       >
-        <ListGroupItem
-          active={false}
-          disabled={false}
-        >
-          1
-        </ListGroupItem>
-      </ListGroup>
-    </Card>
-  </CardColumns>
+        <CardHeader>
+          Company Profile 
+        </CardHeader>
+        <CardBody>
+          <CardTitle>
+            Modern Tech
+             
+          </CardTitle>
+          <CardText>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </CardText>
+          <Button
+            active={false}
+            disabled={false}
+            variant="primary"
+          >
+            View Company Jobs
+          </Button>
+        </CardBody>
+      </Card>
+    </Col>
+  </Row>
 </Container>
 `;
 
@@ -160,13 +251,14 @@ exports[`renders the component 2`] = `
 <Container
   fluid={false}
 >
-  <Jumbotron
+  <Container
     align="center"
+    className="pb-5"
     fluid={false}
   >
-    <h1>
-       Job Details Page 
-    </h1>
+    <SectionHeading
+      title="WordPress Developer"
+    />
     <Button
       active={false}
       disabled={false}
@@ -175,139 +267,228 @@ exports[`renders the component 2`] = `
     >
       Withdraw Application
     </Button>
-  </Jumbotron>
-  <CardColumns>
-    <Card
-      bg="primary"
-      body={false}
+  </Container>
+  <Row
+    noGutters={false}
+  >
+    <Col
+      md="8"
     >
-      <CardHeader>
-        <styled.div>
-           Job Title 
-        </styled.div>
-      </CardHeader>
-      <ListGroup
-        variant="flush"
+      <Card
+        body={false}
+        border="primary"
+        className="mb-2"
       >
-        <ListGroupItem
-          active={false}
-          disabled={false}
-        >
-          WordPress Developer
-        </ListGroupItem>
-      </ListGroup>
-    </Card>
-    <Card
-      bg="primary"
-      body={false}
-    >
-      <CardHeader>
-        <styled.div>
-          Company 
-        </styled.div>
-      </CardHeader>
-      <ListGroup
-        variant="flush"
-      >
-        <ListGroupItem
-          active={false}
-          disabled={false}
-        >
-          Modern Tech
-        </ListGroupItem>
-      </ListGroup>
-    </Card>
-    <CardList
-      list={
-        Array [
-          "Lahore",
-        ]
-      }
-      title="Location"
-    />
-    <Card
-      bg="primary"
-      body={false}
-    >
-      <CardHeader>
-        <styled.div>
-          Job Description 
-        </styled.div>
-      </CardHeader>
-      <CardBody
-        style={
-          Object {
-            "background": "white",
-          }
-        }
-      >
-        <CardText
+        <CardBody
           style={
             Object {
-              "textAlign": "justify",
+              "background": "white",
             }
           }
         >
-          This is test job description
-        </CardText>
-      </CardBody>
-    </Card>
-    <CardList
-      list={
-        Array [
-          "Customer Service",
-        ]
-      }
-      title="Category"
-    />
-    <CardList
-      list={
-        Array [
-          "Bachelors",
-        ]
-      }
-      title="Qualification"
-    />
-    <Card
-      bg="primary"
-      body={false}
-    >
-      <CardHeader>
-        <styled.div>
-          Salary 
-        </styled.div>
-      </CardHeader>
-      <ListGroup
-        variant="flush"
+          <CardTitle>
+            Overview
+          </CardTitle>
+          <Row
+            noGutters={false}
+          >
+            <Col
+              className="overview-item"
+              sm="6"
+              xs="12"
+            >
+              <p>
+                <FaBeer />
+                 
+                Experiance
+                :
+              </p>
+              <h5>
+                <Badge
+                  pill={true}
+                  variant="primary"
+                >
+                  1
+                </Badge>
+              </h5>
+            </Col>
+            <Col
+              className="overview-item"
+              sm="6"
+              xs="12"
+            >
+              <p>
+                <FaBeer />
+                 
+                Salary
+                :
+              </p>
+              <h5>
+                <Badge
+                  pill={true}
+                  variant="primary"
+                >
+                  60000
+                </Badge>
+              </h5>
+            </Col>
+            <Col
+              className="overview-item"
+              sm="6"
+              xs="12"
+            >
+              <p>
+                <FaBeer />
+                 
+                Company
+                :
+              </p>
+              <h5>
+                <Badge
+                  pill={true}
+                  variant="primary"
+                >
+                  Modern Tech
+                </Badge>
+              </h5>
+            </Col>
+            <Col
+              className="overview-item"
+              sm="6"
+              xs="12"
+            >
+              <p>
+                <FaBeer />
+                 
+                Category
+                :
+              </p>
+              <h5>
+                <Badge
+                  pill={true}
+                  variant="primary"
+                >
+                  Customer Service
+                </Badge>
+              </h5>
+            </Col>
+            <Col
+              className="overview-item"
+              sm="6"
+              xs="12"
+            >
+              <p>
+                <FaBeer />
+                 
+                Qualification
+                :
+              </p>
+              <h5>
+                <Badge
+                  pill={true}
+                  variant="primary"
+                >
+                  Bachelors
+                </Badge>
+              </h5>
+            </Col>
+            <Col
+              className="overview-item"
+              sm="6"
+              xs="12"
+            >
+              <p>
+                <FaBeer />
+                 
+                Location
+                :
+              </p>
+              <h5>
+                <Badge
+                  pill={true}
+                  variant="primary"
+                >
+                  Lahore
+                </Badge>
+              </h5>
+            </Col>
+          </Row>
+        </CardBody>
+      </Card>
+      <Card
+        body={false}
+        border="primary"
+        className="mb-2"
       >
-        <ListGroupItem
-          active={false}
-          disabled={false}
+        <CardBody
+          style={
+            Object {
+              "background": "white",
+            }
+          }
         >
-          60000
-        </ListGroupItem>
-      </ListGroup>
-    </Card>
-    <Card
-      bg="primary"
-      body={false}
+          <CardTitle>
+            Description
+          </CardTitle>
+          <CardText
+            style={
+              Object {
+                "textAlign": "justify",
+              }
+            }
+          >
+            This is test job description
+          </CardText>
+          <CardText
+            style={
+              Object {
+                "textAlign": "justify",
+              }
+            }
+          >
+            This is test job description
+          </CardText>
+          <CardText
+            style={
+              Object {
+                "textAlign": "justify",
+              }
+            }
+          >
+            This is test job description
+          </CardText>
+        </CardBody>
+      </Card>
+    </Col>
+    <Col
+      md="4"
     >
-      <CardHeader>
-        <styled.div>
-          Experiance 
-        </styled.div>
-      </CardHeader>
-      <ListGroup
-        variant="flush"
+      <Card
+        body={false}
+        border="primary"
+        className="mb-2"
       >
-        <ListGroupItem
-          active={false}
-          disabled={false}
-        >
-          1
-        </ListGroupItem>
-      </ListGroup>
-    </Card>
-  </CardColumns>
+        <CardHeader>
+          Company Profile 
+        </CardHeader>
+        <CardBody>
+          <CardTitle>
+            Modern Tech
+             
+          </CardTitle>
+          <CardText>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </CardText>
+          <Button
+            active={false}
+            disabled={false}
+            variant="primary"
+          >
+            View Company Jobs
+          </Button>
+        </CardBody>
+      </Card>
+    </Col>
+  </Row>
 </Container>
 `;

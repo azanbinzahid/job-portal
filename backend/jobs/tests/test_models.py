@@ -71,16 +71,16 @@ class QualificationTest(TestCase):
 
     def setUp(self):
         Qualification.objects.create(
-            education="Qualification X",
+            name="Qualification X",
         )
 
     def test_string_representation(self):
-        qualification = Qualification.objects.get(education="Qualification X")
-        self.assertEqual(str(qualification), qualification.education)
+        qualification = Qualification.objects.get(name="Qualification X")
+        self.assertEqual(str(qualification), qualification.name)
 
     def test_created_properly(self):
-        qualification = Qualification.objects.get(education="Qualification X")
-        self.assertEqual(qualification.education, "Qualification X")
+        qualification = Qualification.objects.get(name="Qualification X")
+        self.assertEqual(qualification.name, "Qualification X")
 
 
 class CategoryTest(TestCase):

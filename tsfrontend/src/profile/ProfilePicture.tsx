@@ -18,10 +18,10 @@ export const ProfilePicture: FC<Props> = (props) => {
   });
 
   return (
-    <Container<React.ElementType> align="center" className="pb-5">
+    <Container<React.ElementType> className="pb-5">
       <Image src={props.profileImage} fluid />
       <Form
-        inline
+        className="pt-3"
         onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
       >
         <Form.File<React.ElementType>
@@ -30,8 +30,7 @@ export const ProfilePicture: FC<Props> = (props) => {
             setFieldValue("image", event.currentTarget.files[0]);
           }}
         />
-
-        <Button variant="primary" type="submit">
+        <Button className="mt-2" variant="primary" type="submit">
           Update Image
         </Button>
       </Form>

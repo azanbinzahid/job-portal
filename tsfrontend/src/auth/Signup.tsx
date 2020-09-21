@@ -7,7 +7,7 @@ import * as yup from "yup";
 import { signUserUp } from "redux/actions";
 import { RootState } from "redux/reducers";
 import TextField from "../app/common/TextField";
-import PageHeader from "app/common/PageHeader";
+import SectionHeading from "app/common/SectionHeading";
 
 const validationSchema = yup.object().shape({
   username: yup.string().max(16).required(),
@@ -49,60 +49,62 @@ export const Signup: FC<Props> = (props) => {
   }
 
   return (
-    <Container>
-      <PageHeader title="SignUp Page" />
-      <Jumbotron>
-        <Form
-          onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
-        >
-          <TextField
-            type="text"
-            name="username"
-            placeholder="Username"
-            value={values.username}
-            onChange={handleChange}
-            error={errors.username}
-          />
-          <TextField
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={values.password}
-            onChange={handleChange}
-            error={errors.password}
-          />
-          <TextField
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={values.email}
-            onChange={handleChange}
-            error={errors.email}
-          />
-          <TextField
-            type="text"
-            name="firstName"
-            placeholder="First Name"
-            value={values.firstName}
-            onChange={handleChange}
-            error={errors.firstName}
-          />
+    <>
+      <SectionHeading title="SignUp Page" />
+      <Container>
+        <Jumbotron>
+          <Form
+            onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
+          >
+            <TextField
+              type="text"
+              name="username"
+              placeholder="Username"
+              value={values.username}
+              onChange={handleChange}
+              error={errors.username}
+            />
+            <TextField
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={values.password}
+              onChange={handleChange}
+              error={errors.password}
+            />
+            <TextField
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={values.email}
+              onChange={handleChange}
+              error={errors.email}
+            />
+            <TextField
+              type="text"
+              name="firstName"
+              placeholder="First Name"
+              value={values.firstName}
+              onChange={handleChange}
+              error={errors.firstName}
+            />
 
-          <TextField
-            type="text"
-            name="lastName"
-            placeholder="Last Name"
-            value={values.lastName}
-            onChange={handleChange}
-            error={errors.lastName}
-          />
+            <TextField
+              type="text"
+              name="lastName"
+              placeholder="Last Name"
+              value={values.lastName}
+              onChange={handleChange}
+              error={errors.lastName}
+            />
 
-          <Button variant="primary" type="submit">
-            SignUp
-          </Button>
-        </Form>
-      </Jumbotron>
-    </Container>
+            <Button variant="primary" type="submit">
+              SignUp
+            </Button>
+          </Form>
+        </Jumbotron>
+      </Container>
+    </>
   );
 };
 

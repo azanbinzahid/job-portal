@@ -4,9 +4,10 @@ from django.contrib.auth.models import User
 
 class Qualification(models.Model):
     def __str__(self):
-        return self.education
+        return self.name
 
-    education = models.CharField(max_length=100, unique=True)
+    name = models.CharField(max_length=100, unique=True)
+
 
 class Category(models.Model):
     def __str__(self):
@@ -14,17 +15,20 @@ class Category(models.Model):
 
     name = models.CharField(max_length=100, unique=True)
 
+
 class Company(models.Model):
     def __str__(self):
         return self.name
 
     name = models.CharField(max_length=100, unique=True)
 
+
 class Location(models.Model):
     def __str__(self):
         return self.name
 
     name = models.CharField(max_length=100, unique=True)
+
 
 class Job(models.Model):
     def __str__(self):
@@ -38,4 +42,5 @@ class Job(models.Model):
     location = models.ManyToManyField(Location)
     category = models.ManyToManyField(Category)
     qualification = models.ManyToManyField(Qualification)
-    applicants = models.ManyToManyField(User, blank = True, related_name="user_to_job")
+    applicants = models.ManyToManyField(
+        User, blank=True, related_name="user_to_job")

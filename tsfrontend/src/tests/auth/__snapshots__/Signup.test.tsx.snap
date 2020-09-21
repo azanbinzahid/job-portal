@@ -1,65 +1,67 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders the component 1`] = `
-<Container
-  fluid={false}
->
-  <PageHeader
+<Fragment>
+  <SectionHeading
     title="SignUp Page"
   />
-  <Jumbotron
+  <Container
     fluid={false}
   >
-    <Form
-      inline={false}
-      onSubmit={[Function]}
+    <Jumbotron
+      fluid={false}
     >
-      <TextField
-        name="username"
-        onChange={[Function]}
-        placeholder="Username"
-        type="text"
-        value=""
-      />
-      <TextField
-        name="password"
-        onChange={[Function]}
-        placeholder="Password"
-        type="password"
-        value=""
-      />
-      <TextField
-        name="email"
-        onChange={[Function]}
-        placeholder="Email"
-        type="email"
-        value=""
-      />
-      <TextField
-        name="firstName"
-        onChange={[Function]}
-        placeholder="First Name"
-        type="text"
-        value=""
-      />
-      <TextField
-        name="lastName"
-        onChange={[Function]}
-        placeholder="Last Name"
-        type="text"
-        value=""
-      />
-      <Button
-        active={false}
-        disabled={false}
-        type="submit"
-        variant="primary"
+      <Form
+        inline={false}
+        onSubmit={[Function]}
       >
-        SignUp
-      </Button>
-    </Form>
-  </Jumbotron>
-</Container>
+        <TextField
+          name="username"
+          onChange={[Function]}
+          placeholder="Username"
+          type="text"
+          value=""
+        />
+        <TextField
+          name="password"
+          onChange={[Function]}
+          placeholder="Password"
+          type="password"
+          value=""
+        />
+        <TextField
+          name="email"
+          onChange={[Function]}
+          placeholder="Email"
+          type="email"
+          value=""
+        />
+        <TextField
+          name="firstName"
+          onChange={[Function]}
+          placeholder="First Name"
+          type="text"
+          value=""
+        />
+        <TextField
+          name="lastName"
+          onChange={[Function]}
+          placeholder="Last Name"
+          type="text"
+          value=""
+        />
+        <Button
+          active={false}
+          disabled={false}
+          type="submit"
+          variant="primary"
+        >
+          SignUp
+        </Button>
+      </Form>
+    </Jumbotron>
+  </Container>
+</Fragment>
 `;
 
 exports[`renders the component 2`] = `
