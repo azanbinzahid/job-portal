@@ -1,44 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders the component 1`] = `
-<Container
-  fluid={false}
->
-  <PageHeader
+<Fragment>
+  <SectionHeading
     title="Login Page"
   />
-  <Jumbotron
+  <Container
     fluid={false}
   >
-    <Form
-      inline={false}
-      onSubmit={[Function]}
+    <Jumbotron
+      fluid={false}
     >
-      <TextField
-        name="username"
-        onChange={[Function]}
-        placeholder="Username"
-        type="text"
-        value=""
-      />
-      <TextField
-        name="password"
-        onChange={[Function]}
-        placeholder="Password"
-        type="password"
-        value=""
-      />
-      <Button
-        active={false}
-        disabled={false}
-        type="submit"
-        variant="primary"
+      <Form
+        inline={false}
+        onSubmit={[Function]}
       >
-        Login
-      </Button>
-    </Form>
-  </Jumbotron>
-</Container>
+        <TextField
+          name="username"
+          onChange={[Function]}
+          placeholder="Username"
+          type="text"
+          value=""
+        />
+        <TextField
+          name="password"
+          onChange={[Function]}
+          placeholder="Password"
+          type="password"
+          value=""
+        />
+        <Button
+          active={false}
+          disabled={false}
+          type="submit"
+          variant="primary"
+        >
+          Login
+        </Button>
+      </Form>
+    </Jumbotron>
+  </Container>
+</Fragment>
 `;
 
 exports[`renders the component 2`] = `

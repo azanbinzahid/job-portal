@@ -5,5 +5,11 @@ exports[`renders the component 1`] = `
   <Slider />
   <Connect(Component) />
   <Connect(Component) />
+  <SectionHeading
+    title="Popular Jobs"
+  />
+  <Connect(Component)
+    limit={3}
+  />
 </Fragment>
 `;

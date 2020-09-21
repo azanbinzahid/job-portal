@@ -3,75 +3,86 @@
 exports[`renders the component 1`] = `
 <BrowserRouter>
   <Connect(Component) />
-  <Switch>
-    <Route
-      component={[Function]}
-      exact={true}
-      path="/"
-    />
-    <Route
-      component={
-        Object {
-          "$$typeof": Symbol(react.memo),
-          "WrappedComponent": [Function],
-          "compare": null,
-          "displayName": "Connect(Component)",
-          "type": [Function],
-        }
+  <Container
+    fluid={true}
+    style={
+      Object {
+        "minHeight": "70vh",
+        "padding": 0,
       }
-      path="/login"
-    />
-    <Route
-      component={
-        Object {
-          "$$typeof": Symbol(react.memo),
-          "WrappedComponent": [Function],
-          "compare": null,
-          "displayName": "Connect(Component)",
-          "type": [Function],
+    }
+  >
+    <Switch>
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/"
+      />
+      <Route
+        component={
+          Object {
+            "$$typeof": Symbol(react.memo),
+            "WrappedComponent": [Function],
+            "compare": null,
+            "displayName": "Connect(Component)",
+            "type": [Function],
+          }
         }
-      }
-      path="/signup"
-    />
-    <Connect(Component)
-      component={
-        Object {
-          "$$typeof": Symbol(react.memo),
-          "WrappedComponent": [Function],
-          "compare": null,
-          "displayName": "Connect(Component)",
-          "type": [Function],
+        path="/login"
+      />
+      <Route
+        component={
+          Object {
+            "$$typeof": Symbol(react.memo),
+            "WrappedComponent": [Function],
+            "compare": null,
+            "displayName": "Connect(Component)",
+            "type": [Function],
+          }
         }
-      }
-      path="/jobs/:jobId"
-    />
-    <Connect(Component)
-      component={
-        Object {
-          "$$typeof": Symbol(react.memo),
-          "WrappedComponent": [Function],
-          "compare": null,
-          "displayName": "Connect(Component)",
-          "type": [Function],
+        path="/signup"
+      />
+      <Connect(Component)
+        component={
+          Object {
+            "$$typeof": Symbol(react.memo),
+            "WrappedComponent": [Function],
+            "compare": null,
+            "displayName": "Connect(Component)",
+            "type": [Function],
+          }
         }
-      }
-      path="/profile"
-    />
-    <Route
-      component={
-        Object {
-          "$$typeof": Symbol(react.memo),
-          "WrappedComponent": [Function],
-          "compare": null,
-          "displayName": "Connect(Component)",
-          "type": [Function],
+        path="/jobs/:jobId"
+      />
+      <Connect(Component)
+        component={
+          Object {
+            "$$typeof": Symbol(react.memo),
+            "WrappedComponent": [Function],
+            "compare": null,
+            "displayName": "Connect(Component)",
+            "type": [Function],
+          }
         }
-      }
-      path="/jobs/"
-    />
-    <Route
-      component={[Function]}
-    />
-  </Switch>
+        path="/profile"
+      />
+      <Route
+        component={
+          Object {
+            "$$typeof": Symbol(react.memo),
+            "WrappedComponent": [Function],
+            "compare": null,
+            "displayName": "Connect(Component)",
+            "type": [Function],
+          }
+        }
+        path="/jobs/"
+      />
+      <Route
+        component={[Function]}
+      />
+    </Switch>
+  </Container>
+  <Component />
 </BrowserRouter>
 `;

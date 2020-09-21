@@ -2,7 +2,6 @@
 
 exports[`renders the component 1`] = `
 <Container
-  align="center"
   className="pb-5"
   fluid={false}
 >
@@ -14,7 +13,8 @@ exports[`renders the component 1`] = `
     thumbnail={false}
   />
   <Form
-    inline={true}
+    className="pt-3"
+    inline={false}
     onSubmit={[Function]}
   >
     <FormFile
@@ -23,6 +23,7 @@ exports[`renders the component 1`] = `
     />
     <Button
       active={false}
+      className="mt-2"
       disabled={false}
       type="submit"
       variant="primary"

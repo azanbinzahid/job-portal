@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the component 1`] = `
+<Container
+  align="center"
+  className="pb-5 pt-5"
+  fluid={true}
+>
+  <styled.div>
+    <h1>
+       
+      abc
+       
+    </h1>
+    <h3>
+       
+       
+    </h3>
+  </styled.div>
+</Container>
+`;

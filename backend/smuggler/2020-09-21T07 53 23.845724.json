@@ -103,14 +103,14 @@
   "model": "jobs.qualification",
   "pk": 1,
   "fields": {
-    "education": "Bachelors"
+    "name": "Bachelors"
   }
 },
 {
   "model": "jobs.qualification",
   "pk": 2,
   "fields": {
-    "education": "Masters"
+    "name": "Masters"
   }
 },
 {
@@ -136,30 +136,9 @@
 },
 {
   "model": "jobs.category",
-  "pk": 4,
-  "fields": {
-    "name": "Teaching"
-  }
-},
-{
-  "model": "jobs.category",
   "pk": 5,
   "fields": {
     "name": "Accounts"
-  }
-},
-{
-  "model": "jobs.category",
-  "pk": 6,
-  "fields": {
-    "name": "Developer"
-  }
-},
-{
-  "model": "jobs.category",
-  "pk": 7,
-  "fields": {
-    "name": "SCB"
   }
 },
 {
@@ -753,7 +732,7 @@
     "last_login": "2020-09-08T12:44:24.247Z",
     "is_superuser": true,
     "username": "admin",
-    "first_name": "Shah 2",
+    "first_name": "Shah",
     "last_name": "Sultan",
     "email": "hello2@gmail.com",
     "is_staff": true,
@@ -769,7 +748,7 @@
   "fields": {
     "title": "WordPress Developer",
     "salaray": 60000,
-    "description": "This is test job description",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "experiance": 1,
     "datestamp": "2020-07-29",
     "company": 2,
@@ -777,10 +756,10 @@
       1
     ],
     "category": [
-      2
+      3
     ],
     "qualification": [
-      1
+      2
     ],
     "applicants": []
   }
@@ -822,7 +801,6 @@
       3
     ],
     "category": [
-      2,
       5
     ],
     "qualification": [
@@ -840,7 +818,7 @@
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "experiance": 1,
     "datestamp": "2020-07-30",
-    "company": 1,
+    "company": 2,
     "location": [
       2
     ],
@@ -887,7 +865,7 @@
     "user": [
       "admin"
     ],
-    "bio": "This is bio",
+    "bio": "This is bio 2",
     "location": "Pakistan",
     "education": "MSc - 2020\nBS CS -2018\nFSc -2014",
     "experiance": "ABC, 2019\nDEF, 2018\nXYX, 2010",
@@ -1973,6 +1951,114 @@
     "object_repr": "sfsdfsdf",
     "action_flag": 3,
     "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 63,
+  "fields": {
+    "action_time": "2020-09-11T12:22:21.043Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "job"
+    ],
+    "object_id": "4",
+    "object_repr": "Staff",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Company\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 64,
+  "fields": {
+    "action_time": "2020-09-15T07:38:35.679Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "category"
+    ],
+    "object_id": "7",
+    "object_repr": "SCB",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 65,
+  "fields": {
+    "action_time": "2020-09-15T07:38:54.148Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "category"
+    ],
+    "object_id": "6",
+    "object_repr": "Developer",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 66,
+  "fields": {
+    "action_time": "2020-09-15T07:39:32.434Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "category"
+    ],
+    "object_id": "4",
+    "object_repr": "Teaching",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 67,
+  "fields": {
+    "action_time": "2020-09-17T09:40:12.746Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "job"
+    ],
+    "object_id": "1",
+    "object_repr": "WordPress Developer",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Description\", \"Category\", \"Qualification\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 68,
+  "fields": {
+    "action_time": "2020-09-17T11:36:23.431Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "jobs",
+      "job"
+    ],
+    "object_id": "3",
+    "object_repr": "Task Manager",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Category\"]}}]"
   }
 }
 ]
