@@ -2,28 +2,30 @@
 
 exports[`renders the component 1`] = `
 <Fragment>
-  <Alert
-    closeLabel="Close alert"
+  <Toast
     key="abc"
-    show={true}
-    transition={
-      Object {
-        "$$typeof": Symbol(react.forward_ref),
-        "defaultProps": Object {
-          "appear": false,
-          "in": false,
-          "mountOnEnter": false,
-          "timeout": 300,
-          "unmountOnExit": false,
-        },
-        "displayName": "Fade",
-        "render": [Function],
-      }
-    }
-    variant="danger"
   >
-    danger
-  </Alert>
+    <ToastHeader
+      closeButton={true}
+      closeLabel="Close"
+    >
+      <strong
+        className="mr-auto"
+      >
+        Notification 
+      </strong>
+    </ToastHeader>
+    <ToastBody
+      style={
+        Object {
+          "color": "red",
+          "fontWeight": "bold",
+        }
+      }
+    >
+      danger
+    </ToastBody>
+  </Toast>
 </Fragment>
 `;
 

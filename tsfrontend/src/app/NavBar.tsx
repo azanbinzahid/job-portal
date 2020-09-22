@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { connect } from "react-redux";
-import { Navbar, Nav, Badge } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import styled from "styled-components";
 import { logUserOut } from "redux/actions";

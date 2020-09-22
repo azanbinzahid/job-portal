@@ -35,7 +35,6 @@ exports[`renders the component 1`] = `
       fill={false}
       justify={false}
     >
-      <Connect(Component) />
       <withRouter(LinkContainer)
         to="/"
       >
@@ -54,7 +53,6 @@ exports[`renders the component 1`] = `
           </h4>
         </NavLink>
       </withRouter(LinkContainer)>
-      <p />
       <withRouter(LinkContainer)
         to="/jobs"
       >
@@ -73,14 +71,6 @@ exports[`renders the component 1`] = `
           </h4>
         </NavLink>
       </withRouter(LinkContainer)>
-      <p>
-        <Badge
-          pill={false}
-          variant="primary"
-        >
-          New
-        </Badge>
-      </p>
       <withRouter(LinkContainer)
         to="/profile"
       >
@@ -99,7 +89,6 @@ exports[`renders the component 1`] = `
           </h4>
         </NavLink>
       </withRouter(LinkContainer)>
-      <p />
       <NavLink
         as={
           Object {
@@ -155,7 +144,6 @@ exports[`renders the component 2`] = `
       fill={false}
       justify={false}
     >
-      <Connect(Component) />
       <withRouter(LinkContainer)
         to="/"
       >
@@ -174,7 +162,6 @@ exports[`renders the component 2`] = `
           </h4>
         </NavLink>
       </withRouter(LinkContainer)>
-      <p />
       <withRouter(LinkContainer)
         to="/jobs"
       >
@@ -193,14 +180,6 @@ exports[`renders the component 2`] = `
           </h4>
         </NavLink>
       </withRouter(LinkContainer)>
-      <p>
-        <Badge
-          pill={false}
-          variant="primary"
-        >
-          New
-        </Badge>
-      </p>
       <withRouter(LinkContainer)
         to="/login"
       >
@@ -219,7 +198,6 @@ exports[`renders the component 2`] = `
           </h4>
         </NavLink>
       </withRouter(LinkContainer)>
-      <p />
       <withRouter(LinkContainer)
         to="/signup"
       >
@@ -238,7 +216,6 @@ exports[`renders the component 2`] = `
           </h4>
         </NavLink>
       </withRouter(LinkContainer)>
-      <p />
     </Nav>
   </NavbarCollapse>
 </Navbar>
