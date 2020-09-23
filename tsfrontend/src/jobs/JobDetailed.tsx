@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, FC } from "react";
+import React, { useEffect, useCallback, FC, useState } from "react";
 import { connect } from "react-redux";
 import {
   Container,
@@ -54,11 +54,17 @@ export const JobDetailed: FC<Props> = (props) => {
   const handleClick = useCallback(
     (msg, type) => {
       props.applyJob(jobId, msg, type);
+      setLoadindSpinner(true);
     },
     [props, jobId]
   );
 
-  if (job == null) {
+  const [loadindSpinner, setLoadindSpinner] = useState(true);
+
+  if (job == null || loadindSpinner) {
+    setTimeout(() => {
+      setLoadindSpinner(false);
+    }, 2000);
     return (
       <Container<React.ElementType> align="center" className="p-5">
         <Spinner animation="border" />
