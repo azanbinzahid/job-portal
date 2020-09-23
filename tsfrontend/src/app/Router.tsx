@@ -12,6 +12,7 @@ import JobDetailed from "jobs/JobDetailed";
 import Profile from "profile/Profile";
 import ProtectedRoute from "app/ProtectedRoute";
 import { Container } from "react-bootstrap";
+import AlertBox from "alerts/AlertBox";
 
 type Props = {
   autoLogin: () => void;
@@ -34,6 +35,19 @@ export const Router: FC<Props> = (props) => {
           padding: 0,
         }}
       >
+        <div
+          aria-live="polite"
+          aria-atomic="true"
+          style={{
+            position: "absolute",
+            zIndex: 1,
+            // top: 0,
+            right: 0,
+          }}
+        >
+          <AlertBox />
+        </div>
+
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} />

@@ -1,10 +1,9 @@
 import React, { FC } from "react";
 import { connect } from "react-redux";
-import { Navbar, Nav, Badge } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import styled from "styled-components";
 import { logUserOut } from "redux/actions";
-import AlertBox from "alerts/AlertBox";
 import { RootState } from "redux/reducers";
 
 const Title = styled.h3`
@@ -16,14 +15,11 @@ const Title = styled.h3`
 
 const NavItem = (toPath: string, menuName: string) => {
   return (
-    <>
-      <LinkContainer to={toPath}>
-        <Nav.Link>
-          <h4>{menuName}</h4>
-        </Nav.Link>
-      </LinkContainer>
-      <p>{menuName === "Jobs" ? <Badge variant="primary">New</Badge> : null}</p>
-    </>
+    <LinkContainer to={toPath}>
+      <Nav.Link>
+        <h4>{menuName}</h4>
+      </Nav.Link>
+    </LinkContainer>
   );
 };
 
@@ -50,7 +46,6 @@ export const NavBar: FC<Props> = (props) => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
-          <AlertBox />
           {!props.isLogged ? (
             <>
               {NavItem("/", "Home")}
