@@ -10,16 +10,17 @@ type Props = {
   uploadImage: (values: { image: string }) => void;
 };
 export const ProfilePicture: FC<Props> = (props) => {
+  const { profileImage, uploadImage } = props;
   const { handleSubmit, setFieldValue } = useFormik({
     initialValues: { image: "" },
     onSubmit(values) {
-      props.uploadImage(values);
+      uploadImage(values);
     },
   });
 
   return (
     <Container<React.ElementType> className="pb-5">
-      <Image src={props.profileImage} fluid />
+      <Image src={profileImage} fluid />
       <Form
         className="pt-3"
         onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
